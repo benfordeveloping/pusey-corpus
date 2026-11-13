@@ -42,11 +42,15 @@ jobs:
         run: |
           git config user.name "Pusey Corpus Harvester"
           git config user.email "actions@users.noreply.github.com"
-          git add data/raw data/clean data/records data/harvest_report.csv
+          # A metadata-only report rewrite is NOT a new harvest.
+          # In particular never overwrite the current, carefully reviewed
+          # 72-entry catalogue when zero new OCR files were downloaded.
+          git add data/raw data/clean data/records
           if ! git diff --cached --quiet; then
-            git commit -m "Harvest OCR corpus batch"
+            git add data/harvest_report.csv
+            git commit -m "Harvest verified new OCR corpus texts"
             git pull --rebase origin main
             git push origin main
           else
-            echo 'Nothing new collected.'
+            echo 'No new text downloaded; leave the existing corpus report untouched.'
           fi
