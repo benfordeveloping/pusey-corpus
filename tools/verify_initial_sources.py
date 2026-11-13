@@ -151,7 +151,8 @@ CURATED={
   "A Letter to the Archbishop of Canterbury": {"archive_id": "a605297400puseuoft", "anchors": ["letter","archbishop","canterbury"]},
   "On the Clause “And the Son” in Regard to the Eastern Church": {"archive_id": "a605360400puseuoft", "anchors": ["clause","son","eastern"]},
   "Unlaw in Judgments of the Judicial Committee and Its Remedies": {"archive_id": "unlawinjudgement00puse", "anchors": ["unlaw","judgements","committee"]},
-  "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]},  "An Historical Enquiry into the Theology of Germany — Part I": {"archive_id": "a605286400puseuoft", "anchors": ["historical", "enquiry", "rationalist"]}
+  "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]},  "An Historical Enquiry into the Theology of Germany — Part I": {"archive_id": "a605286400puseuoft", "anchors": ["historical", "enquiry", "rationalist"]},
+  "Parochial Sermons Preached and Printed on Various Occasions": {"archive_id": "bwb_C0-AMM-630", "anchors": ["parochial","sermons","occasions"]}
 }
 
 def normalized(x):
@@ -198,6 +199,13 @@ def main():
             present=len(normalized(excerpt).intersection(spec['anchors']))
             if present < 2:
                 raise ValueError('Downloaded OCR opening lacks recognizable title words')
+            if work['title'] == 'Parochial Sermons Preached and Printed on Various Occasions':
+                # This 1865 one-volume collection must not be confused with
+                # separately numbered Parochial Sermons volumes I/II/III.
+                if 'now collected into one' not in re.sub(r'\\s+', ' ', excerpt.lower()):
+                    raise ValueError('Not the dedicated collected-on-various-occasions edition')
+                if '1865' not in excerpt[:35000]:
+                    raise ValueError('Edition lacks confirmatory 1865 title/imprint evidence')
             reg.update(
                 verification_status='verified_ocr',
                 archive_id=ident,
