@@ -29,8 +29,8 @@ def main():
     if not re.search(r'fifty.third.*isaiah|isaiah.*jewish.*interpreters',catalogue_title,re.I):
         raise ValueError('Unexpected archive catalogue title '+catalogue_title[:160])
     date=str(md.get('year','') or md.get('date',''))
-    if '1877' not in date:
-        raise ValueError('Expected second volume printing date 1877, got '+date)
+    if not any(year in date for year in ('1876','1877')):
+        raise ValueError('Unexpected archive catalogue year: '+date+'; inspect physical title page')
     fname=harvest.text_filename(meta)
     if not fname:raise ValueError('No OCR download listed')
     url='https://archive.org/download/'+quote(ARCHIVE_ID,safe='')+'/'+quote(fname,safe='/')
@@ -45,6 +45,8 @@ def main():
         chunks.append(chunk)
     req.close()
     raw,encoding=harvest.decode_content(b''.join(chunks))
+    if not re.search(r'\b1877\b',raw[:14000]):
+        raise ValueError('1877 year not confirmed on physical OCR title page')
     # The OCR prints "INTEODUCTION" on the genuine title; this is the
     # full heading AFTER the Contents page, not its contents listing.
     beginning=re.search(r'(?im)^\s*INTEODUCTION\s*\n\s*TO\s+THE\s*\n\s*ENGLISH\s+TRANSLATION\s*\.',raw)
@@ -84,7 +86,7 @@ def main():
         'downloaded_utc':datetime.now(timezone.utc).isoformat(),
         'source_title':catalogue_title,
         'source_creator':'E. B. Pusey (introduction); S. R. Driver and A. Neubauer (surrounding translations, excluded)',
-        'source_date':date,
+        'source_date':'1877 printed (Archive metadata '+date+')',
         'source_edition_year':1877,
         'introduction_signed_year':1876,
         'word_count':len(harvest.words(cleaned)),
