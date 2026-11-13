@@ -1,0 +1,28 @@
+{
+  "id": "1842-a-letter-to-the-archbishop-of-canterbury",
+  "year": 1842,
+  "title": "A Letter to the Archbishop of Canterbury",
+  "category": "Letters",
+  "contribution": "authored",
+  "notes": "",
+  "archive_id": "a605297400puseuoft",
+  "status": "downloaded",
+  "source": "Internet Archive OCR",
+  "identifier": "a605297400puseuoft",
+  "scan_url": "https://archive.org/details/a605297400puseuoft",
+  "text_url": "https://archive.org/download/a605297400puseuoft/a605297400puseuoft_djvu.txt",
+  "downloaded_utc": "2026-11-13T20:06:23.195191+00:00",
+  "source_title": "A letter to His Grace the Archbishop of Canterbury, on some circumstances connected with the present crisis in the English Church",
+  "source_creator": [
+    "Pusey, E. B. (Edward Bouverie), 1800-1882",
+    "Howley, William, 1766-1848"
+  ],
+  "source_date": "1842",
+  "source_score": "verified-seed",
+  "encoding": "utf-8-sig",
+  "original_sha256": "039579c5a06de37c424bf07a009e4b59e70086933c461b7d0bbd8a4ad8e24db6",
+  "word_count": 44568,
+  "qc": "44,982 words; 0 page placeholders",
+  "authorship_review_needed": false,
+  "volume_review_needed": false
+}
