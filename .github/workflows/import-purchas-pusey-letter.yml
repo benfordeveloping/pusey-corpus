@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/import-purchas-pusey-letter.yml'
+      - 'tools/import_purchas_pusey_letter.py'
   workflow_dispatch:
 permissions:
   contents: write
