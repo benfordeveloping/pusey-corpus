@@ -232,12 +232,15 @@
     {
       "id": "1844-a-guide-for-passing-advent-holily-avrillon-preface-and-t",
       "year": 1844,
-      "title": "A Guide for Passing Advent Holily (Avrillon): Preface and Translation",
+      "title": "Preface to A Guide for Passing Advent Holily (Avrillon)",
       "search": "guide passing advent holily avrillon pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "Owner-supplied Archive.org OCR of Avrillon Advent volume (aguideforpassin00avrigoog). Pusey's preface reported signed E. B. P., Christ Church, Twenty-fourth Sunday after Trinity 1844; physical scan imprint year must be verified. Only this preface to be indexed; translated Avrillon text excluded. Historical citations describe prefatory matter approx. 58 pages. Separate from Avrillon's Lent volume and Year of Affections.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "source_edition_id": "aguideforpassin00avrigoog",
+      "source_document_url": "https://archive.org/stream/aguideforpassin00avrigoog/aguideforpassin00avrigoog_djvu.txt",
+      "preface_signed_year": 1844
     },
     {
       "id": "1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra",
@@ -374,7 +377,7 @@
       "search": "spiritual combat scupoli pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Owner provided exact 1849 second-edition archive OCR. Index ONLY Pusey's 'NOTICE BY THE EDITOR' (printed pages v–xvii), signed 'E. B. P. Christ Church, Quinquagesima, 1846.' The following 'NOTICE OF F. SCUPOLI, PREFIXED TO THE ITALIAN' and all translated Scupoli/Path of Paradise text must be excluded. Distinguish signed preface 1846 from scanned second printing 1849; keep editorial notes within his notice.",
+      "notes": "Owner source: second printing 1849. Extract only Pusey's 'NOTICE BY THE EDITOR' through E. B. P. Christ Church, Quinquagesima 1846. Exclude the subsequent 'NOTICE OF F. SCUPOLI, PREFIXED TO THE ITALIAN' and full translated book.",
       "indexing_scope": "pusey_translator_introduction_only",
       "source_edition_year": 1849,
       "preface_signed_year": 1846,
