@@ -138,7 +138,20 @@ CURATED={
       "cathedral",
       "sermons"
     ]
-  }
+  },
+  "The Doctrine of the Real Presence, as Contained in the Fathers": {"archive_id": "thedoctrineofthe00puseuoft", "anchors": ["doctrine","presence","fathers"]},
+  "A Letter to the Bishop of London": {"archive_id": "letterlordbishop00puseuoft", "anchors": ["letter","bishop","london"]},
+  "The Councils of the Church from Jerusalem to Constantinople": {"archive_id": "councilsofchur00puse", "anchors": ["councils","jerusalem","constantinople"]},
+  "University Sermons, Vol. I: Nine Sermons": {"archive_id": "ninesermonsprea00pusegoog", "anchors": ["nine","sermons","oxford"]},
+  "University Sermons, Vol. II: Sermons 1859–1872": {"archive_id": "sermonspreachedb00puse", "anchors": ["sermons","university","oxford"]},
+  "University Sermons, Vol. III: Ten Sermons": {"archive_id": "tensermonspreach00puseuoft", "anchors": ["ten","sermons","oxford"]},
+  "Eirenicon, Part I: The Church of England a Portion of Christ's Church": {"archive_id": "churchofenglandp00puseuoft", "anchors": ["church","england","catholic"]},
+  "Eirenicon, Part II: First Letter to J. H. Newman": {"archive_id": "firstlettertove00pusegoog", "anchors": ["first","letter","newman"]},
+  "Parochial Sermons, Vol. I (Advent to Whitsuntide)": {"archive_id": "a605469400puseuoft", "anchors": ["sermons","advent","whitsuntide"]},
+  "A Letter to the Archbishop of Canterbury": {"archive_id": "a605297400puseuoft", "anchors": ["letter","archbishop","canterbury"]},
+  "On the Clause “And the Son” in Regard to the Eastern Church": {"archive_id": "a605360400puseuoft", "anchors": ["clause","son","eastern"]},
+  "Unlaw in Judgments of the Judicial Committee and Its Remedies": {"archive_id": "unlawinjudgement00puse", "anchors": ["unlaw","judgements","committee"]},
+  "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]}
 }
 
 def normalized(x):
@@ -162,7 +175,7 @@ def main():
             # Reject mixed contributions and edition ambiguities from this first batch.
             if work.get('contribution')!='authored':
                 raise ValueError('Contribution is not entirely authored by Pusey')
-            if 'Vol.' in work['title'] or ('Part ' in work['title'] and 'Eirenicon' not in work['title']):
+            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title']):
                 raise ValueError('Volume identity requires manual verification')
             meta=harvest.get_metadata(ident)
             md=meta.get('metadata') or {}
