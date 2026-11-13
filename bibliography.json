@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Entries transcribed from the 2026 public bibliography, with multi-volume entries split. Source matching pending for unseeded items.",
+  "description": "74 initial volume-level rows revised to 73 bibliographical works after merging two Minor Prophets commentary entries on 2026-11-13; physical volumes remain separately documented.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -148,16 +148,6 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1841-the-articles-treated-on-in-tract-90-reconsidered",
-      "year": 1841,
-      "title": "The Articles Treated on in Tract 90 Reconsidered",
-      "search": "articles treated tract 90 reconsidered jelf",
-      "category": "Tracts",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1841-plain-sermons-by-contributors-to-the-tracts-for-the-time",
       "year": 1841,
       "title": "Plain Sermons by Contributors to the Tracts for the Times, Vol. III",
@@ -169,11 +159,11 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1842-a-letter-to-the-archbishop-of-canterbury",
-      "year": 1842,
-      "title": "A Letter to the Archbishop of Canterbury",
-      "search": "letter archbishop canterbury pusey 1842",
-      "category": "Letters",
+      "id": "1841-the-articles-treated-on-in-tract-90-reconsidered",
+      "year": 1841,
+      "title": "The Articles Treated on in Tract 90 Reconsidered",
+      "search": "articles treated tract 90 reconsidered jelf",
+      "category": "Tracts",
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
@@ -184,6 +174,16 @@
       "title": "A Letter on the Proposed Change to the Laws of Marriage of Near Kin",
       "search": "letter proposed change laws marriage near kin pusey",
       "category": "Church affairs",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1842-a-letter-to-the-archbishop-of-canterbury",
+      "year": 1842,
+      "title": "A Letter to the Archbishop of Canterbury",
+      "search": "letter archbishop canterbury pusey 1842",
+      "category": "Letters",
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
@@ -219,14 +219,14 @@
       "indexing_scope": "pusey_translator_introduction_only"
     },
     {
-      "id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
+      "id": "1844-preface-to-sermons-on-selected-lessons-of-the-new-testam",
       "year": 1844,
-      "title": "The Foundations of the Spiritual Life (Surin): Preface and Translation",
-      "search": "foundations spiritual life surin pusey",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "title": "Preface to Sermons on Selected Lessons of the New Testament (Augustine)",
+      "search": "sermons selected lessons new testament augustine pusey preface",
+      "category": "Introductions",
+      "contribution": "editorial",
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1844-preface-to-the-epistles-of-st-cyprian",
@@ -239,14 +239,14 @@
       "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
-      "id": "1844-preface-to-sermons-on-selected-lessons-of-the-new-testam",
+      "id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
       "year": 1844,
-      "title": "Preface to Sermons on Selected Lessons of the New Testament (Augustine)",
-      "search": "sermons selected lessons new testament augustine pusey preface",
-      "category": "Introductions",
-      "contribution": "editorial",
-      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
-      "indexing_scope": "pusey_preface_or_introduction_only"
+      "title": "The Foundations of the Spiritual Life (Surin): Preface and Translation",
+      "search": "foundations spiritual life surin pusey",
+      "category": "Translations",
+      "contribution": "translation",
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
@@ -339,16 +339,6 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1850-the-royal-supremacy-not-an-arbitrary-authority",
-      "year": 1850,
-      "title": "The Royal Supremacy Not an Arbitrary Authority",
-      "search": "royal supremacy arbitrary authority laws church pusey",
-      "category": "Church affairs",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1850-the-church-of-england-leaves-her-children-free-to-whom-t",
       "year": 1850,
       "title": "The Church of England Leaves Her Children Free to Whom to Open Their Griefs",
@@ -359,10 +349,30 @@
       "indexing_scope": "full_original_work"
     },
     {
+      "id": "1850-the-royal-supremacy-not-an-arbitrary-authority",
+      "year": 1850,
+      "title": "The Royal Supremacy Not an Arbitrary Authority",
+      "search": "royal supremacy arbitrary authority laws church pusey",
+      "category": "Church affairs",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
+    },
+    {
       "id": "1851-a-letter-to-the-bishop-of-london",
       "year": 1851,
       "title": "A Letter to the Bishop of London",
       "search": "letter bishop london pusey 1851",
+      "category": "Letters",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
+      "year": 1853,
+      "title": "A Letter to the Archbishop of Dublin on Miss Sellon's Establishment",
+      "search": "letter archbishop dublin miss sellon devonport",
       "category": "Letters",
       "contribution": "authored",
       "notes": "",
@@ -379,16 +389,6 @@
       "indexing_scope": "full_original_work",
       "source_edition_id": "parochialsermons02puse",
       "source_edition_year": 1883
-    },
-    {
-      "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
-      "year": 1853,
-      "title": "A Letter to the Archbishop of Dublin on Miss Sellon's Establishment",
-      "search": "letter archbishop dublin miss sellon devonport",
-      "category": "Letters",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
     },
     {
       "id": "1854-collegiate-and-professorial-teaching-and-discipline",
@@ -411,16 +411,6 @@
       "indexing_scope": "pusey_translator_introduction_only"
     },
     {
-      "id": "1855-the-doctrine-of-the-real-presence-as-contained-in-the-fa",
-      "year": 1855,
-      "title": "The Doctrine of the Real Presence, as Contained in the Fathers",
-      "search": "doctrine real presence contained fathers pusey",
-      "category": "Eucharist",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1855-preface-to-meditations-and-prayers-of-st-anselm",
       "year": 1855,
       "title": "Preface to Meditations and Prayers of St Anselm",
@@ -429,6 +419,16 @@
       "contribution": "editorial",
       "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
       "indexing_scope": "pusey_preface_or_introduction_only"
+    },
+    {
+      "id": "1855-the-doctrine-of-the-real-presence-as-contained-in-the-fa",
+      "year": 1855,
+      "title": "The Doctrine of the Real Presence, as Contained in the Fathers",
+      "search": "doctrine real presence contained fathers pusey",
+      "category": "Eucharist",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1857-the-councils-of-the-church-from-jerusalem-to-constantino",
@@ -461,26 +461,6 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1860-the-minor-prophets-with-commentary-vol-i",
-      "year": 1860,
-      "title": "The Minor Prophets with Commentary, Vol. I",
-      "search": "minor prophets commentary explanatory practical volume 1 pusey",
-      "category": "Commentaries",
-      "contribution": "authored",
-      "notes": "Hosea, Joel, Amos, Obadiah, Jonah; candidate scan: minorprophetswit1869puse (1869), but verify which volume it contains before indexing",
-      "indexing_scope": "full_original_work"
-    },
-    {
-      "id": "1860-the-minor-prophets-with-commentary-vol-ii",
-      "year": 1860,
-      "title": "The Minor Prophets with Commentary, Vol. II",
-      "search": "minor prophets commentary explanatory practical volume 2 pusey",
-      "category": "Commentaries",
-      "contribution": "authored",
-      "notes": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi; CCEL Unicode export examined and found to be page-image placeholders rather than text",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1860-god-s-prohibition-of-marriage-with-a-deceased-wife-s-sis",
       "year": 1860,
       "title": "God's Prohibition of Marriage with a Deceased Wife's Sister",
@@ -489,6 +469,32 @@
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1860-the-minor-prophets-with-commentary",
+      "year": 1860,
+      "title": "The Minor Prophets with a Commentary",
+      "search": "minor prophets explanatory practical commentary introductions twelve prophets Hosea Joel Amos Obadiah Jonah Micah Nahum Habakkuk Zephaniah Haggai Zechariah Malachi Pusey",
+      "category": "Commentaries",
+      "contribution": "authored",
+      "indexing_scope": "full_original_work",
+      "notes": "Owner corrected bibliography: count the Minor Prophets commentary as ONE work, regardless of physical volumes. The entire text of all twelve prophets must be verified to qualify as complete; if scanned in two physical volumes, keep both sources recorded and join in correct order. No second counted bibliography entry.",
+      "source_components": [
+        {
+          "name": "Volume I",
+          "expected_contents": "Hosea, Joel, Amos, Obadiah, Jonah",
+          "verification_status": "needs_exact_volume_ocr"
+        },
+        {
+          "name": "Volume II",
+          "expected_contents": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi",
+          "verification_status": "needs_exact_volume_ocr"
+        }
+      ],
+      "merged_previous_ids": [
+        "1860-the-minor-prophets-with-commentary-vol-i",
+        "1860-the-minor-prophets-with-commentary-vol-ii"
+      ]
     },
     {
       "id": "1861-preface-to-the-works-of-st-justin-martyr",
@@ -513,16 +519,6 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1865-parochial-sermons-preached-and-printed-on-various-occasi",
-      "year": 1865,
-      "title": "Parochial Sermons Preached and Printed on Various Occasions",
-      "search": "parochial sermons preached printed various occasions pusey",
-      "category": "Sermons",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1865-eirenicon-part-i-the-church-of-england-a-portion-of-chri",
       "year": 1865,
       "title": "Eirenicon, Part I: The Church of England a Portion of Christ's Church",
@@ -540,6 +536,16 @@
       "title": "Historical Preface to Tract XC",
       "search": "historical preface tract 90 certain passages xxxix articles pusey",
       "category": "Tracts",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1865-parochial-sermons-preached-and-printed-on-various-occasi",
+      "year": 1865,
+      "title": "Parochial Sermons Preached and Printed on Various Occasions",
+      "search": "parochial sermons preached printed various occasions pusey",
+      "category": "Sermons",
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
@@ -645,16 +651,6 @@
       "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
-      "id": "1876-on-the-clause-and-the-son-in-regard-to-the-eastern-churc",
-      "year": 1876,
-      "title": "On the Clause “And the Son” in Regard to the Eastern Church",
-      "search": "clause and the son eastern church bonn conference pusey",
-      "category": "Theology",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
       "id": "1876-healthful-reunion-as-conceived-possible-before-the-vatic",
       "year": 1876,
       "title": "Healthful Reunion as Conceived Possible before the Vatican Council (new edition)",
@@ -663,6 +659,16 @@
       "contribution": "authored",
       "notes": "Reprint/revision of Eirenicon Part III 1870: avoid duplicative index results",
       "index_by_default": false,
+      "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1876-on-the-clause-and-the-son-in-regard-to-the-eastern-churc",
+      "year": 1876,
+      "title": "On the Clause “And the Son” in Regard to the Eastern Church",
+      "search": "clause and the son eastern church bonn conference pusey",
+      "category": "Theology",
+      "contribution": "authored",
+      "notes": "",
       "indexing_scope": "full_original_work"
     },
     {
@@ -706,14 +712,14 @@
       "indexing_scope": "full_original_work"
     },
     {
-      "id": "1881-unlaw-in-judgments-of-the-judicial-committee-and-its-rem",
+      "id": "1881-preface-to-st-cyril-s-five-tomes-against-nestorius",
       "year": 1881,
-      "title": "Unlaw in Judgments of the Judicial Committee and Its Remedies",
-      "search": "unlaw judgments judicial committee remedies pusey liddon",
-      "category": "Church affairs",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "title": "Preface to St Cyril's Five Tomes Against Nestorius",
+      "search": "cyril five tomes against nestorius scholia incarnation pusey preface",
+      "category": "Introductions",
+      "contribution": "editorial",
+      "notes": "Bulk of preface pp. xxxvii–cv is by Pusey | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1881-the-gospels-distributed-into-meditations-duquesne-vol-i",
@@ -736,14 +742,14 @@
       "indexing_scope": "pusey_translator_introduction_only"
     },
     {
-      "id": "1881-preface-to-st-cyril-s-five-tomes-against-nestorius",
+      "id": "1881-unlaw-in-judgments-of-the-judicial-committee-and-its-rem",
       "year": 1881,
-      "title": "Preface to St Cyril's Five Tomes Against Nestorius",
-      "search": "cyril five tomes against nestorius scholia incarnation pusey preface",
-      "category": "Introductions",
-      "contribution": "editorial",
-      "notes": "Bulk of preface pp. xxxvii–cv is by Pusey | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
-      "indexing_scope": "pusey_preface_or_introduction_only"
+      "title": "Unlaw in Judgments of the Judicial Committee and Its Remedies",
+      "search": "unlaw judgments judicial committee remedies pusey liddon",
+      "category": "Church affairs",
+      "contribution": "authored",
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1882-parochial-and-cathedral-sermons",
