@@ -360,8 +360,10 @@
       "search": "parochial sermons pusey volume 2",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "notes": "Original bibliographic work dated 1853. User approved using the 1883 London Walter Smith reprint (Internet Archive parochialsermons02puse), after title page, metadata volume v.2 and distinctive sermon contents were verified. Cite text as 1883 reprint of the 1853 Volume II; never mislabel scan as a 1853 printing.",
+      "indexing_scope": "full_original_work",
+      "source_edition_id": "parochialsermons02puse",
+      "source_edition_year": 1883
     },
     {
       "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
