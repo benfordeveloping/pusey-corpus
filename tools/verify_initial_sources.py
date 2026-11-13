@@ -202,7 +202,7 @@ def main():
             if work['title'] == 'Parochial Sermons Preached and Printed on Various Occasions':
                 # This 1865 one-volume collection must not be confused with
                 # separately numbered Parochial Sermons volumes I/II/III.
-                if 'now collected into one' not in re.sub(r'\\s+', ' ', excerpt.lower()):
+                if 'now collected into one' not in re.sub(r'\s+', ' ', excerpt.lower()):
                     raise ValueError('Not the dedicated collected-on-various-occasions edition')
                 if '1865' not in excerpt[:35000]:
                     raise ValueError('Edition lacks confirmatory 1865 title/imprint evidence')
