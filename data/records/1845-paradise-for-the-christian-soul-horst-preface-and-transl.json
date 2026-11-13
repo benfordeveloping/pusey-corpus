@@ -1,0 +1,43 @@
+{
+  "id": "1845-paradise-for-the-christian-soul-horst-preface-and-transl",
+  "year": 1847,
+  "title": "Advertisement to The Paradise for the Christian Soul (Horst)",
+  "category": "Translations",
+  "contribution": "editorial",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "status": "downloaded",
+  "source": "User-provided Google Books digitized PDF of the 1869 fifth-thousand printing; extracted signed Pusey Advertisement from the PDF text layer",
+  "identifier": "user-upload:Paradise_of_the_Christian_soul_enriched.pdf",
+  "scan_url": "",
+  "text_url": "",
+  "source_document_filename": "Paradise_of_the_Christian_soul_enriched.pdf",
+  "source_document_url": "",
+  "source_edition_year": 1869,
+  "original_advertisement_year": 1847,
+  "source_title": "Paradise of the Christian Soul, Enriched with Choicest Delights of Varied Piety, by J. M. Horst, Adapted to the Use of the English Church",
+  "source_creator": "E. B. Pusey (Advertisement only); J. M. Horst (devotional book and subsequent prefatory material, excluded)",
+  "publisher": "James Parker & Co., Oxford and London; Rivingtons, London, Oxford, Cambridge",
+  "source_date": "1869 fifth-thousand edition; Pusey's Advertisement signed Feast of St. Peter, 1847",
+  "word_count": 3198,
+  "scope_verified": true,
+  "authorship_review_needed": false,
+  "content_scope": "pusey_translator_introduction_only",
+  "original_pdf_in_repository": false,
+  "extraction_boundaries": {
+    "source_pdf_pages": [
+      10,
+      20
+    ],
+    "source_printed_roman_pages": [
+      "iii",
+      "xiii"
+    ],
+    "start_text": "ADVERTISEMENT TO THE PARADISE FOR THE CHRISTIAN SOUL. BY THE EDITOR. THREE eventful years have now passed by",
+    "end_text": "Feast of St. Peter, 1847. E. B. P.",
+    "excluded_following_section": "TO THE DEVOUT READER begins PDF page 21",
+    "excluded_translated_text": "Horst's devotional work and following introductions",
+    "note_on_footnotes": "Pusey's printed editorial footnotes are included"
+  },
+  "qc": "All eleven PDF pages 10–20 extracted; signed opening and end inspected against rendered scans. PDF layer retains OCR-like spacing and transcription errors; later scholarly proofreading advisable. No later 'To the Devout Reader' or Horst text included.",
+  "notes": "The bibliography's legacy stable ID begins 1845; actual Pusey Advertisement is signed 1847 and the owner-supplied printing is 1869. Title page uses 'Paradise OF the Christian Soul'; Advertisement heading uses 'Paradise FOR the Christian Soul'."
+}
