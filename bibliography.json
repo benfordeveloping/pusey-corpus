@@ -245,12 +245,16 @@
     {
       "id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
       "year": 1844,
-      "title": "The Foundations of the Spiritual Life (Surin): Preface and Translation",
+      "title": "Preface to The Foundations of the Spiritual Life (Surin)",
       "search": "foundations spiritual life surin pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "Index ONLY E. B. Pusey's own preface, signed E. B. P. on Vigil of St James 1844; title page of the represented edition is London: John Henry Parker, 1847. Anglican History's 33-page PDF is a transcription of the preface alone, ending at the signature/date. Do not index Surin's translated devotional book or the closing prayer after the signature. The preface is dated 1844; its first publication and represented source edition are 1847.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "preface_signed_year": 1844,
+      "first_published_year": 1847,
+      "source_edition_year": 1847,
+      "source_document_url": "https://anglicanhistory.org/pusey/surin.pdf"
     },
     {
       "id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
