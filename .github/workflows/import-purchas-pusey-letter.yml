@@ -1,0 +1,60 @@
+name: Import Pusey's Purchas Judgment letter pp 53–71 only
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-purchas-pusey-letter.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-purchas-letter
+  cancel-in-progress: false
+jobs:
+  isolate-signed-pusey-letter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python requirements
+        run: python -m pip install -r requirements.txt
+      - name: Verify and extract Pusey's 1871 letter and postscript only
+        run: python tools/import_purchas_pusey_letter.py
+      - name: Commit only verified Pusey-authored pages with provenance
+        run: |
+          git config user.name "Pusey Corpus Purchas Letter Harvester"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Index Pusey's signed Purchas Judgment letter pp 53–71"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then break; fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Build full corpus and Pagefind index
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy updated corpus
+        id: deployment
+        uses: actions/deploy-pages@v4
