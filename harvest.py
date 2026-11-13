@@ -145,6 +145,15 @@ def write_record(work, extra):
     p.write_text(json.dumps(obj,indent=2,ensure_ascii=False)+'\n',encoding='utf8')
 
 def get_book(work, candidate=None):
+    # Whole-volume OCR of works translated/edited by Pusey is NOT his own text.
+    # These entries require a dedicated, reviewable introduction-only extraction
+    # before inclusion in the searchable corpus. Never override with --source-map.
+    if work.get('contribution') in ('translation', 'editorial', 'mixed'):
+        raise ValueError(
+            'Whole-volume import forbidden for translated, edited, or mixed works. '
+            'Extract ONLY the verified Pusey-authored introduction/preface '
+            '(or separately identified Pusey-authored passages for mixed works).'
+        )
     slug=work['id']
     if candidate:
         identifier=candidate['identifier']
