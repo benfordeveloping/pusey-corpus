@@ -743,12 +743,15 @@
     {
       "id": "1876-the-fifty-third-chapter-of-isaiah-according-to-the-jewis",
       "year": 1876,
-      "title": "The Fifty-third Chapter of Isaiah According to the Jewish Interpreters",
+      "title": "Introduction to the English Translation of The Fifty-third Chapter of Isaiah",
       "search": "fifty third chapter isaiah jewish interpreters pusey",
       "category": "Commentaries",
       "contribution": "mixed",
-      "notes": "Translations with a substantial introduction | Index ONLY passages demonstrably written by Pusey; do not index the whole multi-author volume.",
-      "indexing_scope": "pusey_authored_passages_only"
+      "notes": "Owner supplied exact 1877 second-volume OCR. Index ONLY E. B. Pusey's Introduction to the English Translation (OCR heading 'INTEODUCTION TO THE ENGLISH TRANSLATION'), ending after 'E. B. PUSEY. Oxford, December, 1876.' Do NOT index the surrounding editorial preface, Driver and Neubauer translations, brief extracts or additional notes by others. Bibliographical date 1876 is the author's signed introduction date; scanned printing 1877.",
+      "indexing_scope": "pusey_authored_passages_only",
+      "source_edition_year": 1877,
+      "source_edition_id": "fiftythirdchapte02neub",
+      "source_document_url": "https://archive.org/stream/fiftythirdchapte02neub/fiftythirdchapte02neub_djvu.txt"
     },
     {
       "id": "1878-advice-for-those-who-exercise-the-ministry-of-reconcilia",
