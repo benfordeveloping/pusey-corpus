@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/verify-initial-sources.yml'
+      - 'tools/verify_initial_sources.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -31,7 +32,7 @@ jobs:
           node-version: '22'
       - name: Install Python dependencies
         run: python -m pip install -r requirements.txt
-      - name: Inspect archive metadata and real OCR for 16 distinct works
+      - name: Inspect archive metadata and real OCR for 29 precisely matched works
         run: python tools/verify_initial_sources.py
       - name: Commit verified OCR, manifests, and audit trail
         run: |
