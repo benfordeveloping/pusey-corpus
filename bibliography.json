@@ -113,6 +113,21 @@
       "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
+      "id": "1873-parochial-sermons-vol-iii-revised",
+      "year": 1838,
+      "title": "Parochial Sermons, Vol. III (1838)",
+      "search": "pusey parochial sermons volume 3 original sermons through 1838 revised edition 1873 printing 1878",
+      "category": "Sermons",
+      "contribution": "authored",
+      "notes": "Date in title (1838) is the latest year preached, as Pusey states in his own advertisement. Sermons circulated in Plain Sermons starting 1838, collected Vol. III in 1841, revised as Parochial Sermons Vol. III in 1873. Owner-supplied OCR scan is the 1878 revised reprint; keep preaching/first-publication/revision/scan dates distinct. Never substitute Volume I or II.",
+      "indexing_scope": "full_original_work",
+      "sermons_latest_preached_year": 1838,
+      "first_collected_publication_year": 1841,
+      "revised_edition_year": 1873,
+      "source_edition_year": 1878,
+      "source_edition_id": "parochialsermons0000ebpu"
+    },
+    {
       "id": "1839-a-letter-to-the-bishop-of-oxford-on-the-tendency-to-roma",
       "year": 1839,
       "title": "A Letter to the Bishop of Oxford on the Tendency to Romanism",
@@ -607,16 +622,6 @@
       "category": "Sermons",
       "contribution": "authored",
       "notes": "",
-      "indexing_scope": "full_original_work"
-    },
-    {
-      "id": "1873-parochial-sermons-vol-iii-revised",
-      "year": 1873,
-      "title": "Parochial Sermons, Vol. III (revised)",
-      "search": "parochial sermons volume 3 pusey 1873",
-      "category": "Sermons",
-      "contribution": "authored",
-      "notes": "Supersedes 1841 Plain Sermons for default index",
       "indexing_scope": "full_original_work"
     },
     {
