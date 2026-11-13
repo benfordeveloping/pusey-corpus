@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/import-augustine-sermons-ad.yml'
+      - 'tools/import_augustine_sermons_advertisement.py'
   workflow_dispatch:
 permissions:
   contents: write
