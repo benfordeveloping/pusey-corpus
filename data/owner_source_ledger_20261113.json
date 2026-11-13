@@ -152,6 +152,17 @@
       "owner_uploaded_pdf_filename": "A_Guide_for_passing_Lent_holily_Translat (1)(1).pdf",
       "github_raw_path": "data/raw/1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra.txt",
       "github_clean_path": "data/clean/1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra.txt"
+    },
+    {
+      "bibliography_id": "1845-paradise-for-the-christian-soul-horst-preface-and-transl",
+      "label": "The Paradise for the Christian Soul (Horst) — Pusey's signed 1847 Advertisement",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_user_supplied_pdf_extract",
+      "github_source_url": null,
+      "source_notes": "Owner-uploaded PDF of 1869 Fifth Thousand. Pusey's Advertisement signed Feast of St Peter 1847 extracted from PDF pp.10–20, printed pp.iii–xiii, with footnotes; Horst's following prefatory material and devotional text excluded. Original PDF remains conversation attachment; derived raw and cleaned Pusey-only extracts in GitHub. OCR proofreading needed.",
+      "owner_uploaded_pdf_filename": "Paradise_of_the_Christian_soul_enriched.pdf",
+      "github_raw_path": "data/raw/1845-paradise-for-the-christian-soul-horst-preface-and-transl.txt",
+      "github_clean_path": "data/clean/1845-paradise-for-the-christian-soul-horst-preface-and-transl.txt"
     }
   ]
 }
