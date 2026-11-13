@@ -1,0 +1,37 @@
+{
+  "id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
+  "year": 1844,
+  "title": "Preface to The Foundations of the Spiritual Life (Surin)",
+  "category": "Translations",
+  "contribution": "translation",
+  "notes": "Index ONLY E. B. Pusey's own preface, signed E. B. P. on Vigil of St James 1844; title page of the represented edition is London: John Henry Parker, 1847. Anglican History's 33-page PDF is a transcription of the preface alone, ending at the signature/date. Do not index Surin's translated devotional book or the closing prayer after the signature. The preface is dated 1844; its first publication and represented source edition are 1847.",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "preface_signed_year": 1844,
+  "first_published_year": 1847,
+  "source_edition_year": 1847,
+  "source_document_url": "https://anglicanhistory.org/pusey/surin.pdf",
+  "status": "downloaded",
+  "source": "Project Canterbury / Anglican History Pusey-only PDF transcription",
+  "identifier": "https://anglicanhistory.org/pusey/surin.pdf",
+  "scan_url": "https://anglicanhistory.org/pusey/surin.pdf",
+  "text_url": "https://anglicanhistory.org/pusey/surin.pdf",
+  "source_title": "Preface to The Foundations of the Spiritual Life (Surin)",
+  "source_creator": "E. B. Pusey (preface only); F. Surin (original book, excluded)",
+  "source_date": "1847 printing; Pusey dated Vigil of St James 1844",
+  "downloaded_utc": "2026-11-13T21:58:46.073128+00:00",
+  "original_sha256": "5f22256ded02b21c94231d77456e27174fb4bebd054edae254fed5650de6e3ac",
+  "word_count": 16951,
+  "scope_verified": true,
+  "content_scope": "pusey_translator_introduction_only",
+  "authorship_review_needed": false,
+  "extraction_boundaries": {
+    "pdf_pages": [
+      2,
+      33
+    ],
+    "start": "PREFACE. THE following book is founded upon one, long prized among us",
+    "end": "E. B. P. Vigil of St. James, 1844.",
+    "no_translated_surin_material": true
+  },
+  "qc": "All Pusey preface pages including editorial footnotes; signed end; translated devotional book excluded"
+}
