@@ -1,0 +1,62 @@
+name: Import signed Pusey Surin preface only
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-surin-preface.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-surin-preface
+  cancel-in-progress: false
+jobs:
+  verified-preface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python and PDF extraction dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install 'PyMuPDF>=1.24,<2'
+      - name: Validate 33-page PDF and extract Pusey signed 1844 preface only
+        run: python tools/import_surin_preface.py
+      - name: Commit the verified author-only text and source provenance
+        run: |
+          git config user.name "Pusey Corpus PDF Preface Harvester"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Index only Pusey's 1844 Surin preface in 1847 source PDF"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then break; fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Rebuild complete public searchable corpus
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy expanded search website
+        id: deployment
+        uses: actions/deploy-pages@v4
