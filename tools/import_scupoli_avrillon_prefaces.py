@@ -64,8 +64,13 @@ def extract(work,spec,md,url,raw,encoding):
     title=str(md.get('title',''))
     if not re.search(spec['title_pattern'],title,re.I):
         raise ValueError('Archive title does not match target: '+title[:130])
-    if str(spec['edition_year']) not in raw[:9000]:
-        raise ValueError('Printing year not visible on source title page')
+    if spec['archive_id'].startswith('spiritualcombat'):
+        # Scupoli's 1849 Roman-numeral imprint is badly OCR'd; the archive
+        # metadata identifies 1849 and the title page identifies Second Edition.
+        if not re.search(r'Second|Jbeconlr',raw[:9000],re.I):
+            raise ValueError('Expected second edition title-page identification')
+    elif str(spec['edition_year']) not in raw[:9000]:
+        raise ValueError('Avrillon 1847 imprint not visible on OCR title page')
     start=re.search(spec['start_pattern'],raw[:11000],re.I|re.S)
     if not start:
         raise ValueError('Pusey preface heading and known opening were not found')
