@@ -57,9 +57,12 @@ def main():
     if not re.search(r'P\.S\.\s*[—\-]\s*And\s+now,\s+when\s+I\s+have',tail,re.I):
         raise ValueError('Pusey postscript missing')
     endings=list(re.finditer(r'Monday\s+in\s+.{0,14}Week,\s*1871\.',tail[-6000:],re.I))
-    if len(endings)!=1:
-        raise ValueError('Postscript Easter Week 1871 ending ambiguous: '+str(len(endings)))
-    end=start+len(tail)-6000+endings[0].end() if len(tail)>=6000 else start+endings[0].end()
+    if not endings:
+        raise ValueError('Postscript Easter Week 1871 closing date not found')
+    # P.S. mentions both the date and the writer's closing again;
+    # use its LAST occurrence, which precedes the printer's colophon.
+    chosen=endings[-1]
+    end=start+len(tail)-6000+chosen.end() if len(tail)>=6000 else start+chosen.end()
     if not 130000<end<145000:
         raise ValueError('Unexpected end offset '+str(end))
     excerpt=raw[start:end].strip()
