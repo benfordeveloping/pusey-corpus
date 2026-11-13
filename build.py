@@ -192,7 +192,9 @@ def main():
                     navright=f'<a href="{i+1:04d}.html">Next section →</a>' if i<len(chunks) else '<span></span>'
                     scan=f'<a href="{html.escape(rec["scan_url"],quote=True)}" target="_blank" rel="noopener">Original scanned edition</a>' if rec.get('scan_url') else 'Source scan not recorded'
                     edition_notice = f' · OCR source printed {work["source_edition_year"]} (reprint)' if work.get('source_edition_year') else ''
-                    body=f'''<main class="wrap reading"><div class="breadcrumbs"><a href="../../index.html">Search corpus</a> / {work['year']} / Section {i} of {len(chunks)}</div><h1>{html.escape(work['title'])}</h1><p class="sourceinfo">First published {work['year']}{edition_notice} · {html.escape(work['category'])} · {scan}</p><div class="nav">{navleft}{navright}</div><article class="ocr" data-pagefind-body>{render_paragraphs(chunk)}</article><div class="nav">{navleft}{navright}</div></main><script src="../../reader.js" defer></script>'''
+                    year_label = (f'Sermons preached by {work["sermons_latest_preached_year"]}' if work.get('sermons_latest_preached_year') else f'First published {work["year"]}')
+                    revision_notice = f' · revised {work["revised_edition_year"]}' if work.get('revised_edition_year') else ''
+                    body=f'''<main class="wrap reading"><div class="breadcrumbs"><a href="../../index.html">Search corpus</a> / {work['year']} / Section {i} of {len(chunks)}</div><h1>{html.escape(work['title'])}</h1><p class="sourceinfo">{year_label}{revision_notice}{edition_notice} · {html.escape(work['category'])} · {scan}</p><div class="nav">{navleft}{navright}</div><article class="ocr" data-pagefind-body>{render_paragraphs(chunk)}</article><div class="nav">{navleft}{navright}</div></main><script src="../../reader.js" defer></script>'''
                     (place/f'{i:04d}.html').write_text(frame(f'{work["title"]} — {i}',body,'../../',meta),encoding='utf8')
                 status='indexed'
         elif txt.exists() and not excerpt_approved:
