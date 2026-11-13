@@ -65,7 +65,49 @@ def main():
                 raise ValueError('Not a separately issued Pusey introduction: '+title[:120])
             if not harvest.text_filename(md_obj):
                 raise ValueError('No OCR file available')
-            result = harvest.get_book({**work,'archive_id':ident})
+            # This file is itself a standalone Pusey preface/essay, not the
+            # associated translated or edited book. Do not invoke get_book(),
+            # whose whole-book ban rightly protects mixed-author volumes.
+            from urllib.parse import quote
+            filename = harvest.text_filename(md_obj)
+            url = 'https://archive.org/download/' + quote(ident, safe='') + '/' + quote(filename, safe='/')
+            response = harvest.request(url, stream=True)
+            chunks, nbytes = [], 0
+            for chunk in response.iter_content(128*1024):
+                if not chunk:
+                    continue
+                nbytes += len(chunk)
+                if nbytes > 40*1024*1024:
+                    response.close()
+                    raise ValueError('Standalone preface OCR exceeds safe size')
+                chunks.append(chunk)
+            response.close()
+            raw, encoding = harvest.decode_content(b''.join(chunks))
+            passed, qc = harvest.assess_ocr(raw)
+            if not passed:
+                raise ValueError('Standalone preface OCR failed QC: ' + qc)
+            cleaned = harvest.clean_ocr(raw)
+            harvest.RAW.mkdir(parents=True, exist_ok=True)
+            harvest.CLEAN.mkdir(parents=True, exist_ok=True)
+            (harvest.RAW / (slug + '.txt')).write_text(raw, encoding='utf-8')
+            (harvest.CLEAN / (slug + '.txt')).write_text(cleaned, encoding='utf-8')
+            result = {
+                'status': 'downloaded',
+                'source': 'Internet Archive, separately published Pusey introduction only',
+                'identifier': ident,
+                'scan_url': 'https://archive.org/details/' + quote(ident, safe=''),
+                'text_url': url,
+                'word_count': len(harvest.words(cleaned)),
+                'qc': qc,
+                'encoding': encoding,
+                'downloaded_utc': datetime.now(timezone.utc).isoformat(),
+                'original_sha256': hashlib.sha256(raw.encode('utf-8')).hexdigest(),
+                'source_title': title,
+                'source_creator': creators,
+                'source_date': str(md.get('year','') or md.get('date','')),
+                'authorship_review_needed': False
+            }
+            harvest.write_record(work, result)
             clean_path = harvest.CLEAN / (slug+'.txt')
             full_text = clean_path.read_text(encoding='utf-8')
             # Standalone introductions must have meaningful substantial prose;
