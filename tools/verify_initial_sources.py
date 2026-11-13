@@ -153,7 +153,8 @@ CURATED={
   "Unlaw in Judgments of the Judicial Committee and Its Remedies": {"archive_id": "unlawinjudgement00puse", "anchors": ["unlaw","judgements","committee"]},
   "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]},  "An Historical Enquiry into the Theology of Germany — Part I": {"archive_id": "a605286400puseuoft", "anchors": ["historical", "enquiry", "rationalist"]},
   "Parochial Sermons Preached and Printed on Various Occasions": {"archive_id": "bwb_C0-AMM-630", "anchors": ["parochial","sermons","occasions"]},
-  "Parochial Sermons, Vol. II": {"archive_id": "parochialsermons02puse", "anchors": ["parochial", "sermons"]}
+  "Parochial Sermons, Vol. II": {"archive_id": "parochialsermons02puse", "anchors": ["parochial", "sermons"]},
+  "Parochial Sermons, Vol. III (1838)": {"archive_id": "parochialsermons0000ebpu", "anchors": ["parochial", "sermons"]}
 }
 
 def normalized(x):
@@ -177,7 +178,7 @@ def main():
             # Reject mixed contributions and edition ambiguities from this first batch.
             if work.get('contribution')!='authored':
                 raise ValueError('Contribution is not entirely authored by Pusey')
-            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'Parochial Sermons, Vol. II', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title'] and work['title'] != 'An Historical Enquiry into the Theology of Germany — Part I'):
+            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'Parochial Sermons, Vol. II', 'Parochial Sermons, Vol. III (1838)', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title'] and work['title'] != 'An Historical Enquiry into the Theology of Germany — Part I'):
                 raise ValueError('Volume identity requires manual verification')
             meta=harvest.get_metadata(ident)
             md=meta.get('metadata') or {}
@@ -230,6 +231,27 @@ def main():
                 )
                 if not all(sermon in front for sermon in required_sermons):
                     raise ValueError('Volume II contents list does not match known sermons')
+            if work['title'] == 'Parochial Sermons, Vol. III (1838)':
+                # Owner supplied the 1878 revised printing. The OCR's damaged
+                # title-page "VOE. IIT" nevertheless confirms volume III.
+                # Pusey's advertisement explicitly dates latest sermon to 1838
+                # and was signed Eastertide 1873.
+                year = str(md.get('year', '') or md.get('date', ''))
+                if '1878' not in year:
+                    raise ValueError('Unexpected printing year: '+year)
+                front = re.sub(r'\s+', ' ', excerpt[:25000].lower())
+                if 'parochial sermons' not in front:
+                    raise ValueError('Parochial Sermons title absent')
+                if not re.search(r'\bvo[le]\.?\s+i[iit]{2}\b', front):
+                    raise ValueError('Volume III title page was not verified')
+                if '1878' not in front[:5000]:
+                    raise ValueError('Expected 1878 imprint is missing')
+                if not ('the latest was preached' in front and '1838' in front):
+                    raise ValueError('Pusey’s stated 1838 sermon year not confirmed')
+                if 'reprinted from the plain sermons' not in front:
+                    raise ValueError('Not the revised reprint of the Plain Sermons collection')
+                if 'advertisement' not in front:
+                    raise ValueError('Pusey’s advertisement not found')
             reg.update(
                 verification_status='verified_ocr',
                 archive_id=ident,
@@ -239,7 +261,7 @@ def main():
                 ia_title=ia_title,
                 ia_creator=creator,
                 ia_year=str(md.get('year','') or md.get('date',''))[:24],
-                notes=('Owner approved 1883 reprint of 1853 Parochial Sermons, Vol. II; metadata volume v.2, 1883 title-page imprint and three distinctive sermon headings verified. ' if work['title'] == 'Parochial Sermons, Vol. II' else 'Title/creator matched; actual '+str(rec['word_count'])+'-word OCR downloaded and passed initial content checks. Further scholarly edition review possible.'),
+                notes=('Owner-supplied Parochial Sermons Vol. III: sermons preached by 1838 (Pusey’s own advertisement dated 1873); revised printing 1878, exact volume verified from OCR.' if work['title'] == 'Parochial Sermons, Vol. III (1838)' else ('Owner approved 1883 reprint of Parochial Sermons Vol. II; author, volume, imprint and contents checked.' if work['title'] == 'Parochial Sermons, Vol. II' else 'Title and creator matched; OCR downloaded and content checked.')),
             )
             done+=1
             print('APPROVED',rec['word_count'],'words',flush=True)
