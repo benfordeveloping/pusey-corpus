@@ -1,0 +1,60 @@
+name: Import Pusey's Augustine New Testament sermons preface
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-augustine-sermons-ad.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-augustine-nt-preface
+  cancel-in-progress: false
+jobs:
+  author-only-preface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python requirements
+        run: python -m pip install -r requirements.txt
+      - name: Isolate Pusey's signed 1844 Advertisement only
+        run: python tools/import_augustine_sermons_advertisement.py
+      - name: Commit Pusey text and source documentation
+        run: |
+          git config user.name "Pusey Corpus Preface Harvester"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Index Pusey's 1844 Advertisement to Augustine NT sermons"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then break; fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Build full-text search and site
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Publish updated Pusey corpus
+        id: deployment
+        uses: actions/deploy-pages@v4
