@@ -151,7 +151,7 @@ CURATED={
   "A Letter to the Archbishop of Canterbury": {"archive_id": "a605297400puseuoft", "anchors": ["letter","archbishop","canterbury"]},
   "On the Clause “And the Son” in Regard to the Eastern Church": {"archive_id": "a605360400puseuoft", "anchors": ["clause","son","eastern"]},
   "Unlaw in Judgments of the Judicial Committee and Its Remedies": {"archive_id": "unlawinjudgement00puse", "anchors": ["unlaw","judgements","committee"]},
-  "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]}
+  "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]},  "An Historical Enquiry into the Theology of Germany — Part I": {"archive_id": "a605286400puseuoft", "anchors": ["historical", "enquiry", "rationalist"]}
 }
 
 def normalized(x):
@@ -175,7 +175,7 @@ def main():
             # Reject mixed contributions and edition ambiguities from this first batch.
             if work.get('contribution')!='authored':
                 raise ValueError('Contribution is not entirely authored by Pusey')
-            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title']):
+            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title'] and work['title'] != 'An Historical Enquiry into the Theology of Germany — Part I'):
                 raise ValueError('Volume identity requires manual verification')
             meta=harvest.get_metadata(ident)
             md=meta.get('metadata') or {}
