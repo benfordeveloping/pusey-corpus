@@ -23,21 +23,31 @@ CSS='''
 a{color:#77502d}a:hover{color:#4c3117}header{background:#fff;border-bottom:1px solid var(--line);padding:15px max(24px,calc((100vw - 1050px)/2))}header .brand{font:700 22px/1.3 Georgia,serif;color:#2f302f;text-decoration:none}
 header .subtitle{font-size:12px;color:var(--muted)}.wrap{max-width:1000px;margin:0 auto;padding:32px 24px 75px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 h1,h2,h3{font-family:Georgia,Cambria,serif;line-height:1.2}h1{font-size:clamp(30px,4.5vw,49px);margin:8px 0 12px;font-weight:500}h2{font-size:24px;font-weight:500}p.intro{color:#52616e;max-width:720px;font-size:18px}.stats{font-size:13px;color:var(--muted);margin:17px 0 28px}
-.search-panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:21px;box-shadow:0 3px 16px #30201008}.query-row{display:flex;gap:12px}.query-row input{flex:1;min-width:0;padding:12px 15px;font-size:19px;border:1px solid #c9c8c3;border-radius:7px;background:white}.query-row input:focus{outline:2px solid #9c8064}.filter-row{display:flex;gap:15px;align-items:center;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}.filter-row select{max-width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;background:white}
+.search-panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:21px;box-shadow:0 3px 16px #30201008}.query-row{display:flex;gap:12px}.query-row input{flex:1;min-width:0;padding:12px 15px;font-size:19px;border:1px solid #c9c8c3;border-radius:7px;background:white}.query-row input:focus{outline:2px solid #9c8064}.filter-row{display:flex;gap:15px;align-items:center;margin-top:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}.filter-row select{max-width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;background:white}.filter-row #work{width:min(100%,365px)}.filter-or{font-weight:600;color:var(--muted)}.filter-note{flex-basis:100%;font-size:12px}
 .notice{color:var(--muted);font-size:13px;margin:18px 0}.results{list-style:none;padding:0;margin:0}.result{border-bottom:1px solid var(--line);padding:23px 0}.result h3{font-size:20px;margin:0 0 2px}.result h3 a{text-decoration:none}.result .meta{font-size:13px;color:var(--muted)}.result .excerpt{font-family:Georgia,Cambria,serif;font-size:17px;line-height:1.8;color:#34322e;margin:10px 0 0}.result mark,mark{background:#ffe4a5;border-radius:2px;padding:0 2px}.more{border:1px solid var(--line);background:#fff;padding:10px 18px;border-radius:7px;cursor:pointer;font:inherit;margin:24px 0}
 .catalogue{margin-top:60px}.catalogue .item{display:grid;grid-template-columns:68px 1fr auto;gap:16px;align-items:start;border-bottom:1px solid var(--line);padding:12px 0}.catalogue .item .date{color:var(--muted);font-size:13px}.catalogue .item .name{font-weight:600}.catalogue .item .source{font-size:12px;color:var(--muted)}.state{font-size:12px;white-space:nowrap;color:var(--muted)}.state.ready{color:#27664a}
 .reading{max-width:780px}.reading h1{font-size:32px}.reading .breadcrumbs{font-size:13px;color:var(--muted)}.reading .ocr{font:18px/1.78 Georgia,Cambria,serif;overflow-wrap:anywhere}.reading .ocr p{margin:1.05em 0}.reading .nav{display:flex;justify-content:space-between;gap:16px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:30px 0}.reading .sourceinfo{font-size:13px;color:var(--muted)}
-@media(max-width:600px){header{padding:15px 20px}.wrap{padding:26px 18px 60px}.query-row input{font-size:16px}.catalogue .item{grid-template-columns:45px 1fr;gap:10px}.catalogue .item .state{grid-column:2}.result .excerpt{font-size:16px}}
+@media(max-width:600px){header{padding:15px 20px}.wrap{padding:26px 18px 60px}.query-row input{font-size:16px}.filter-row{gap:9px}.filter-row #work{width:100%}.filter-row select{min-width:0}.catalogue .item{grid-template-columns:45px 1fr;gap:10px}.catalogue .item .state{grid-column:2}.result .excerpt{font-size:16px}}
 '''
 
 JS='''
 const input = document.querySelector('#query');
 const category = document.querySelector('#category');
+const work = document.querySelector('#work');
 const count = document.querySelector('#result-count');
 const results = document.querySelector('#results');
 const more = document.querySelector('#more');
-const initial = new URLSearchParams(location.search).get('q');
+const params = new URLSearchParams(location.search);
+const initial = params.get('q');
 if (initial) input.value=initial;
+// Restore shareable search scope, with a single work taking precedence.
+const requestedWork = params.get('work');
+const requestedCategory = params.get('category');
+if (requestedWork && Array.from(work.options).some(o => o.value === requestedWork)) {
+  work.value = requestedWork;
+} else if (requestedCategory && Array.from(category.options).some(o => o.value === requestedCategory)) {
+  category.value = requestedCategory;
+}
 let engine=null, all=[], shown=0, sequence=0, timer=null;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function loadEngine(){
@@ -78,21 +88,32 @@ async function runSearch(){
   const q=input.value.trim();
   const url=new URL(location.href);
   if(q)url.searchParams.set('q',q);else url.searchParams.delete('q');
+  if(work.value)url.searchParams.set('work',work.value);else url.searchParams.delete('work');
+  if(category.value)url.searchParams.set('category',category.value);else url.searchParams.delete('category');
   history.replaceState(null,'',url.pathname+url.search);
   if(!q){count.textContent='Enter a word or phrase to search the indexed texts.';return;}
   count.textContent='Searching…';
   try{
     const p=await loadEngine();
-    const options=category.value ? {filters:{category:category.value}} : {};
+    const options=work.value ? {filters:{work_id:work.value}} : category.value ? {filters:{category:category.value}} : {};
     const found=await p.search(q,options);
     if(mySequence!==sequence)return;
     all=found?.results||[];
-    count.textContent=`${all.length.toLocaleString()} matching text sections. Each result identifies the work and opens the full passage.`;
+    const selectedWork = work.options[work.selectedIndex]?.textContent || '';
+    const scope = work.value ? ` within “${selectedWork}”` : category.value ? ` in ${category.value}` : ' across the corpus';
+    count.textContent=`${all.length.toLocaleString()} matching text sections${scope}. Each result identifies the work and opens the full passage.`;
     await renderMore();
   }catch(err){if(mySequence===sequence)count.textContent='Search not yet available. Finish the harvesting and indexing steps first.';}
 }
 input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(runSearch,250)});
-category.addEventListener('change',runSearch);
+category.addEventListener('change',()=>{
+  if(category.value)work.value='';
+  runSearch();
+});
+work.addEventListener('change',()=>{
+  if(work.value)category.value='';
+  runSearch();
+});
 more.addEventListener('click',renderMore);
 if(initial)runSearch();
 '''
@@ -187,7 +208,7 @@ def main():
                 section_total+=len(chunks)
                 indexed.append({'id':slug,'title':work['title'],'year':work['year'],'category':work['category'],'words':wc,'sections':len(chunks),'source':rec.get('scan_url','')})
                 for i,chunk in enumerate(chunks,1):
-                    meta=f'''<meta data-pagefind-meta="work[content]" content="{html.escape(work['title'],quote=True)}"><meta data-pagefind-meta="year[content]" content="{work['year']}"><meta data-pagefind-meta="section[content]" content="Section {i} of {len(chunks)}"><meta data-pagefind-filter="category[content]" content="{html.escape(work['category'],quote=True)}">'''
+                    meta=f'''<meta data-pagefind-meta="work[content]" content="{html.escape(work['title'],quote=True)}"><meta data-pagefind-meta="year[content]" content="{work['year']}"><meta data-pagefind-meta="section[content]" content="Section {i} of {len(chunks)}"><meta data-pagefind-filter="category[content]" content="{html.escape(work['category'],quote=True)}"><meta data-pagefind-filter="work_id[content]" content="{html.escape(slug,quote=True)}">'''
                     navleft=f'<a href="{i-1:04d}.html">← Previous section</a>' if i>1 else '<span></span>'
                     navright=f'<a href="{i+1:04d}.html">Next section →</a>' if i<len(chunks) else '<span></span>'
                     scan=f'<a href="{html.escape(rec["scan_url"],quote=True)}" target="_blank" rel="noopener">Original scanned edition</a>' if rec.get('scan_url') else 'Source scan not recorded'
@@ -212,8 +233,13 @@ def main():
         blocks.append(f'''<div class="item"><span class="date">{row['year']}</span><div class="name">{text}<div class="source">{html.escape(row['category'])}{' · OCR source: '+str(row['source_edition_year'])+' reprint' if row.get('source_edition_year') else ''}</div></div><span class="state {'ready' if ready else ''}">{label}</span></div>''')
     cats=sorted({w['category'] for w in catalog})
     select=''.join(f'<option value="{html.escape(c,quote=True)}">{html.escape(c)}</option>' for c in cats)
+    # Only indexed works are selectable; pending OCR and excluded duplicates are omitted.
+    work_options=''.join(
+        f'<option value="{html.escape(w["id"],quote=True)}">{html.escape(w["title"])} ({w["year"]})</option>'
+        for w in sorted(indexed,key=lambda w:(w['title'].casefold(),w['year'],w['id']))
+    )
     if indexed:
-        search='''<section class="search-panel"><label for="query" class="eyebrow">Search the corpus</label><div class="query-row"><input id="query" type="search" placeholder="Enter a word or phrase…" autocomplete="off" spellcheck="false"></div><div class="filter-row"><label for="category">Limit search:</label><select id="category"><option value="">All categories</option>'''+select+'''</select><span>Original OCR; occasional recognition errors are expected.</span></div></section><p id="result-count" class="notice" role="status">Enter a word or phrase to search the indexed texts.</p><ol id="results" class="results"></ol><button id="more" class="more" hidden>Show 20 more results</button><script type="module" src="search.js"></script>'''
+        search='''<section class="search-panel"><label for="query" class="eyebrow">Search the corpus</label><div class="query-row"><input id="query" type="search" placeholder="Enter a word or phrase…" autocomplete="off" spellcheck="false"></div><div class="filter-row"><label for="category">Category:</label><select id="category"><option value="">All categories</option>'''+select+'''</select><span class="filter-or" aria-hidden="true">or</span><label for="work">Work:</label><select id="work"><option value="">All works</option>'''+work_options+'''</select><span class="filter-note">Choose a category or one work. Original OCR may contain recognition errors.</span></div></section><p id="result-count" class="notice" role="status">Enter a word or phrase to search the indexed texts.</p><ol id="results" class="results"></ol><button id="more" class="more" hidden>Show 20 more results</button><script type="module" src="search.js"></script>'''
     else:
         search='<section class="search-panel"><p><strong>Corpus is not indexed yet.</strong> The collection framework and bibliography are in place. Run the harvester to download OCR and rebuild the site, then run Pagefind to enable search.</p></section>'
     body=f'''<main class="wrap"><div class="eyebrow">The Digital Concordance</div><h1>The Works of E. B. Pusey</h1><p class="intro">Search Pusey’s own writings across theology, sermons, tracts, commentary, and correspondence. For translated or edited works, only his personally written introduction or preface is included. Search results identify the work immediately and open the text in full context.</p><div class="stats">{len(indexed)} works indexed · {total_words:,} searchable words · {section_total:,} reading sections · {len(catalog)} bibliography items</div>{search}<section class="catalogue"><h2>Bibliography &amp; collection progress</h2><p class="notice">Based on the <a href="https://sites.google.com/view/drpusey/works">bibliography of major works</a>. Multi-volume entries are counted separately. Repeated editions are listed but may be excluded from the default search.</p>{''.join(blocks)}</section></main>'''
