@@ -157,10 +157,10 @@
       "title": "Plain Sermons by Contributors to the Tracts for the Times, Vol. III",
       "search": "plain sermons contributors tracts times volume 3 pusey",
       "category": "Sermons",
-      "contribution": "authored",
-      "notes": "Same underlying sermons as Parochial Sermons Vol III 1873; prefer later revised text in public index",
+      "contribution": "mixed",
+      "notes": "Multi-author Plain Sermons collection; only identified sermons written by E. B. Pusey may be imported. MUST compare sermon list with already indexed Parochial Sermons Vol. III (sermons preached by 1838, revised 1873, printing 1878) to prevent double-counting identical content. Never harvest entire third physical volume as Pusey authorship. Owner confirmation of whether this is a separate bibliographic work remains desirable.",
       "index_by_default": false,
-      "indexing_scope": "full_original_work"
+      "indexing_scope": "pusey_authored_passages_only"
     },
     {
       "id": "1841-the-articles-treated-on-in-tract-90-reconsidered",
