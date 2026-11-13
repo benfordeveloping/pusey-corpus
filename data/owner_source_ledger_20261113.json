@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_utc": "2026-11-13",
-  "purpose": "Audit and retain EVERY source, link, user-supplied text, and PDF from the November 2026 Pusey Corpus collection conversation, even when ingestion is pending. Source links never imply automatic approval.",
+  "purpose": "Complete owner-supplied sources including exact excerpt boundaries and import status, as of November 13, 2026. Additional sections are never silently promoted as Pusey's prose.",
   "entries": [
     {
       "bibliography_id": "1830-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -122,6 +122,22 @@
       "ingestion_status": "verified_pusey_introduction_only",
       "github_source_url": "https://archive.org/details/fiftythirdchapte02neub",
       "source_notes": "Introduction dated December 1876, source printed 1877; no Driver/Neubauer translations"
+    },
+    {
+      "bibliography_id": "1846-the-spiritual-combat-scupoli-preface-and-translation",
+      "label": "Scupoli The Spiritual Combat — Pusey's Notice by the Editor only",
+      "user_supplied_url": "https://archive.org/stream/spiritualcombat04scupgoog/spiritualcombat04scupgoog_djvu.txt",
+      "ingestion_status": "verified_pusey_preface_only",
+      "github_source_url": "https://archive.org/details/spiritualcombat04scupgoog",
+      "source_notes": "Signed 1846, 1849 second printing. Exactly 3,243 words of Pusey's notice, ending before Scupoli biographical notice and translated work."
+    },
+    {
+      "bibliography_id": "1844-a-guide-for-passing-advent-holily-avrillon-preface-and-t",
+      "label": "Avrillon A Guide for Passing Advent Holily — Pusey's preface only",
+      "user_supplied_url": "https://archive.org/stream/aguideforpassin00avrigoog/aguideforpassin00avrigoog_djvu.txt",
+      "ingestion_status": "verified_pusey_preface_only",
+      "github_source_url": "https://archive.org/details/aguideforpassin00avrigoog",
+      "source_notes": "Signed 1844, 1847 source printing. Exactly 14,617 words of Pusey's preface through E.B.P. and date. Later Additional Notes excluded pending separately verified scope; all Avrillon devotional translation excluded."
     }
   ]
 }
