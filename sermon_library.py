@@ -196,6 +196,9 @@ def find_entries(root):
  return rows,src
 
 def write_site(root,site):
+ # Synthetic build tests intentionally omit the historical sermon catalogue.
+ if not (root/'data'/'sermons'/'madan_catalogue.json').exists():
+  return {'total':0,'available':0,'missing':0,'volumes_with_text':0}
  rows,sources=find_entries(root)
  out=site/'sermons';shutil.rmtree(out,ignore_errors=True);out.mkdir(parents=True,exist_ok=True)
  def escape(x):return html.escape(str(x or ''))
