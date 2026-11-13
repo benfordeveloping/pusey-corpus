@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/import-isaiah53-pusey.yml'
+      - 'tools/import_isaiah_53_pusey_intro.py'
   workflow_dispatch:
 permissions:
   contents: write
