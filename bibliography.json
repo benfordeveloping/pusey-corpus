@@ -332,7 +332,7 @@
       "category": "Translations",
       "contribution": "editorial",
       "notes": "Owner-uploaded Google-digitized PDF of Horst, Paradise of the Christian Soul, fifth-thousand 1869 printing. Index ONLY Pusey's Advertisement dated Feast of St. Peter, 1847 (PDF pages 10–20; printed roman pp. iii–xiii), signed E.B.P. Exclude Horst's subsequent 'To the Devout Reader', other introductions, and translated devotional text; retain Pusey's printed footnotes. OCR text layer requires proofreading. Stable historical bibliography ID has 1845 prefix but signed Advertisement is 1847.",
-      "indexing_scope": "pusey_translator_introduction_only",
+      "indexing_scope": "pusey_preface_or_introduction_only",
       "original_advertisement_year": 1847,
       "source_edition_year": 1869,
       "source_document_filename": "Paradise_of_the_Christian_soul_enriched.pdf"
