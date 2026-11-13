@@ -1,0 +1,47 @@
+name: Identify OCR sources for Pusey bibliography
+on:
+  workflow_dispatch:
+    inputs:
+      starting_row:
+        description: 'Start at row (0 = beginning)'
+        required: true
+        default: '0'
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/discover-sources.yml'
+permissions:
+  contents: write
+concurrency:
+  group: discover-archive-sources
+  cancel-in-progress: false
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Look up edition candidates and actual OCR file URLs
+        env:
+          START: ${{ inputs.starting_row }}
+        run: |
+          python tools/discover_sources.py --start "${START:-0}" --limit 74
+      - name: Commit auditable source catalogue
+        run: |
+          git config user.name 'Pusey Corpus Source Finder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/source_registry.csv data/source_candidates.csv
+          if ! git diff --cached --quiet; then
+            git commit -m 'Catalogue Internet Archive source candidates'
+            git pull --rebase
+            git push
+          else
+            echo 'Source catalogue unchanged.'
