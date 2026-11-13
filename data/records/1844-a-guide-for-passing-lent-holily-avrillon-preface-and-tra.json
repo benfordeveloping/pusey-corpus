@@ -1,0 +1,42 @@
+{
+  "id": "1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra",
+  "year": 1844,
+  "title": "Preface to A Guide for Passing Lent Holily (Avrillon)",
+  "category": "Translations",
+  "contribution": "editorial",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "status": "downloaded",
+  "source": "User-uploaded Google digitization of 1844 James Burns London edition; PDF text layer of signed Preface of the Editor",
+  "identifier": "user-upload:A_Guide_for_passing_Lent_holily_Translat (1)(1).pdf",
+  "scan_url": "",
+  "text_url": "",
+  "source_document_filename": "A_Guide_for_passing_Lent_holily_Translat (1)(1).pdf",
+  "source_document_url": "",
+  "source_edition_year": 1844,
+  "preface_signed_year": 1844,
+  "source_title": "A Guide for Passing Lent Holily, by Avrillon, translated from the French and adapted to the use of the English Church",
+  "source_creator": "E. B. Pusey (editor's preface only); J. B. E. Avrillon (devotional book, excluded)",
+  "source_date": "London: James Burns, 1844",
+  "word_count": 12991,
+  "scope_verified": true,
+  "content_scope": "pusey_translator_introduction_only",
+  "authorship_review_needed": false,
+  "original_pdf_in_repository": false,
+  "extraction_boundaries": {
+    "source_pdf_pages": [
+      8,
+      49
+    ],
+    "source_printed_roman_pages": [
+      "v",
+      "xlvi"
+    ],
+    "start_text": "PREFACE OF THE EDITOR. THE object of the following little work",
+    "end_text": "E. B. P. Christ Church, Sexagesima, 1844.",
+    "excluded_following_section": "CONTENTS at PDF page 50",
+    "excluded_translated_text": "Avrillon's daily Lenten meditations, starting PDF page 68",
+    "dedication": "Separate unsigned 'To Our Mother ... The Church of England' dedication, PDF page 6, not included in preface index"
+  },
+  "qc": "All 42 PDF viewer pages 8–49 extracted from uploaded text layer; title page confirms 1844 James Burns edition; page 49 concludes with E.B.P. Sexagesima 1844. Some optical/text-layer transcription errors remain; requires human proofreading and footnote checks. Full PDF remains user-uploaded attachment; only Pusey-only OCR is stored in GitHub.",
+  "notes": "Distinct from A Guide for Passing Advent Holily, 1844 signed preface, and The Year of Affections. Preface-only indexing, no Avrillon translation."
+}
