@@ -1,0 +1,32 @@
+{
+  "id": "1844-preface-to-sermons-on-selected-lessons-of-the-new-testam",
+  "year": 1844,
+  "title": "Preface to Sermons on Selected Lessons of the New Testament (Augustine)",
+  "category": "Introductions",
+  "contribution": "editorial",
+  "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+  "indexing_scope": "pusey_preface_or_introduction_only",
+  "status": "downloaded",
+  "source": "Internet Archive original Library of Fathers vol XVI (1844), Pusey Advertisement only",
+  "identifier": "16ALibraryOfFathersOfTheHolyCatholicV16",
+  "scan_url": "https://archive.org/details/16ALibraryOfFathersOfTheHolyCatholicV16",
+  "text_url": "https://archive.org/download/16ALibraryOfFathersOfTheHolyCatholicV16/16ALibraryOfFathersOfTheHolyCatholicV16_djvu.txt",
+  "source_title": "Library of fathers of the Holy Catholic Church, Anterior to the Division of the East and West Volume 16: Sermons on selected lessons of the New Testament by S. Augustine Bishop of Hippo, Vol. I S. Matthew. S. Mark. S. Luke.",
+  "source_creator": "E. B. Pusey (signed Advertisement); R. G. Macmullen (translations excluded)",
+  "source_date": "1844",
+  "source_edition_year": 1844,
+  "downloaded_utc": "2026-11-13T22:18:08.333522+00:00",
+  "original_sha256": "84e2dd0168be1d7a3c0a499adaca238fb1355c610d7a20100a0c7a733aa05ef0",
+  "word_count": 1001,
+  "scope_verified": true,
+  "content_scope": "pusey_preface_or_introduction_only",
+  "extraction_boundaries": {
+    "start": "ADVERTISEMENT. The Sermons of S. Augustine...",
+    "end": "E. B. P. Christ Church, Feast of S. Barnabas, 1844.",
+    "raw_ocr_start_char": 4881,
+    "raw_ocr_end_char": 11793,
+    "other_authors_sermons_excluded": true
+  },
+  "authorship_review_needed": false,
+  "qc": "Signed 1844 Pusey Advertisement; full Augustine sermon translations excluded"
+}
