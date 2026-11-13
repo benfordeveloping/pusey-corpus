@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/import-pusey-introductions.yml'
+      - 'tools/import_standalone_pusey_introductions.py'
   workflow_dispatch:
 permissions:
   contents: write
