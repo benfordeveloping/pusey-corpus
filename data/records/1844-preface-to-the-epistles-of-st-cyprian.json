@@ -1,0 +1,33 @@
+{
+  "id": "1844-preface-to-the-epistles-of-st-cyprian",
+  "year": 1844,
+  "title": "Preface to the Epistles of St Cyprian",
+  "category": "Introductions",
+  "contribution": "editorial",
+  "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+  "indexing_scope": "pusey_preface_or_introduction_only",
+  "status": "downloaded",
+  "source": "Internet Archive OCR, Pusey prefatory essay alone",
+  "identifier": "epistlesscypria00cyprgoog",
+  "scan_url": "https://archive.org/details/epistlesscypria00cyprgoog",
+  "text_url": "https://archive.org/download/epistlesscypria00cyprgoog/epistlesscypria00cyprgoog_djvu.txt",
+  "source_title": "The epistles of S. Cyprian with the Council of Carthage on the baptism of heretics",
+  "source_creator": "E. B. Pusey (preface); Cyprian and Pacian (translated works excluded)",
+  "source_date": "1844",
+  "downloaded_utc": "2026-11-13T22:12:37.824250+00:00",
+  "original_sha256": "ad76ad8fc7c1933b7c7bb981addd5d6d1154e8122db8174ca45209128f21b796",
+  "word_count": 7110,
+  "encoding": "utf-8-sig",
+  "scope_verified": true,
+  "content_scope": "pusey_preface_or_introduction_only",
+  "extraction_boundaries": {
+    "start": "PREFACE. The Epistles of S. Cyprian exhibit in detail ...",
+    "end": "E. B. P. Ember Week after Whitsunday, 1844.",
+    "raw_ocr_start_char": 5025,
+    "raw_ocr_end_char": 56007,
+    "source_chars": 1415167,
+    "other_authors_translations_excluded": true
+  },
+  "authorship_review_needed": false,
+  "qc": "Signed Pusey preface only; contents, Cyprian epistles and Pacian works excluded"
+}
