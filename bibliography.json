@@ -67,12 +67,13 @@
     {
       "id": "1836-an-earnest-remonstrance-to-dr-charles-dickinson",
       "year": 1836,
-      "title": "An Earnest Remonstrance to Dr Charles Dickinson",
+      "title": "An Earnest Remonstrance to the Author of the 'Pope's Pastoral Letter'",
       "search": "earnest remonstrance dickinson pusey",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "Tract 74 sometimes bound as an appendix",
-      "indexing_scope": "full_original_work"
+      "notes": "Owner-uploaded 1836 HathiTrust OCR (Yale copy, HathiTrust yale.39002085616507). Index main text pp. 3–36 and Pusey's Postscript pp. 37–48 only; the appended Tract 74 Catena Patrum pp. 49–104 consists primarily of quotations from other authors, preserved as raw source but excluded from the Pusey-only index. Scan OCR not yet proofread.",
+      "indexing_scope": "pusey_authored_main_text_and_postscript",
+      "source_document_url": "https://hdl.handle.net/2027/yale.39002085616507"
     },
     {
       "id": "1836-dr-hampden-s-theological-statements-and-the-thirty-nine",
@@ -245,12 +246,15 @@
     {
       "id": "1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra",
       "year": 1844,
-      "title": "A Guide for Passing Lent Holily (Avrillon): Preface and Translation",
+      "title": "Preface to A Guide for Passing Lent Holily (Avrillon)",
       "search": "guide passing lent holily avrillon pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "Owner-uploaded PDF of the 1844 James Burns London edition: preface 'PREFACE OF THE EDITOR' signed E.B.P. Christ Church, Sexagesima 1844. Extract PDF viewer pages 8–49 (printed roman pp. v–xlvi). Do not include dedication, contents, additional preliminary matter or Avrillon's translated Lent meditations; OCR requires proofreading.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "source_edition_year": 1844,
+      "preface_signed_year": 1844,
+      "source_document_filename": "A_Guide_for_passing_Lent_holily_Translat (1)(1).pdf"
     },
     {
       "id": "1844-preface-to-sermons-on-selected-lessons-of-the-new-testam",
