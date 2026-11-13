@@ -22,7 +22,7 @@ def main():
         raise ValueError('Expected Pusey editorial preface only')
     meta=harvest.get_metadata(ARCHIVE);md=meta.get('metadata') or {}
     title=str(md.get('title',''))
-    if not re.search(r'Augustine.*New Testament',title,re.I):
+    if not ('augustine' in title.lower() and 'new testament' in title.lower() and 'sermons' in title.lower()):
         raise ValueError('Incorrect source title: '+title)
     filename=harvest.text_filename(meta)
     if not filename:raise ValueError('No OCR source available')
