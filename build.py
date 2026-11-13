@@ -191,14 +191,15 @@ def main():
                     navleft=f'<a href="{i-1:04d}.html">← Previous section</a>' if i>1 else '<span></span>'
                     navright=f'<a href="{i+1:04d}.html">Next section →</a>' if i<len(chunks) else '<span></span>'
                     scan=f'<a href="{html.escape(rec["scan_url"],quote=True)}" target="_blank" rel="noopener">Original scanned edition</a>' if rec.get('scan_url') else 'Source scan not recorded'
-                    body=f'''<main class="wrap reading"><div class="breadcrumbs"><a href="../../index.html">Search corpus</a> / {work['year']} / Section {i} of {len(chunks)}</div><h1>{html.escape(work['title'])}</h1><p class="sourceinfo">{work['year']} · {html.escape(work['category'])} · {scan}</p><div class="nav">{navleft}{navright}</div><article class="ocr" data-pagefind-body>{render_paragraphs(chunk)}</article><div class="nav">{navleft}{navright}</div></main><script src="../../reader.js" defer></script>'''
+                    edition_notice = f' · OCR source printed {work["source_edition_year"]} (reprint)' if work.get('source_edition_year') else ''
+                    body=f'''<main class="wrap reading"><div class="breadcrumbs"><a href="../../index.html">Search corpus</a> / {work['year']} / Section {i} of {len(chunks)}</div><h1>{html.escape(work['title'])}</h1><p class="sourceinfo">First published {work['year']}{edition_notice} · {html.escape(work['category'])} · {scan}</p><div class="nav">{navleft}{navright}</div><article class="ocr" data-pagefind-body>{render_paragraphs(chunk)}</article><div class="nav">{navleft}{navright}</div></main><script src="../../reader.js" defer></script>'''
                     (place/f'{i:04d}.html').write_text(frame(f'{work["title"]} — {i}',body,'../../',meta),encoding='utf8')
                 status='indexed'
         elif txt.exists() and not excerpt_approved:
             status='excluded: needs verified Pusey-only excerpt'
         elif txt.exists() and not work.get('index_by_default',True):
             status='downloaded, excluded duplicate'
-        rows.append({'year':work['year'],'title':work['title'],'status':status,'category':work['category'],'id':slug,'scan_url':rec.get('scan_url','')})
+        rows.append({'year':work['year'],'title':work['title'],'status':status,'category':work['category'],'id':slug,'scan_url':rec.get('scan_url',''),'source_edition_year':work.get('source_edition_year')})
     (SITE/'catalogue.json').write_text(json.dumps({'bibliography_count':len(catalog),'indexed_works':len(indexed),'word_count':total_words,'section_count':section_total,'works':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf8')
     blocks=[]
     for row in rows:
@@ -206,7 +207,7 @@ def main():
         text=html.escape(row['title'])
         if ready:text=f'<a href="works/{row["id"]}/0001.html">{text}</a>'
         label='Indexed' if ready else ('Pusey introduction only: awaiting extraction' if 'needs verified Pusey-only excerpt' in row['status'] else ('Duplicate edition' if 'duplicate' in row['status'] else 'Awaiting OCR'))
-        blocks.append(f'''<div class="item"><span class="date">{row['year']}</span><div class="name">{text}<div class="source">{html.escape(row['category'])}</div></div><span class="state {'ready' if ready else ''}">{label}</span></div>''')
+        blocks.append(f'''<div class="item"><span class="date">{row['year']}</span><div class="name">{text}<div class="source">{html.escape(row['category'])}{' · OCR source: '+str(row['source_edition_year'])+' reprint' if row.get('source_edition_year') else ''}</div></div><span class="state {'ready' if ready else ''}">{label}</span></div>''')
     cats=sorted({w['category'] for w in catalog})
     select=''.join(f'<option value="{html.escape(c,quote=True)}">{html.escape(c)}</option>' for c in cats)
     if indexed:
