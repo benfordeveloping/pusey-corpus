@@ -152,7 +152,8 @@ CURATED={
   "On the Clause “And the Son” in Regard to the Eastern Church": {"archive_id": "a605360400puseuoft", "anchors": ["clause","son","eastern"]},
   "Unlaw in Judgments of the Judicial Committee and Its Remedies": {"archive_id": "unlawinjudgement00puse", "anchors": ["unlaw","judgements","committee"]},
   "Tracts 67–69: Scriptural Views of Holy Baptism": {"archive_id": "scripturalviewso00puse", "anchors": ["scriptural","views","baptism"]},  "An Historical Enquiry into the Theology of Germany — Part I": {"archive_id": "a605286400puseuoft", "anchors": ["historical", "enquiry", "rationalist"]},
-  "Parochial Sermons Preached and Printed on Various Occasions": {"archive_id": "bwb_C0-AMM-630", "anchors": ["parochial","sermons","occasions"]}
+  "Parochial Sermons Preached and Printed on Various Occasions": {"archive_id": "bwb_C0-AMM-630", "anchors": ["parochial","sermons","occasions"]},
+  "Parochial Sermons, Vol. II": {"archive_id": "parochialsermons02puse", "anchors": ["parochial", "sermons"]}
 }
 
 def normalized(x):
@@ -176,7 +177,7 @@ def main():
             # Reject mixed contributions and edition ambiguities from this first batch.
             if work.get('contribution')!='authored':
                 raise ValueError('Contribution is not entirely authored by Pusey')
-            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title'] and work['title'] != 'An Historical Enquiry into the Theology of Germany — Part I'):
+            if ('Vol.' in work['title'] and work['title'] not in { 'Parochial Sermons, Vol. I (Advent to Whitsuntide)', 'Parochial Sermons, Vol. II', 'University Sermons, Vol. I: Nine Sermons', 'University Sermons, Vol. II: Sermons 1859–1872', 'University Sermons, Vol. III: Ten Sermons' }) or ('Part ' in work['title'] and 'Eirenicon' not in work['title'] and work['title'] != 'An Historical Enquiry into the Theology of Germany — Part I'):
                 raise ValueError('Volume identity requires manual verification')
             meta=harvest.get_metadata(ident)
             md=meta.get('metadata') or {}
@@ -206,6 +207,29 @@ def main():
                     raise ValueError('Not the dedicated collected-on-various-occasions edition')
                 if '1865' not in excerpt[:35000]:
                     raise ValueError('Edition lacks confirmatory 1865 title/imprint evidence')
+            if work['title'] == 'Parochial Sermons, Vol. II':
+                # The user approved the 1883 printed reissue of the 1853
+                # original only if the title page and sermon contents match.
+                # This cannot accept volume I, volume III or the separate 1865
+                # one-volume collection, even if their short catalogue title
+                # happens to be identical.
+                if str(md.get('volume','')).lower().strip() not in ('v.2', 'vol. 2', 'volume 2', 'ii', '2'):
+                    raise ValueError('Archive metadata is not explicitly volume 2')
+                edition_year = str(md.get('year','') or md.get('date',''))
+                if '1883' not in edition_year:
+                    raise ValueError('Expected the owner-approved 1883 edition, got '+edition_year)
+                front = re.sub(r'\s+', ' ', excerpt[:13000].lower())
+                if not re.search(r'parochial sermons[.\s]+vol[.\s]+ii\b', front):
+                    raise ValueError('OCR title page is not Parochial Sermons volume II')
+                if '1883' not in front[:4000]:
+                    raise ValueError('1883 imprint absent from frontmatter')
+                required_sermons = (
+                    'victory over the besetting sin',
+                    're-creation of the penitent',
+                    'victory through loving faith',
+                )
+                if not all(sermon in front for sermon in required_sermons):
+                    raise ValueError('Volume II contents list does not match known sermons')
             reg.update(
                 verification_status='verified_ocr',
                 archive_id=ident,
@@ -215,7 +239,7 @@ def main():
                 ia_title=ia_title,
                 ia_creator=creator,
                 ia_year=str(md.get('year','') or md.get('date',''))[:24],
-                notes='Title/creator matched; actual '+str(rec['word_count'])+'-word OCR downloaded and passed initial content checks. Further scholarly edition review possible.',
+                notes=('Owner approved 1883 reprint of 1853 Parochial Sermons, Vol. II; metadata volume v.2, 1883 title-page imprint and three distinctive sermon headings verified. ' if work['title'] == 'Parochial Sermons, Vol. II' else 'Title/creator matched; actual '+str(rec['word_count'])+'-word OCR downloaded and passed initial content checks. Further scholarly edition review possible.'),
             )
             done+=1
             print('APPROVED',rec['word_count'],'words',flush=True)
