@@ -141,7 +141,13 @@ def frame(title,content,script='',metadata=''):
 
 def main():
     catalog=json.loads((ROOT/'bibliography.json').read_text(encoding='utf8'))['works']
-    SITE.mkdir(exist_ok=True);WORKSDIR.mkdir(exist_ok=True)
+    # Rebuild reading pages from scratch: obsolete pages must never remain searchable.
+    # Especially important when a full translated work has been replaced by an
+    # approved introduction-only excerpt.
+    SITE.mkdir(exist_ok=True)
+    if WORKSDIR.exists():
+        shutil.rmtree(WORKSDIR)
+    WORKSDIR.mkdir(exist_ok=True)
     (SITE/'style.css').write_text(CSS,encoding='utf8')
     (SITE/'search.js').write_text(JS,encoding='utf8')
     (SITE/'reader.js').write_text(READER_JS,encoding='utf8')
@@ -153,7 +159,21 @@ def main():
         rec_file=RECORDS/(slug+'.json')
         rec=json.loads(rec_file.read_text(encoding='utf8')) if rec_file.exists() else {}
         status=rec.get('status','not downloaded')
-        if txt.exists() and work.get('index_by_default',True):
+        # Fail closed on texts written by other authors. A translated or edited
+        # volume is not Pusey's prose merely because he wrote its introduction.
+        # Such entries are indexed ONLY when a separately extracted, reviewed
+        # passage has been supplied, with explicit scope and provenance.
+        scope_required = {
+            'translation': 'pusey_translator_introduction_only',
+            'editorial': 'pusey_preface_or_introduction_only',
+            'mixed': 'pusey_authored_passages_only',
+        }.get(work.get('contribution', 'authored'))
+        excerpt_approved = (not scope_required or (
+            rec.get('scope_verified') is True
+            and rec.get('content_scope') == scope_required
+            and bool(rec.get('extraction_boundaries'))
+        ))
+        if txt.exists() and work.get('index_by_default',True) and excerpt_approved:
             source=txt.read_text(encoding='utf8')
             chunks=list(make_chunks(source))
             if not chunks: status='empty text'
@@ -174,7 +194,10 @@ def main():
                     body=f'''<main class="wrap reading"><div class="breadcrumbs"><a href="../../index.html">Search corpus</a> / {work['year']} / Section {i} of {len(chunks)}</div><h1>{html.escape(work['title'])}</h1><p class="sourceinfo">{work['year']} · {html.escape(work['category'])} · {scan}</p><div class="nav">{navleft}{navright}</div><article class="ocr" data-pagefind-body>{render_paragraphs(chunk)}</article><div class="nav">{navleft}{navright}</div></main><script src="../../reader.js" defer></script>'''
                     (place/f'{i:04d}.html').write_text(frame(f'{work["title"]} — {i}',body,'../../',meta),encoding='utf8')
                 status='indexed'
-        elif txt.exists() and not work.get('index_by_default',True): status='downloaded, excluded duplicate'
+        elif txt.exists() and not excerpt_approved:
+            status='excluded: needs verified Pusey-only excerpt'
+        elif txt.exists() and not work.get('index_by_default',True):
+            status='downloaded, excluded duplicate'
         rows.append({'year':work['year'],'title':work['title'],'status':status,'category':work['category'],'id':slug,'scan_url':rec.get('scan_url','')})
     (SITE/'catalogue.json').write_text(json.dumps({'bibliography_count':len(catalog),'indexed_works':len(indexed),'word_count':total_words,'section_count':section_total,'works':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf8')
     blocks=[]
@@ -182,7 +205,7 @@ def main():
         ready=row['status']=='indexed'
         text=html.escape(row['title'])
         if ready:text=f'<a href="works/{row["id"]}/0001.html">{text}</a>'
-        label='Indexed' if ready else ('Duplicate edition' if 'duplicate' in row['status'] else 'Awaiting OCR')
+        label='Indexed' if ready else ('Pusey introduction only: awaiting extraction' if 'needs verified Pusey-only excerpt' in row['status'] else ('Duplicate edition' if 'duplicate' in row['status'] else 'Awaiting OCR'))
         blocks.append(f'''<div class="item"><span class="date">{row['year']}</span><div class="name">{text}<div class="source">{html.escape(row['category'])}</div></div><span class="state {'ready' if ready else ''}">{label}</span></div>''')
     cats=sorted({w['category'] for w in catalog})
     select=''.join(f'<option value="{html.escape(c,quote=True)}">{html.escape(c)}</option>' for c in cats)
@@ -190,7 +213,7 @@ def main():
         search='''<section class="search-panel"><label for="query" class="eyebrow">Search the corpus</label><div class="query-row"><input id="query" type="search" placeholder="Enter a word or phrase…" autocomplete="off" spellcheck="false"></div><div class="filter-row"><label for="category">Limit search:</label><select id="category"><option value="">All categories</option>'''+select+'''</select><span>Original OCR; occasional recognition errors are expected.</span></div></section><p id="result-count" class="notice" role="status">Enter a word or phrase to search the indexed texts.</p><ol id="results" class="results"></ol><button id="more" class="more" hidden>Show 20 more results</button><script type="module" src="search.js"></script>'''
     else:
         search='<section class="search-panel"><p><strong>Corpus is not indexed yet.</strong> The collection framework and bibliography are in place. Run the harvester to download OCR and rebuild the site, then run Pagefind to enable search.</p></section>'
-    body=f'''<main class="wrap"><div class="eyebrow">The Digital Concordance</div><h1>The Works of E. B. Pusey</h1><p class="intro">Search Pusey’s writings across theology, sermons, tracts, commentary, correspondence, and translations. Search results identify the work immediately and open the text in full context.</p><div class="stats">{len(indexed)} works indexed · {total_words:,} searchable words · {section_total:,} reading sections · {len(catalog)} bibliography items</div>{search}<section class="catalogue"><h2>Bibliography &amp; collection progress</h2><p class="notice">Based on the <a href="https://sites.google.com/view/drpusey/works">bibliography of major works</a>. Multi-volume entries are counted separately. Repeated editions are listed but may be excluded from the default search.</p>{''.join(blocks)}</section></main>'''
+    body=f'''<main class="wrap"><div class="eyebrow">The Digital Concordance</div><h1>The Works of E. B. Pusey</h1><p class="intro">Search Pusey’s own writings across theology, sermons, tracts, commentary, and correspondence. For translated or edited works, only his personally written introduction or preface is included. Search results identify the work immediately and open the text in full context.</p><div class="stats">{len(indexed)} works indexed · {total_words:,} searchable words · {section_total:,} reading sections · {len(catalog)} bibliography items</div>{search}<section class="catalogue"><h2>Bibliography &amp; collection progress</h2><p class="notice">Based on the <a href="https://sites.google.com/view/drpusey/works">bibliography of major works</a>. Multi-volume entries are counted separately. Repeated editions are listed but may be excluded from the default search.</p>{''.join(blocks)}</section></main>'''
     (SITE/'index.html').write_text(frame('The Pusey Corpus | Search',body),encoding='utf8')
     print(f'Built {len(indexed)} works / {section_total} HTML sections / {total_words:,} words into {SITE}')
     if not indexed:print('Search index not generated: first harvest OCR using harvest.py.')
