@@ -1,0 +1,60 @@
+name: Index enlarged 1839 baptism tract from verified 1840 US edition
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-baptism-1840.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-enlarged-baptism-1840
+  cancel-in-progress: false
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+      - name: Validate second English enlarged edition as printed in NY 1840
+        run: python tools/import_baptism_1840_enlarged.py
+      - name: Commit the accurately dated distinct enlarged text
+        run: |
+          git config user.name "Pusey Corpus Baptism Edition Verifier"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Add the enlarged second Tract 67 edition from 1840 American printing"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then break; fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Rebuild source-distinguished full-text search
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy published searchable corpus
+        id: deployment
+        uses: actions/deploy-pages@v4
