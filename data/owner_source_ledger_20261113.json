@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-13",
+  "purpose": "Audit and retain EVERY source, link, user-supplied text, and PDF from the November 2026 Pusey Corpus collection conversation, even when ingestion is pending. Source links never imply automatic approval.",
+  "entries": [
+    {
+      "bibliography_id": "1830-an-historical-enquiry-into-the-theology-of-germany-part",
+      "label": "Part II, Historical Enquiry",
+      "user_supplied_url": "https://drive.google.com/file/d/1hr478gnG-J8Eo440jHbXFvhHH1nMHzcv/view",
+      "ingestion_status": "candidate_found",
+      "github_source_url": null,
+      "source_notes": "Google Drive PDF supplied by owner; file bytes not yet connected; check against Part I for duplication"
+    },
+    {
+      "bibliography_id": "1835-tracts-67-69-scriptural-views-of-holy-baptism",
+      "label": "Original collected Tracts 67–69 (1836 printing)",
+      "user_supplied_url": "https://archive.org/stream/scripturalviewso00puse/scripturalviewso00puse_djvu.txt",
+      "ingestion_status": "verified_ocr",
+      "github_source_url": "https://archive.org/details/scripturalviewso00puse",
+      "source_notes": "Whole Pusey-authored first collected edition; keep separate from later enlarged edition"
+    },
+    {
+      "bibliography_id": "1836-an-earnest-remonstrance-to-dr-charles-dickinson",
+      "label": "An Earnest Remonstrance (PDF)",
+      "user_supplied_url": "https://drive.google.com/file/d/1hpT65Pdkudhg2-_pbf891NmOZnd5a-k3/view",
+      "ingestion_status": "no_candidate",
+      "github_source_url": null,
+      "source_notes": "Owner-supplied Google Drive PDF; not yet retrieved as file bytes or indexed"
+    },
+    {
+      "bibliography_id": "1837-tract-81-catena-patrum-on-the-eucharistic-sacrifice",
+      "label": "Tract 81, user-provided introduction only",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_pusey_introduction_only",
+      "github_source_url": null,
+      "source_notes": "Complete introduction supplied as pasted Markdown attachment; imported to data/clean and data/records; source is user text, not the unrelated automated scan"
+    },
+    {
+      "bibliography_id": "1838-introduction-and-notes-to-the-confessions-of-st-augustin",
+      "label": "Augustine Confessions, Pusey's preface only",
+      "user_supplied_url": "https://archive.org/stream/in.ernet.dli.2015.99648/2015.99648.The-Confessions-Of--S-Augustine_djvu.txt",
+      "ingestion_status": "verified_pusey_preface_only",
+      "github_source_url": "https://archive.org/details/in.ernet.dli.2015.99648",
+      "source_notes": "Exclude Augustine's Confessions text; Pusey preface signed 1838; source 1887"
+    },
+    {
+      "bibliography_id": "1839-scriptural-views-of-holy-baptism-second-edition-enlarged",
+      "label": "Greatly enlarged Tract 67, 1840 United States printing",
+      "user_supplied_url": "https://archive.org/stream/scripturalviews1840puse/scripturalviews1840puse_djvu.txt",
+      "ingestion_status": "verified_ocr",
+      "github_source_url": "https://archive.org/details/scripturalviews1840puse",
+      "source_notes": "Second enlarged 1839 UK edition represented by 1840 New York Charles Henry reissue; distinct from original Tracts 67–69"
+    },
+    {
+      "bibliography_id": "1842-introduction-and-notes-to-tertullian",
+      "label": "Tertullian preface and lettered Notes A–I, K–R",
+      "user_supplied_url": "https://archive.org/stream/10ALibraryOfFathersOfTheHolyCatholicV10/10ALibraryOfFathersOfTheHolyCatholicV10_djvu.txt",
+      "ingestion_status": "candidate_found",
+      "github_source_url": null,
+      "source_notes": "Owner explicitly requests whole Pusey preface plus all Pusey editorial Notes, including Additional Notes if attributable; exclude translated Tertullian. Audit saved; import pending"
+    },
+    {
+      "bibliography_id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
+      "label": "Surin, Pusey's preface only",
+      "user_supplied_url": "https://anglicanhistory.org/pusey/surin.pdf",
+      "ingestion_status": "verified_pusey_preface_only",
+      "github_source_url": "https://anglicanhistory.org/pusey/surin.pdf",
+      "source_notes": "Preface signed 1844, printed 1847; do not include translated Surin"
+    },
+    {
+      "bibliography_id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
+      "label": "Sermons on Solemn Subjects, only Pusey's contributions",
+      "user_supplied_url": "https://anglicanhistory.org/pusey/leeds/",
+      "ingestion_status": "verified_pusey_sermons_only",
+      "github_source_url": "https://anglicanhistory.org/pusey/leeds/",
+      "source_notes": "Include sermons I and XI–XIX (ten total); do not include II–X by other authors"
+    },
+    {
+      "bibliography_id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-iii",
+      "label": "Nouet volume III, E.B.P.-signed Advertisement",
+      "user_supplied_url": "https://archive.org/stream/lifejesuschrist03chrigoog/lifejesuschrist03chrigoog_djvu.txt",
+      "ingestion_status": "verified_pusey_introduction_only",
+      "github_source_url": "https://archive.org/details/lifejesuschrist03chrigoog",
+      "source_notes": "Only signed Advertisement (introduction); no Nouet translated meditations"
+    },
+    {
+      "bibliography_id": "1851-hints-for-a-first-confession",
+      "label": "Hints for a First Confession, distinct 1851 work",
+      "user_supplied_url": "https://anglicanhistory.org/pusey/pusey1.html",
+      "ingestion_status": "verified_transcription",
+      "github_source_url": "https://anglicanhistory.org/pusey/pusey1.html",
+      "source_notes": "1851 original; 1884 transcription; signed E.B.P.; own bibliography entry"
+    },
+    {
+      "bibliography_id": "1853-parochial-sermons-vol-ii",
+      "label": "Parochial Sermons volume II, user approved 1883 reprint",
+      "user_supplied_url": "https://archive.org/details/parochialsermons02puse",
+      "ingestion_status": "verified_ocr",
+      "github_source_url": "https://archive.org/details/parochialsermons02puse",
+      "source_notes": "Original work dated 1853, 1883 reprint verified against sermon table of contents; separately label edition"
+    },
+    {
+      "bibliography_id": "1865-the-spirit-in-which-learning-and-science-should-be-appli",
+      "label": "Norwich Church Congress paper (PDF pages 216–225)",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_user_supplied_pdf_extract",
+      "github_source_url": null,
+      "source_notes": "User-uploaded Pusey - Norwich congress 1865.pdf; PDF viewer pages 216–225, printed pp.181–190; already extracted into data/clean and indexed. Scan itself still a user conversation attachment, not duplicated as PDF in GitHub"
+    },
+    {
+      "bibliography_id": "1873-parochial-sermons-vol-iii-revised",
+      "label": "Parochial Sermons volume III (sermons 1838, printing 1878)",
+      "user_supplied_url": "https://archive.org/stream/parochialsermons0000ebpu/parochialsermons0000ebpu_djvu.txt",
+      "ingestion_status": "verified_ocr",
+      "github_source_url": "https://archive.org/details/parochialsermons0000ebpu",
+      "source_notes": "Owner establishes 1838 latest sermon preached; revised 1873, source printed 1878"
+    },
+    {
+      "bibliography_id": "1876-the-fifty-third-chapter-of-isaiah-according-to-the-jewis",
+      "label": "Isaiah chapter 53, Pusey's signed introduction only",
+      "user_supplied_url": "https://archive.org/stream/fiftythirdchapte02neub/fiftythirdchapte02neub_djvu.txt",
+      "ingestion_status": "verified_pusey_introduction_only",
+      "github_source_url": "https://archive.org/details/fiftythirdchapte02neub",
+      "source_notes": "Introduction dated December 1876, source printed 1877; no Driver/Neubauer translations"
+    }
+  ]
+}
