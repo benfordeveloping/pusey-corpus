@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "74 initial volume-level rows revised to 73 bibliographical works after merging two Minor Prophets commentary entries on 2026-11-13; physical volumes remain separately documented.",
+  "description": "Owner-reviewed bibliography of 71 major Pusey-authored works/contributions; source scans and multi-volume physical editions are separately tracked. Minor Prophets two entries merged; Duquesne volumes removed because Pusey contributed no introduction.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -720,26 +720,6 @@
       "contribution": "editorial",
       "notes": "Bulk of preface pp. xxxvii–cv is by Pusey | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
       "indexing_scope": "pusey_preface_or_introduction_only"
-    },
-    {
-      "id": "1881-the-gospels-distributed-into-meditations-duquesne-vol-i",
-      "year": 1881,
-      "title": "The Gospels Distributed into Meditations (Duquesne), Vol. I",
-      "search": "gospels distributed meditations every day duquesne volume 1 pusey",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
-    },
-    {
-      "id": "1881-the-gospels-distributed-into-meditations-duquesne-vol-ii",
-      "year": 1881,
-      "title": "The Gospels Distributed into Meditations (Duquesne), Vol. II",
-      "search": "gospels distributed meditations every day duquesne volume 2 pusey",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1881-unlaw-in-judgments-of-the-judicial-committee-and-its-rem",
