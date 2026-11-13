@@ -107,12 +107,15 @@
     {
       "id": "1838-introduction-and-notes-to-the-confessions-of-st-augustin",
       "year": 1838,
-      "title": "Introduction and Notes to the Confessions of St Augustine",
+      "title": "Preface to the Confessions of St Augustine",
       "search": "confessions st augustine pusey introduction notes",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Index Pusey's introduction separately if possible; avoid labeling Augustine's text as Pusey's own | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
-      "indexing_scope": "pusey_preface_or_introduction_only"
+      "notes": "Owner-provided 1887 London Walter Smith printed reissue of Pusey’s Confessions translation. Index ONLY his signed 1838 Preface, from 'The general objects of the Library of the Fathers' through 'Oxford, Feast of S. Bartholomew, 1838. E. B. P.' Do not index Augustine’s translated Confessions or Pusey’s annotations scattered through that translation.",
+      "indexing_scope": "pusey_preface_or_introduction_only",
+      "source_edition_year": 1887,
+      "source_edition_id": "in.ernet.dli.2015.99648",
+      "source_document_url": "https://archive.org/details/in.ernet.dli.2015.99648"
     },
     {
       "id": "1873-parochial-sermons-vol-iii-revised",
