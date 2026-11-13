@@ -45,3 +45,4 @@ jobs:
             git push
           else
             echo 'Source catalogue unchanged.'
+          fi
