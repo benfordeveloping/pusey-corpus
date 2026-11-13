@@ -370,12 +370,16 @@
     {
       "id": "1846-the-spiritual-combat-scupoli-preface-and-translation",
       "year": 1846,
-      "title": "The Spiritual Combat (Scupoli): Preface and Translation",
+      "title": "Preface to The Spiritual Combat (Scupoli)",
       "search": "spiritual combat scupoli pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "Owner provided exact 1849 second-edition archive OCR. Index ONLY Pusey's 'NOTICE BY THE EDITOR' (printed pages v–xvii), signed 'E. B. P. Christ Church, Quinquagesima, 1846.' The following 'NOTICE OF F. SCUPOLI, PREFIXED TO THE ITALIAN' and all translated Scupoli/Path of Paradise text must be excluded. Distinguish signed preface 1846 from scanned second printing 1849; keep editorial notes within his notice.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "source_edition_year": 1849,
+      "preface_signed_year": 1846,
+      "source_edition_id": "spiritualcombat04scupgoog",
+      "source_document_url": "https://archive.org/stream/spiritualcombat04scupgoog/spiritualcombat04scupgoog_djvu.txt"
     },
     {
       "id": "1848-parochial-sermons-vol-i-advent-to-whitsuntide",
