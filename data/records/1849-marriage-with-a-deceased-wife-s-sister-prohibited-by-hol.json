@@ -1,0 +1,30 @@
+{
+  "id": "1849-marriage-with-a-deceased-wife-s-sister-prohibited-by-hol",
+  "year": 1849,
+  "title": "Marriage with a Deceased Wife's Sister Prohibited by Holy Scripture",
+  "category": "Church affairs",
+  "contribution": "authored",
+  "notes": "",
+  "archive_id": "b29349412",
+  "status": "downloaded",
+  "source": "Internet Archive OCR",
+  "identifier": "b29349412",
+  "scan_url": "https://archive.org/details/b29349412",
+  "text_url": "https://archive.org/download/b29349412/b29349412_djvu.txt",
+  "downloaded_utc": "2026-11-13T20:02:28.586685+00:00",
+  "source_title": "Marriage with a deceased wife's sister prohibited by Holy Scripture ...",
+  "source_creator": [
+    "Pusey, E. B. (Edward Bouverie), 1800-1882. n 80162604",
+    "Badeley, Edward, -1868. no 93029637",
+    "Court of Queens's Bench",
+    "St. Giles-in-the-Fields (Church : London, England) n 85143004"
+  ],
+  "source_date": "1849",
+  "source_score": "verified-seed",
+  "encoding": "utf-8-sig",
+  "original_sha256": "aa6a1e127bcca0edc7b19da557769de849ef01fb5814d58dc306e58b16af3b8e",
+  "word_count": 95218,
+  "qc": "95,280 words; 0 page placeholders",
+  "authorship_review_needed": false,
+  "volume_review_needed": false
+}

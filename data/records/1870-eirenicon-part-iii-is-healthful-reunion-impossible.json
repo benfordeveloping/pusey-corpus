@@ -1,0 +1,28 @@
+{
+  "id": "1870-eirenicon-part-iii-is-healthful-reunion-impossible",
+  "year": 1870,
+  "title": "Eirenicon, Part III: Is Healthful Reunion Impossible?",
+  "category": "Eirenicon",
+  "contribution": "authored",
+  "notes": "",
+  "archive_id": "a6052907c200puseuoft",
+  "status": "downloaded",
+  "source": "Internet Archive OCR",
+  "identifier": "a6052907c200puseuoft",
+  "scan_url": "https://archive.org/details/a6052907c200puseuoft",
+  "text_url": "https://archive.org/download/a6052907c200puseuoft/a6052907c200puseuoft_djvu.txt",
+  "downloaded_utc": "2026-11-13T20:02:47.577628+00:00",
+  "source_title": "Is healthful reunion impossible? : a second letter to the Very Rev. J.H. Newman, D.D.",
+  "source_creator": [
+    "Pusey, E. B. (Edward Bouverie), 1800-1882",
+    "Newman, John Henry, 1801-1890"
+  ],
+  "source_date": "1870",
+  "source_score": "verified-seed",
+  "encoding": "utf-8-sig",
+  "original_sha256": "5ca10d484129123166a89f72a1f55af0dc49aefd5c46287dc076e3dccca38ea4",
+  "word_count": 106734,
+  "qc": "107,616 words; 0 page placeholders",
+  "authorship_review_needed": false,
+  "volume_review_needed": false
+}

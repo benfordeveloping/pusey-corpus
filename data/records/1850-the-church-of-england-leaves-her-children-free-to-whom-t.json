@@ -1,0 +1,28 @@
+{
+  "id": "1850-the-church-of-england-leaves-her-children-free-to-whom-t",
+  "year": 1850,
+  "title": "The Church of England Leaves Her Children Free to Whom to Open Their Griefs",
+  "category": "Letters",
+  "contribution": "authored",
+  "notes": "",
+  "archive_id": "churchofenglandl00puse",
+  "status": "downloaded",
+  "source": "Internet Archive OCR",
+  "identifier": "churchofenglandl00puse",
+  "scan_url": "https://archive.org/details/churchofenglandl00puse",
+  "text_url": "https://archive.org/download/churchofenglandl00puse/churchofenglandl00puse_djvu.txt",
+  "downloaded_utc": "2026-11-13T20:02:34.135796+00:00",
+  "source_title": "The Church of England leaves her children free to whom to open their griefs [microform] : a letter to the Rev. W.U. Richards",
+  "source_creator": [
+    "Pusey, E. B. (Edward Bouverie), 1800-1882",
+    "Richards, W. U., Rev"
+  ],
+  "source_date": "1850",
+  "source_score": "verified-seed",
+  "encoding": "utf-8-sig",
+  "original_sha256": "79e6a503d632a2809ef909197acb023ab3f537350b27feb67d9ebf0ff9212e04",
+  "word_count": 50874,
+  "qc": "51,426 words; 0 page placeholders",
+  "authorship_review_needed": false,
+  "volume_review_needed": false
+}
