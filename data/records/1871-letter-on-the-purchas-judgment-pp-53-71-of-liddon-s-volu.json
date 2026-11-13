@@ -1,0 +1,33 @@
+{
+  "id": "1871-letter-on-the-purchas-judgment-pp-53-71-of-liddon-s-volu",
+  "year": 1871,
+  "title": "Letter on the Purchas Judgment (pp. 53–71 of Liddon's volume)",
+  "category": "Letters",
+  "contribution": "authored",
+  "notes": "Only Pusey's letter, pp. 53–71, belongs in his own corpus",
+  "indexing_scope": "full_original_work",
+  "status": "downloaded",
+  "source": "Internet Archive OCR of mixed Liddon/Pusey pamphlet; ONLY Pusey letter",
+  "identifier": "purchasjudgmentl00lidd",
+  "scan_url": "https://archive.org/details/purchasjudgmentl00lidd",
+  "text_url": "https://archive.org/download/purchasjudgmentl00lidd/purchasjudgmentl00lidd_djvu.txt",
+  "source_title": "The Purchas judgment : a letter of acknowledgment to the Right Hon. Sir J.T. Coleridge, one of the Lords of Her Majesty's most honourable Privy Council",
+  "source_creator": "E. B. Pusey (letter); H. P. Liddon (other section excluded)",
+  "source_date": "1871",
+  "source_edition_year": 1871,
+  "downloaded_utc": "2026-11-13T22:20:08.099072+00:00",
+  "original_sha256": "7338977af8056d220e26e99d799462a93b1bdb4b22e64c1d863829fefcb962b8",
+  "word_count": 4848,
+  "scope_verified": true,
+  "content_scope": "full_original_work",
+  "extraction_boundaries": {
+    "printed_pages": "53–71",
+    "start": "Letter from the Rev. E. B. Pusey, D.D., to Rev. Dr. Liddon; My dearest Liddon",
+    "end": "Monday in Easter Week, 1871 (end of P.S.)",
+    "original_ocr_start_char": 105370,
+    "original_ocr_end_char": 139539,
+    "excluded": "All of Liddon’s pp 1–52 and the publisher colophon"
+  },
+  "authorship_review_needed": false,
+  "qc": "Owner bibliography specifically pp 53–71; signed Pusey letter and entire P.S. only"
+}
