@@ -1,0 +1,32 @@
+{
+  "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-iii",
+  "year": 1846,
+  "title": "The Life of Jesus Christ in Glory on Earth (Nouet), Vol. III",
+  "category": "Translations",
+  "contribution": "translation",
+  "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "status": "downloaded",
+  "source": "Internet Archive OCR — Pusey advertisement excerpt only",
+  "identifier": "lifejesuschrist03chrigoog",
+  "scan_url": "https://archive.org/details/lifejesuschrist03chrigoog",
+  "text_url": "https://archive.org/download/lifejesuschrist03chrigoog/lifejesuschrist03chrigoog_djvu.txt",
+  "downloaded_utc": "2026-11-13T21:11:08.949955+00:00",
+  "source_title": "The life of Jesus Christ, meditations for each day from Easter (to the Wednesday after Trinity ...",
+  "source_date": "1846",
+  "source_creator": "Jacques Nouet (main volume); E. B. Pusey (signed Advertisement only)",
+  "original_sha256": "1d67b92e7bb026382a7d68cab1f87754980defab9ecb5578b4f6435642807a19",
+  "word_count": 2775,
+  "raw_ocr_encoding": "utf-8-sig",
+  "scope_verified": true,
+  "content_scope": "pusey_translator_introduction_only",
+  "extraction_boundaries": {
+    "start": "True Advertisement heading followed by Many, who have learnt ...",
+    "end": "Final period of E. B. P. signature, before decorative verse/translated meditations",
+    "raw_ocr_start_char": 3458,
+    "raw_ocr_end_char": 19928,
+    "original_ocr_characters": 543053
+  },
+  "authorship_review_needed": false,
+  "qc": "Pusey signed E.B.P.; exactly one original Advertisement extracted, 1846 scan; main translation excluded"
+}
