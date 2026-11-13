@@ -1,11 +1,21 @@
 
 const input = document.querySelector('#query');
 const category = document.querySelector('#category');
+const work = document.querySelector('#work');
 const count = document.querySelector('#result-count');
 const results = document.querySelector('#results');
 const more = document.querySelector('#more');
-const initial = new URLSearchParams(location.search).get('q');
+const params = new URLSearchParams(location.search);
+const initial = params.get('q');
 if (initial) input.value=initial;
+// Restore shareable search scope, with a single work taking precedence.
+const requestedWork = params.get('work');
+const requestedCategory = params.get('category');
+if (requestedWork && Array.from(work.options).some(o => o.value === requestedWork)) {
+  work.value = requestedWork;
+} else if (requestedCategory && Array.from(category.options).some(o => o.value === requestedCategory)) {
+  category.value = requestedCategory;
+}
 let engine=null, all=[], shown=0, sequence=0, timer=null;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 async function loadEngine(){
@@ -46,20 +56,31 @@ async function runSearch(){
   const q=input.value.trim();
   const url=new URL(location.href);
   if(q)url.searchParams.set('q',q);else url.searchParams.delete('q');
+  if(work.value)url.searchParams.set('work',work.value);else url.searchParams.delete('work');
+  if(category.value)url.searchParams.set('category',category.value);else url.searchParams.delete('category');
   history.replaceState(null,'',url.pathname+url.search);
   if(!q){count.textContent='Enter a word or phrase to search the indexed texts.';return;}
   count.textContent='Searching…';
   try{
     const p=await loadEngine();
-    const options=category.value ? {filters:{category:category.value}} : {};
+    const options=work.value ? {filters:{work_id:work.value}} : category.value ? {filters:{category:category.value}} : {};
     const found=await p.search(q,options);
     if(mySequence!==sequence)return;
     all=found?.results||[];
-    count.textContent=`${all.length.toLocaleString()} matching text sections. Each result identifies the work and opens the full passage.`;
+    const selectedWork = work.options[work.selectedIndex]?.textContent || '';
+    const scope = work.value ? ` within “${selectedWork}”` : category.value ? ` in ${category.value}` : ' across the corpus';
+    count.textContent=`${all.length.toLocaleString()} matching text sections${scope}. Each result identifies the work and opens the full passage.`;
     await renderMore();
   }catch(err){if(mySequence===sequence)count.textContent='Search not yet available. Finish the harvesting and indexing steps first.';}
 }
 input.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(runSearch,250)});
-category.addEventListener('change',runSearch);
+category.addEventListener('change',()=>{
+  if(category.value)work.value='';
+  runSearch();
+});
+work.addEventListener('change',()=>{
+  if(work.value)category.value='';
+  runSearch();
+});
 more.addEventListener('click',renderMore);
 if(initial)runSearch();
