@@ -9,7 +9,8 @@
       "search": "historical enquiry rationalist character theology germany",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1830-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -18,7 +19,8 @@
       "search": "historical enquiry rationalist theology germany part 2",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1833-remarks-on-the-prospective-and-past-benefits-of-cathedra",
@@ -27,7 +29,8 @@
       "search": "remarks prospective past benefits cathedral institutions",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1834-tract-18-thoughts-on-the-benefits-of-fasting",
@@ -36,7 +39,8 @@
       "search": "thoughts benefits system fasting tract 18",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1835-tract-66-supplement-to-tract-xviii-on-fasting",
@@ -45,7 +49,8 @@
       "search": "supplement tract xviii fasting 66",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1835-tracts-67-69-scriptural-views-of-holy-baptism",
@@ -54,7 +59,8 @@
       "search": "scriptural views holy baptism tracts",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "May be distributed as individual tracts or a collected edition; check Tract 70 notes"
+      "notes": "May be distributed as individual tracts or a collected edition; check Tract 70 notes | Original collective work contains Tracts 67, 68, and 69; Tract 67 is the first part and the one separately expanded in the later edition.",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1836-an-earnest-remonstrance-to-dr-charles-dickinson",
@@ -63,7 +69,8 @@
       "search": "earnest remonstrance dickinson pusey",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "Tract 74 sometimes bound as an appendix"
+      "notes": "Tract 74 sometimes bound as an appendix",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1836-dr-hampden-s-theological-statements-and-the-thirty-nine",
@@ -72,7 +79,8 @@
       "search": "hampden theological statements thirty nine articles compared",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1837-tract-81-catena-patrum-on-the-eucharistic-sacrifice",
@@ -81,7 +89,8 @@
       "search": "tract 81 catena patrum eucharistic sacrifice",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "Contains lengthy quotations by other authors"
+      "notes": "Contains lengthy quotations by other authors",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1838-appendices-to-the-sermon-of-5-november-1837",
@@ -90,7 +99,8 @@
       "search": "appendices sermon fifth november 1837 pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1838-introduction-and-notes-to-the-confessions-of-st-augustin",
@@ -99,7 +109,8 @@
       "search": "confessions st augustine pusey introduction notes",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Index Pusey's introduction separately if possible; avoid labeling Augustine's text as Pusey's own"
+      "notes": "Index Pusey's introduction separately if possible; avoid labeling Augustine's text as Pusey's own | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1839-a-letter-to-the-bishop-of-oxford-on-the-tendency-to-roma",
@@ -108,7 +119,8 @@
       "search": "letter bishop oxford tendency romanism",
       "category": "Letters",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1839-scriptural-views-of-holy-baptism-second-edition-enlarged",
@@ -117,7 +129,8 @@
       "search": "scriptural views holy baptism second edition",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "Overlaps 1835 tracts; keep separate edition only if materially different"
+      "notes": "Overlaps 1835 tracts; keep separate edition only if materially different | The expanded second edition is of TRACT 67 (not Tract 68); source edition and title page must be checked. The original separate series consists of Tracts 67, 68, and 69.",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1841-the-articles-treated-on-in-tract-90-reconsidered",
@@ -126,7 +139,8 @@
       "search": "articles treated tract 90 reconsidered jelf",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1841-plain-sermons-by-contributors-to-the-tracts-for-the-time",
@@ -136,7 +150,8 @@
       "category": "Sermons",
       "contribution": "authored",
       "notes": "Same underlying sermons as Parochial Sermons Vol III 1873; prefer later revised text in public index",
-      "index_by_default": false
+      "index_by_default": false,
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1842-a-letter-to-the-archbishop-of-canterbury",
@@ -145,7 +160,8 @@
       "search": "letter archbishop canterbury pusey 1842",
       "category": "Letters",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1842-a-letter-on-the-proposed-change-to-the-laws-of-marriage",
@@ -154,7 +170,8 @@
       "search": "letter proposed change laws marriage near kin pusey",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1842-introduction-and-notes-to-tertullian",
@@ -163,7 +180,8 @@
       "search": "tertullian apologetic practical treatises pusey",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Only Pusey's own material is Pusey authorship"
+      "notes": "Only Pusey's own material is Pusey authorship | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1844-a-guide-for-passing-advent-holily-avrillon-preface-and-t",
@@ -172,7 +190,8 @@
       "search": "guide passing advent holily avrillon pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra",
@@ -181,7 +200,8 @@
       "search": "guide passing lent holily avrillon pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",
@@ -190,7 +210,8 @@
       "search": "foundations spiritual life surin pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1844-preface-to-the-epistles-of-st-cyprian",
@@ -199,7 +220,8 @@
       "search": "epistles cyprian pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1844-preface-to-sermons-on-selected-lessons-of-the-new-testam",
@@ -208,7 +230,8 @@
       "search": "sermons selected lessons new testament augustine pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
@@ -217,7 +240,8 @@
       "search": "course sermons solemn subjects repentance amendment life",
       "category": "Sermons",
       "contribution": "mixed",
-      "notes": "Pusey's sermons are 1 and 11–19; exclude sermons by others from strict authored search"
+      "notes": "Pusey's sermons are 1 and 11–19; exclude sermons by others from strict authored search | Index ONLY passages demonstrably written by Pusey; do not index the whole multi-author volume.",
+      "indexing_scope": "pusey_authored_passages_only"
     },
     {
       "id": "1845-paradise-for-the-christian-soul-horst-preface-and-transl",
@@ -226,7 +250,8 @@
       "search": "paradise christian soul horst pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1845-the-year-of-affections-avrillon-preface-and-translation",
@@ -235,7 +260,8 @@
       "search": "year affections avrillon pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-i",
@@ -244,7 +270,8 @@
       "search": "life jesus christ glory earth nouet pusey volume 1",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-ii",
@@ -253,7 +280,8 @@
       "search": "life jesus christ glory earth nouet pusey volume 2",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-iii",
@@ -262,7 +290,8 @@
       "search": "life jesus christ glory earth nouet pusey volume 3",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1846-the-spiritual-combat-scupoli-preface-and-translation",
@@ -271,7 +300,8 @@
       "search": "spiritual combat scupoli pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1848-parochial-sermons-vol-i-advent-to-whitsuntide",
@@ -280,7 +310,8 @@
       "search": "sermons season advent whitsuntide pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1849-marriage-with-a-deceased-wife-s-sister-prohibited-by-hol",
@@ -289,7 +320,8 @@
       "search": "marriage deceased wife's sister prohibited scripture pusey",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1850-the-royal-supremacy-not-an-arbitrary-authority",
@@ -298,7 +330,8 @@
       "search": "royal supremacy arbitrary authority laws church pusey",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1850-the-church-of-england-leaves-her-children-free-to-whom-t",
@@ -307,7 +340,8 @@
       "search": "church england leaves children free open griefs richards",
       "category": "Letters",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1851-a-letter-to-the-bishop-of-london",
@@ -316,7 +350,8 @@
       "search": "letter bishop london pusey 1851",
       "category": "Letters",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1853-parochial-sermons-vol-ii",
@@ -325,7 +360,8 @@
       "search": "parochial sermons pusey volume 2",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
@@ -334,7 +370,8 @@
       "search": "letter archbishop dublin miss sellon devonport",
       "category": "Letters",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1854-collegiate-and-professorial-teaching-and-discipline",
@@ -343,7 +380,8 @@
       "search": "collegiate professorial teaching discipline vaughan pusey",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p",
@@ -352,7 +390,8 @@
       "search": "familiar instructions mental prayer courbon second part pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Only the second part is edited by Pusey"
+      "notes": "Only the second part is edited by Pusey | Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1855-the-doctrine-of-the-real-presence-as-contained-in-the-fa",
@@ -361,7 +400,8 @@
       "search": "doctrine real presence contained fathers pusey",
       "category": "Eucharist",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1855-preface-to-meditations-and-prayers-of-st-anselm",
@@ -370,7 +410,8 @@
       "search": "meditations prayers anselm pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1857-the-councils-of-the-church-from-jerusalem-to-constantino",
@@ -379,7 +420,8 @@
       "search": "councils church jerusalem constantinople pusey",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1857-the-real-presence-of-the-body-and-blood-of-christ-doctri",
@@ -388,7 +430,8 @@
       "search": "real presence body blood doctrine english church pusey",
       "category": "Eucharist",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1859-university-sermons-vol-i-nine-sermons",
@@ -397,7 +440,8 @@
       "search": "nine sermons university oxford pusey 1859",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1860-the-minor-prophets-with-commentary-vol-i",
@@ -406,7 +450,8 @@
       "search": "minor prophets commentary explanatory practical volume 1 pusey",
       "category": "Commentaries",
       "contribution": "authored",
-      "notes": "Hosea, Joel, Amos, Obadiah, Jonah; candidate scan: minorprophetswit1869puse (1869), but verify which volume it contains before indexing"
+      "notes": "Hosea, Joel, Amos, Obadiah, Jonah; candidate scan: minorprophetswit1869puse (1869), but verify which volume it contains before indexing",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1860-the-minor-prophets-with-commentary-vol-ii",
@@ -415,7 +460,8 @@
       "search": "minor prophets commentary explanatory practical volume 2 pusey",
       "category": "Commentaries",
       "contribution": "authored",
-      "notes": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi; CCEL Unicode export examined and found to be page-image placeholders rather than text"
+      "notes": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi; CCEL Unicode export examined and found to be page-image placeholders rather than text",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1860-god-s-prohibition-of-marriage-with-a-deceased-wife-s-sis",
@@ -424,7 +470,8 @@
       "search": "gods prohibition marriage deceased wife's sister leviticus",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1861-preface-to-the-works-of-st-justin-martyr",
@@ -433,7 +480,8 @@
       "search": "works now extant st justin martyr pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1864-daniel-the-prophet-nine-lectures",
@@ -444,7 +492,8 @@
       "contribution": "authored",
       "notes": "",
       "archive_id": "a604991500puseuoft",
-      "source_verified": "https://openlibrary.org/books/OL7245022M/Daniel_the_prophet"
+      "source_verified": "https://openlibrary.org/books/OL7245022M/Daniel_the_prophet",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1865-parochial-sermons-preached-and-printed-on-various-occasi",
@@ -453,7 +502,8 @@
       "search": "parochial sermons preached printed various occasions pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1865-eirenicon-part-i-the-church-of-england-a-portion-of-chri",
@@ -464,7 +514,8 @@
       "contribution": "authored",
       "notes": "",
       "archive_id": "churchofenglandp00puseuoft",
-      "source_verified": "https://openlibrary.org/works/OL2537108W/The_Church_of_England_a_portion_of_Christ%27s_one_Holy_Catholic_Church"
+      "source_verified": "https://openlibrary.org/works/OL2537108W/The_Church_of_England_a_portion_of_Christ%27s_one_Holy_Catholic_Church",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1865-historical-preface-to-tract-xc",
@@ -473,7 +524,8 @@
       "search": "historical preface tract 90 certain passages xxxix articles pusey",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1865-the-spirit-in-which-learning-and-science-should-be-appli",
@@ -482,7 +534,8 @@
       "search": "spirit researches learning science applied study bible pusey",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1867-preface-to-essays-on-the-re-union-of-christendom",
@@ -491,7 +544,8 @@
       "search": "essays reunion christendom frederick george lee pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1868-eleven-addresses-during-a-retreat-of-the-companions-of-t",
@@ -500,7 +554,8 @@
       "search": "eleven addresses retreat companions love jesus pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1869-eirenicon-part-ii-first-letter-to-j-h-newman",
@@ -509,7 +564,8 @@
       "search": "first letter newman theotokos immaculate conception pusey",
       "category": "Eirenicon",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1869-the-sufferings-of-jesus-thomas-of-jesus-preface-and-tran",
@@ -518,7 +574,8 @@
       "search": "sufferings jesus thomas jesu pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1870-eirenicon-part-iii-is-healthful-reunion-impossible",
@@ -527,7 +584,8 @@
       "search": "is healthful reunion impossible second letter newman pusey",
       "category": "Eirenicon",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1871-letter-on-the-purchas-judgment-pp-53-71-of-liddon-s-volu",
@@ -536,7 +594,8 @@
       "search": "purchas judgment coleridge liddon pusey",
       "category": "Letters",
       "contribution": "authored",
-      "notes": "Only Pusey's letter, pp. 53–71, belongs in his own corpus"
+      "notes": "Only Pusey's letter, pp. 53–71, belongs in his own corpus",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1872-university-sermons-vol-ii-sermons-1859-1872",
@@ -545,7 +604,8 @@
       "search": "sermons university oxford 1859 1872 pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1873-parochial-sermons-vol-iii-revised",
@@ -554,7 +614,8 @@
       "search": "parochial sermons volume 3 pusey 1873",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": "Supersedes 1841 Plain Sermons for default index"
+      "notes": "Supersedes 1841 Plain Sermons for default index",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1874-lenten-sermons-preached-chiefly-to-young-men",
@@ -563,7 +624,8 @@
       "search": "lenten sermons young men universities pusey",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1874-preface-to-st-cyril-s-commentary-on-the-gospel-of-john",
@@ -572,7 +634,8 @@
       "search": "cyril commentary gospel john pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": ""
+      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1876-on-the-clause-and-the-son-in-regard-to-the-eastern-churc",
@@ -581,7 +644,8 @@
       "search": "clause and the son eastern church bonn conference pusey",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1876-healthful-reunion-as-conceived-possible-before-the-vatic",
@@ -591,7 +655,8 @@
       "category": "Eirenicon",
       "contribution": "authored",
       "notes": "Reprint/revision of Eirenicon Part III 1870: avoid duplicative index results",
-      "index_by_default": false
+      "index_by_default": false,
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1876-the-fifty-third-chapter-of-isaiah-according-to-the-jewis",
@@ -600,7 +665,8 @@
       "search": "fifty third chapter isaiah jewish interpreters pusey",
       "category": "Commentaries",
       "contribution": "mixed",
-      "notes": "Translations with a substantial introduction"
+      "notes": "Translations with a substantial introduction | Index ONLY passages demonstrably written by Pusey; do not index the whole multi-author volume.",
+      "indexing_scope": "pusey_authored_passages_only"
     },
     {
       "id": "1878-advice-for-those-who-exercise-the-ministry-of-reconcilia",
@@ -609,7 +675,8 @@
       "search": "advice exercise ministry reconciliation confession absolution gaume pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Adapted Gaume manual with Pusey's preface"
+      "notes": "Adapted Gaume manual with Pusey's preface | Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1880-university-sermons-vol-iii-ten-sermons",
@@ -618,7 +685,8 @@
       "search": "ten sermons university oxford pusey 1880",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1880-what-is-of-faith-as-to-everlasting-punishment",
@@ -627,7 +695,8 @@
       "search": "what faith everlasting punishment farrar pusey",
       "category": "Theology",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1881-unlaw-in-judgments-of-the-judicial-committee-and-its-rem",
@@ -636,7 +705,8 @@
       "search": "unlaw judgments judicial committee remedies pusey liddon",
       "category": "Church affairs",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     },
     {
       "id": "1881-the-gospels-distributed-into-meditations-duquesne-vol-i",
@@ -645,7 +715,8 @@
       "search": "gospels distributed meditations every day duquesne volume 1 pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1881-the-gospels-distributed-into-meditations-duquesne-vol-ii",
@@ -654,7 +725,8 @@
       "search": "gospels distributed meditations every day duquesne volume 2 pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": ""
+      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
+      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1881-preface-to-st-cyril-s-five-tomes-against-nestorius",
@@ -663,7 +735,8 @@
       "search": "cyril five tomes against nestorius scholia incarnation pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Bulk of preface pp. xxxvii–cv is by Pusey"
+      "notes": "Bulk of preface pp. xxxvii–cv is by Pusey | Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1882-parochial-and-cathedral-sermons",
@@ -672,7 +745,8 @@
       "search": "parochial cathedral sermons pusey 1882",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": ""
+      "notes": "",
+      "indexing_scope": "full_original_work"
     }
   ]
 }
