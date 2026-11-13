@@ -326,13 +326,16 @@
     },
     {
       "id": "1845-paradise-for-the-christian-soul-horst-preface-and-transl",
-      "year": 1845,
-      "title": "Paradise for the Christian Soul (Horst): Preface and Translation",
+      "year": 1847,
+      "title": "Advertisement to The Paradise for the Christian Soul (Horst)",
       "search": "paradise christian soul horst pusey",
       "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "contribution": "editorial",
+      "notes": "Owner-uploaded Google-digitized PDF of Horst, Paradise of the Christian Soul, fifth-thousand 1869 printing. Index ONLY Pusey's Advertisement dated Feast of St. Peter, 1847 (PDF pages 10–20; printed roman pp. iii–xiii), signed E.B.P. Exclude Horst's subsequent 'To the Devout Reader', other introductions, and translated devotional text; retain Pusey's printed footnotes. OCR text layer requires proofreading. Stable historical bibliography ID has 1845 prefix but signed Advertisement is 1847.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "original_advertisement_year": 1847,
+      "source_edition_year": 1869,
+      "source_document_filename": "Paradise_of_the_Christian_soul_enriched.pdf"
     },
     {
       "id": "1845-the-year-of-affections-avrillon-preface-and-translation",
