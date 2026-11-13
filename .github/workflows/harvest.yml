@@ -1,5 +1,10 @@
 name: Harvest OCR from Internet Archive
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/source_registry.csv'
+      - '.github/workflows/harvest.yml'
   workflow_dispatch:
     inputs:
       quantity:
@@ -27,6 +32,7 @@ jobs:
         env:
           QUANTITY: ${{ inputs.quantity }}
         run: |
+          if [ -z "$QUANTITY" ]; then QUANTITY=5; fi
           if [ "$QUANTITY" = 'all' ]; then
             python harvest.py --all
           else
