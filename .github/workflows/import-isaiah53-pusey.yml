@@ -1,0 +1,63 @@
+name: Import Pusey Isaiah 53 introduction only
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-isaiah53-pusey.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-isaiah53-pusey
+  cancel-in-progress: false
+jobs:
+  verified-excerpt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python requirements
+        run: python -m pip install -r requirements.txt
+      - name: Extract only E. B. Pusey's signed 1876 introduction
+        run: python tools/import_isaiah_53_pusey_intro.py
+      - name: Commit text, complete provenance and excerpt boundaries
+        run: |
+          git config user.name "Pusey Corpus Excerpt Verifier"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Index Pusey's Isaiah 53 introduction only, signed 1876 printed 1877"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then
+                echo "Verified Isaiah 53 excerpt pushed"
+                break
+              fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Rebuild public full-text search index
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy verified expanded corpus
+        id: deployment
+        uses: actions/deploy-pages@v4
