@@ -88,9 +88,9 @@
       "title": "Tract 81: Catena Patrum on the Eucharistic Sacrifice",
       "search": "tract 81 catena patrum eucharistic sacrifice",
       "category": "Tracts",
-      "contribution": "authored",
-      "notes": "Contains lengthy quotations by other authors",
-      "indexing_scope": "full_original_work"
+      "contribution": "editorial",
+      "notes": "User will supply the complete text of Pusey's own introduction to Tract 81. Index that introduction ONLY: the Catena Patrum itself is predominantly quotations from patristic authors and must not be indexed as Pusey's prose. Record exact text boundaries and source provenance when supplied.",
+      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1838-appendices-to-the-sermon-of-5-november-1837",
