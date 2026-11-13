@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Owner-reviewed bibliography of 71 major Pusey-authored works/contributions; source scans and multi-volume physical editions are separately tracked. Minor Prophets two entries merged; Duquesne volumes removed because Pusey contributed no introduction.",
+  "description": "Owner-curated Pusey writings and personal contributions: 72 bibliography entries, including an independently indexed 1851 Hints for a First Confession; the two Minor Prophets physical volumes count as one work and Duquesne translations without Pusey prefaces are excluded.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -375,6 +375,19 @@
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
+    },
+    {
+      "id": "1851-hints-for-a-first-confession",
+      "year": 1851,
+      "title": "Hints for a First Confession",
+      "search": "Pusey hints for a first confession penitence confessional 1851",
+      "category": "Devotional writings",
+      "contribution": "authored",
+      "indexing_scope": "full_original_work",
+      "source_document_url": "https://anglicanhistory.org/pusey/pusey1.html",
+      "first_published_year": 1851,
+      "source_edition_year": 1884,
+      "notes": "Separate Pusey-authored work, first printed 1851. Project Canterbury transcription of 1884 reprint in Penitence, edited by C. W. Furse (London: Walter Smith). Extract signed text through E.B.P.; source transcribed by Rev. John D. Alexander (2000). Do not append following two-line verse or site navigation."
     },
     {
       "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
