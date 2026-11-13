@@ -259,12 +259,36 @@
     {
       "id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
       "year": 1845,
-      "title": "A Course of Sermons on Solemn Subjects, chiefly bearing on Repentance",
-      "search": "course sermons solemn subjects repentance amendment life",
+      "title": "Sermons on Solemn Subjects (Pusey's Contributions)",
+      "search": "sermons on solemn subjects repentance amendment life Pusey sermons 1 11 12 13 14 15 16 17 18 19 Leeds St Saviour's 1845",
       "category": "Sermons",
       "contribution": "mixed",
-      "notes": "Pusey's sermons are 1 and 11–19; exclude sermons by others from strict authored search | Index ONLY passages demonstrably written by Pusey; do not index the whole multi-author volume.",
-      "indexing_scope": "pusey_authored_passages_only"
+      "notes": "Owner confirmed ONLY sermons I and XI–XIX by Pusey, one bibliographic entry dated 1845. Include precisely those 10 sermons, preserving separate HTML source URLs and section headings. Exclude sermons II–X by other preachers, even though they appear in the same 1845 collective volume; editorial preface may be separately reviewed.",
+      "indexing_scope": "pusey_authored_passages_only",
+      "source_document_url": "https://anglicanhistory.org/pusey/leeds/",
+      "included_sermons": [
+        1,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "excluded_sermons": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
     },
     {
       "id": "1845-paradise-for-the-christian-soul-horst-preface-and-transl",
