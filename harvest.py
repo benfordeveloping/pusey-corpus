@@ -219,6 +219,11 @@ def main():
     args=ap.parse_args()
     manifest=json.loads((ROOT/'bibliography.json').read_text(encoding='utf8'))['works']
     overrides=json.loads(Path(args.source_map).read_text(encoding='utf8')) if args.source_map else {}
+    registry_path=DATA/'source_registry.csv'
+    if not registry_path.exists() and not args.lookup and not args.source_map:
+        ap.error('Missing data/source_registry.csv: use source discovery before harvesting')
+    with registry_path.open(encoding='utf-8-sig',newline='') as rf:
+        verified={r['id']:r for r in csv.DictReader(rf) if r.get('verification_status')=='verified_ocr'} if registry_path.exists() else {}
     if args.work:manifest=[w for w in manifest if args.work.lower() in (w['id']+' '+w['title']).lower()]
     if not manifest:ap.error('No works matched --work')
     tried=success=0
@@ -231,12 +236,17 @@ def main():
                 prior=json.loads(rp.read_text(encoding='utf8'))
                 if prior.get('status') in ('needs_review','needs_source','error'):continue
             except (ValueError,OSError):pass
+        # Discovery must precede harvesting: do NOT automatically accept catalogue candidates.
+        if not args.lookup and slug not in verified and slug not in overrides:
+            continue
         if not args.all and tried>=args.limit:break
         tried+=1
         print(f'[{tried}] {work["year"]} — {work["title"]}',flush=True)
         try:
             if slug in overrides:
                 work={**work,'archive_id':overrides[slug]}
+            elif slug in verified:
+                work={**work,'archive_id':verified[slug]['archive_id']}
             if args.lookup:
                 candidates=search_candidates(work)
                 print('    candidates:', [(c['identifier'],c['score'],str(c.get('title',''))[:55]) for c in candidates[:5]])
@@ -244,23 +254,8 @@ def main():
             elif work.get('archive_id'):
                 get_book(work);success+=1
             else:
-                candidates=search_candidates(work)
-                if not candidates:
-                    write_record(work,{'status':'needs_source','issue':'No Internet Archive catalogue matches'})
-                    print('    no candidates')
-                else:
-                    best=candidates[0]
-                    # Require good title match AND a lead over the next candidate;
-                    # otherwise fail closed so that a wrong book never enters corpus.
-                    next_score=candidates[1]['score'] if len(candidates)>1 else 0
-                    if best['score']>=args.threshold and (best['score']-next_score>=.07 or len(candidates)==1):
-                        try: get_book(work,best);success+=1
-                        except Exception as exc:
-                            write_record(work,{'status':'needs_review','issue':str(exc),'candidates':candidates[:8]})
-                            print('    needs review: '+str(exc)[:180])
-                    else:
-                        write_record(work,{'status':'needs_review','issue':'Ambiguous or weak title match; choose a source manually','candidates':candidates[:8]})
-                        print(f'    needs review: best score {best["score"]}, second {next_score}')
+                # A fail-closed guard: this is never reached for an unverified source.
+                raise ValueError('OCR download requires a verified Internet Archive identifier')
         except Exception as exc:
             write_record(work,{'status':'error','issue':f'{type(exc).__name__}: {exc}'})
             print('    error: '+str(exc)[:180])
