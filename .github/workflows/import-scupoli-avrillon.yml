@@ -1,0 +1,63 @@
+name: Import Pusey Scupoli and Advent Avrillon signed prefaces
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-scupoli-avrillon.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-scupoli-avrillon
+  cancel-in-progress: false
+jobs:
+  extract-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Import Pusey's signed introductions without devotional translations
+        run: python tools/import_scupoli_avrillon_prefaces.py
+      - name: Commit verified Pusey-only OCR with exact boundaries
+        run: |
+          git config user.name "Pusey Corpus Editorial Importer"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Add Pusey's Scupoli and Advent Avrillon prefaces only"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then
+                echo "Pusey-only prefaces committed"
+                break
+              fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Rebuild complete Pusey search and Pagefind index
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy increased Pusey corpus
+        id: deployment
+        uses: actions/deploy-pages@v4
