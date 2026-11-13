@@ -1,0 +1,44 @@
+{
+  "id": "1865-the-spirit-in-which-learning-and-science-should-be-appli",
+  "year": 1865,
+  "title": "The Spirit in which Learning and Science Should Be Applied to the Bible",
+  "search": "spirit researches learning science applied study bible pusey",
+  "category": "Theology",
+  "contribution": "authored",
+  "notes": "Original paper by E. B. Pusey delivered at Norwich Church Congress on 5 Oct 1865, printed in the Authorized Report (Norwich: Cundall and Miller; London: Rivingtons, 1866), printed pp. 181–190 / user-supplied PDF viewer pp. 216–225. Only Pusey's paper extracted, from 'There appear to me two opposite dangers' through 'For it rests secure in the bosom of its God.' The following paper by T. R. Birks is excluded. Source is a Google-digitized print with imperfect inherited OCR; full proofreading still advisable.",
+  "indexing_scope": "full_original_work",
+  "first_delivered_year": 1865,
+  "source_edition_year": 1866,
+  "source_document_title": "Authorized Report of the Proceedings of the Church Congress held at Norwich, October 3–5, 1865",
+  "source_document_filename": "Pusey - Norwich congress 1865.pdf",
+  "source_pdf_pages": [
+    216,
+    225
+  ],
+  "source_printed_pages": [
+    181,
+    190
+  ],
+  "status": "downloaded",
+  "source": "User-provided Google-digitized Norwich Church Congress 1865 authorized report PDF (printed 1866)",
+  "identifier": "user-upload:Pusey - Norwich congress 1865.pdf",
+  "scan_url": "",
+  "text_url": "",
+  "source_title": "Authorized Report of the Proceedings of the Church Congress held at Norwich, October 3–5, 1865",
+  "source_creator": "E. B. Pusey (paper; extracted from multi-author Congress report)",
+  "source_date": "1866",
+  "word_count": 5240,
+  "scope_verified": true,
+  "content_scope": "full_original_work",
+  "authorship_review_needed": false,
+  "extraction_boundaries": {
+    "pdf_page_start": 216,
+    "pdf_page_end": 225,
+    "printed_page_start": 181,
+    "printed_page_end": 190,
+    "text_start": "There appear to me two opposite dangers",
+    "text_end": "For it rests secure in the bosom of its God.",
+    "excluded_next_author": "T. R. Birks"
+  },
+  "qc": "PDF text layer, source pages inspected visually; full paper with retained printed footnotes; running headers and T. R. Birks excluded; not yet independently copyedited"
+}
