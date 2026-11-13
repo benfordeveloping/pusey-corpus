@@ -23,9 +23,12 @@
       "bibliography_id": "1836-an-earnest-remonstrance-to-dr-charles-dickinson",
       "label": "An Earnest Remonstrance (PDF)",
       "user_supplied_url": "https://drive.google.com/file/d/1hpT65Pdkudhg2-_pbf891NmOZnd5a-k3/view",
-      "ingestion_status": "no_candidate",
-      "github_source_url": null,
-      "source_notes": "Owner-supplied Google Drive PDF; not yet retrieved as file bytes or indexed"
+      "ingestion_status": "verified_user_supplied_transcription",
+      "github_source_url": "https://hdl.handle.net/2027/yale.39002085616507",
+      "source_notes": "Original owner-supplied Drive PDF link retained in user_supplied_url; owner then uploaded a 1836 HathiTrust OCR TXT from Yale, added to GitHub data/raw. Pusey's main pamphlet and postscript pp.3–48 indexed via data/clean. Appendix Tract 74 pp.49–104 consists of quoted Anglican authors and remains raw-only.",
+      "owner_uploaded_text_file": "earnest remonstrance.txt",
+      "github_raw_path": "data/raw/1836-an-earnest-remonstrance-to-dr-charles-dickinson.txt",
+      "github_clean_path": "data/clean/1836-an-earnest-remonstrance-to-dr-charles-dickinson.txt"
     },
     {
       "bibliography_id": "1837-tract-81-catena-patrum-on-the-eucharistic-sacrifice",
@@ -138,6 +141,17 @@
       "ingestion_status": "verified_pusey_preface_only",
       "github_source_url": "https://archive.org/details/aguideforpassin00avrigoog",
       "source_notes": "Signed 1844, 1847 source printing. Exactly 14,617 words of Pusey's preface through E.B.P. and date. Later Additional Notes excluded pending separately verified scope; all Avrillon devotional translation excluded."
+    },
+    {
+      "bibliography_id": "1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra",
+      "label": "Avrillon, A Guide for Passing Lent Holily — Pusey's signed Preface of the Editor",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_user_supplied_pdf_extract",
+      "github_source_url": null,
+      "source_notes": "Owner-uploaded 1844 James Burns edition PDF, 468 PDF pages total. Pusey preface PDF pp.8–49, printed roman pp.v–xlvi, signed Christ Church Sexagesima 1844; printed Contents pp.50 onward and Avrillon translation excluded. PDF remains user attachment; extracted text in data/raw and data/clean; proofreading pending.",
+      "owner_uploaded_pdf_filename": "A_Guide_for_passing_Lent_holily_Translat (1)(1).pdf",
+      "github_raw_path": "data/raw/1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra.txt",
+      "github_clean_path": "data/clean/1844-a-guide-for-passing-lent-holily-avrillon-preface-and-tra.txt"
     }
   ]
 }
