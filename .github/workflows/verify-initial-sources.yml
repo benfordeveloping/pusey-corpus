@@ -41,8 +41,15 @@ jobs:
           git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
           if ! git diff --cached --quiet; then
             git commit -m "Add verified OCR texts to the Pusey concordance"
-            git pull --rebase origin main
-            git push origin main
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then
+                echo "Verified OCR committed."
+                break
+              fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
           else
             echo "No new OCR texts passed verification."
           fi
