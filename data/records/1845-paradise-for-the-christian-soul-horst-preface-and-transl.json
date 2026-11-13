@@ -4,7 +4,7 @@
   "title": "Advertisement to The Paradise for the Christian Soul (Horst)",
   "category": "Translations",
   "contribution": "editorial",
-  "indexing_scope": "pusey_translator_introduction_only",
+  "indexing_scope": "pusey_preface_or_introduction_only",
   "status": "downloaded",
   "source": "User-provided Google Books digitized PDF of the 1869 fifth-thousand printing; extracted signed Pusey Advertisement from the PDF text layer",
   "identifier": "user-upload:Paradise_of_the_Christian_soul_enriched.pdf",
@@ -21,7 +21,7 @@
   "word_count": 3198,
   "scope_verified": true,
   "authorship_review_needed": false,
-  "content_scope": "pusey_translator_introduction_only",
+  "content_scope": "pusey_preface_or_introduction_only",
   "original_pdf_in_repository": false,
   "extraction_boundaries": {
     "source_pdf_pages": [
