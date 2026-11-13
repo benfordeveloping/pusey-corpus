@@ -59,8 +59,10 @@
       "search": "scriptural views holy baptism tracts",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "Original separately published Tracts for the Times 67, 68, and 69 (1835), commonly bound as Scriptural Views of Holy Baptism (1836). Do NOT conflate with the vastly enlarged 1839 second edition of Tract 67; distinguish publisher year and title page.",
-      "indexing_scope": "full_original_work"
+      "notes": "Owner identified Internet Archive scripturalviewso00puse as the original collected first edition: Tracts 67, 68, 69, issued individually in 1835 and bound by J. G. & F. Rivington in 1836. Keep distinct from second greatly enlarged edition of Tract 67 (British 1839), and its American 1840 printing.",
+      "indexing_scope": "full_original_work",
+      "source_edition_id": "scripturalviewso00puse",
+      "source_edition_year": 1836
     },
     {
       "id": "1836-an-earnest-remonstrance-to-dr-charles-dickinson",
@@ -144,8 +146,10 @@
       "search": "scriptural views holy baptism second enlarged edition tract 67 1839",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "CRITICAL EDITION RULE: 1839 second edition, enlarged, is revised Tract 67 alone (approximately 400 pages), NOT Tract 68. Tract 68 is the 1835 continuation of the earlier three-part work. Some searches may refer to Tract 68; resolve strictly by date, edition statement, pagination and title page. Do NOT use 1836 scripturalviewso00puse scan for this item. Later reprint/editions (1840, 1842, 1843) require accurate labeling and should not be misrepresented as the 1839 printing.",
-      "indexing_scope": "full_original_work"
+      "notes": "Original enlarged second UK edition published 1839 (Tract 67 revised, c. 400 pages). Owner supplied US printing dated 1840, archive.org/details/scripturalviews1840puse. Validate its American title page, author, expanded contents and OCR before inclusion. Bibliography retains 1839 edition date while the actual scanned printing is explicitly marked 1840. Do not confuse with the first 1836 collected Tracts 67–69.",
+      "indexing_scope": "full_original_work",
+      "source_edition_id": "scripturalviews1840puse",
+      "source_edition_year": 1840
     },
     {
       "id": "1841-plain-sermons-by-contributors-to-the-tracts-for-the-time",
