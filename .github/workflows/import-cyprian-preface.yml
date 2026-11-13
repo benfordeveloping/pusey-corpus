@@ -1,0 +1,60 @@
+name: Import Pusey's 1844 Cyprian Epistles preface only
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-cyprian-preface.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: import-cyprian-preface
+  cancel-in-progress: false
+jobs:
+  signed-pusey-preface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install requirements
+        run: python -m pip install -r requirements.txt
+      - name: Verify E.B.P. preface signature and exclude translated epistles
+        run: python tools/import_cyprian_epistles_preface.py
+      - name: Save exact source boundaries and harvested preface
+        run: |
+          git config user.name "Pusey Corpus Cyprian Preface Importer"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Index Pusey's Epistles of St Cyprian preface only (1844)"
+            for attempt in 1 2 3 4 5 6; do
+              git pull --rebase origin main
+              if git push origin main; then break; fi
+              if [ "$attempt" = 6 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
+      - name: Rebuild and index all authorized Pusey prose
+        run: |
+          python build.py
+          npx -y pagefind@1.4.0 --site site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy corpus with verified Cyprian preface
+        id: deployment
+        uses: actions/deploy-pages@v4
