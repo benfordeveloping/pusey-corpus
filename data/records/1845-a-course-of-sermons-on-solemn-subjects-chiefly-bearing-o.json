@@ -1,0 +1,130 @@
+{
+  "id": "1845-a-course-of-sermons-on-solemn-subjects-chiefly-bearing-o",
+  "year": 1845,
+  "title": "Sermons on Solemn Subjects (Pusey's Contributions)",
+  "category": "Sermons",
+  "contribution": "mixed",
+  "notes": "Owner confirmed ONLY sermons I and XI–XIX by Pusey, one bibliographic entry dated 1845. Include precisely those 10 sermons, preserving separate HTML source URLs and section headings. Exclude sermons II–X by other preachers, even though they appear in the same 1845 collective volume; editorial preface may be separately reviewed.",
+  "indexing_scope": "pusey_authored_passages_only",
+  "source_document_url": "https://anglicanhistory.org/pusey/leeds/",
+  "included_sermons": [
+    1,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "excluded_sermons": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "status": "downloaded",
+  "source": "Project Canterbury / Anglican History human-proofread web transcripts",
+  "identifier": "https://anglicanhistory.org/pusey/leeds/",
+  "scan_url": "https://anglicanhistory.org/pusey/leeds/",
+  "text_url": "https://anglicanhistory.org/pusey/leeds/",
+  "source_title": "A Course of Sermons on Solemn Subjects, chiefly bearing on Repentance and Amendment of Life",
+  "source_creator": "E. B. Pusey (sermons I and XI–XIX ONLY; other contributors excluded)",
+  "source_date": "1845",
+  "downloaded_utc": "2026-11-13T21:56:28.757851+00:00",
+  "original_sha256": "dcbbd399c4c719cfc5f5d4d1bf3d3377449d7b16aa96309642c7a3d25a747846",
+  "word_count": 62899,
+  "scope_verified": true,
+  "content_scope": "pusey_authored_passages_only",
+  "extraction_boundaries": [
+    {
+      "number": 1,
+      "roman": "I",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon1.html",
+      "words": 6372,
+      "start": "SERMON I.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 11,
+      "roman": "XI",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon11.html",
+      "words": 6046,
+      "start": "SERMON XI.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 12,
+      "roman": "XII",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon12.html",
+      "words": 6480,
+      "start": "SERMON XII.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 13,
+      "roman": "XIII",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon13.html",
+      "words": 8461,
+      "start": "SERMON XIII.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 14,
+      "roman": "XIV",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon14.html",
+      "words": 5635,
+      "start": "SERMON XIV.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 15,
+      "roman": "XV",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon15.html",
+      "words": 5680,
+      "start": "SERMON XV.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 16,
+      "roman": "XVI",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon16.html",
+      "words": 5106,
+      "start": "SERMON XVI.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 17,
+      "roman": "XVII",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon17.html",
+      "words": 6097,
+      "start": "SERMON XVII.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 18,
+      "roman": "XVIII",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon18.html",
+      "words": 6569,
+      "start": "SERMON XVIII.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    },
+    {
+      "number": 19,
+      "roman": "XIX",
+      "source_url": "https://anglicanhistory.org/pusey/leeds/sermon19.html",
+      "words": 6447,
+      "start": "SERMON XIX.",
+      "end": "End of individual sermon page before Project Canterbury footer"
+    }
+  ],
+  "authorship_review_needed": false,
+  "qc": "Only ten specifically owner-identified Pusey sermons; other nine excluded"
+}

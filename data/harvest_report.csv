@@ -1,4 +1,4 @@
-year,title,category,contribution,status,word_count,scan_url,issue
+﻿year,title,category,contribution,status,word_count,scan_url,issue
 1828,An Historical Enquiry into the Theology of Germany — Part I,Theology,authored,downloaded,58995,https://archive.org/details/a605286400puseuoft,
 1830,An Historical Enquiry into the Theology of Germany — Part II,Theology,authored,,,,
 1833,Remarks on the Prospective and Past Benefits of Cathedral Institutions,Church affairs,authored,downloaded,44730,https://archive.org/details/remarksonprospe00pusegoog,
@@ -23,7 +23,7 @@ year,title,category,contribution,status,word_count,scan_url,issue
 1844,Preface to Sermons on Selected Lessons of the New Testament (Augustine),Introductions,editorial,,,,
 1844,Preface to the Epistles of St Cyprian,Introductions,editorial,,,,
 1844,Preface to The Foundations of the Spiritual Life (Surin),Translations,translation,,,,
-1845,Sermons on Solemn Subjects (Pusey's Contributions),Sermons,mixed,,,,
+1845,Sermons on Solemn Subjects (Pusey's Contributions),Sermons,mixed,downloaded,62899,https://anglicanhistory.org/pusey/leeds/,
 1845,Paradise for the Christian Soul (Horst): Preface and Translation,Translations,translation,,,,
 1845,The Year of Affections (Avrillon): Preface and Translation,Translations,translation,,,,
 1846,"The Life of Jesus Christ in Glory on Earth (Nouet), Vol. I",Translations,translation,,,,
