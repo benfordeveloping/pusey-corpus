@@ -1,0 +1,29 @@
+{
+  "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
+  "year": 1828,
+  "title": "An Historical Enquiry into the Theology of Germany — Part I",
+  "category": "Theology",
+  "contribution": "authored",
+  "notes": "",
+  "indexing_scope": "full_original_work",
+  "archive_id": "a605286400puseuoft",
+  "status": "downloaded",
+  "source": "Internet Archive OCR",
+  "identifier": "a605286400puseuoft",
+  "scan_url": "https://archive.org/details/a605286400puseuoft",
+  "text_url": "https://archive.org/download/a605286400puseuoft/a605286400puseuoft_djvu.txt",
+  "downloaded_utc": "2026-11-13T20:19:45.835402+00:00",
+  "source_title": "An historical enquiry into the probable causes of the rationalist character lately predominant in the theology of Germany",
+  "source_creator": [
+    "Pusey, E. B. (Edward Bouverie), 1800-1882",
+    "Sack, Karl Heinrich, 1789-1875"
+  ],
+  "source_date": "1828",
+  "source_score": "verified-seed",
+  "encoding": "utf-8-sig",
+  "original_sha256": "d2730b8663f6262406270e2c6af447c25e7a3fe061a1d9cb67db3e476d7f5138",
+  "word_count": 58995,
+  "qc": "60,306 words; 0 page placeholders",
+  "authorship_review_needed": false,
+  "volume_review_needed": false
+}
