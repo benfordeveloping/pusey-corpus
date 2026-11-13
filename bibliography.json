@@ -626,8 +626,20 @@
       "search": "spirit researches learning science applied study bible pusey",
       "category": "Theology",
       "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "notes": "Original paper by E. B. Pusey delivered at Norwich Church Congress on 5 Oct 1865, printed in the Authorized Report (Norwich: Cundall and Miller; London: Rivingtons, 1866), printed pp. 181–190 / user-supplied PDF viewer pp. 216–225. Only Pusey's paper extracted, from 'There appear to me two opposite dangers' through 'For it rests secure in the bosom of its God.' The following paper by T. R. Birks is excluded. Source is a Google-digitized print with imperfect inherited OCR; full proofreading still advisable.",
+      "indexing_scope": "full_original_work",
+      "first_delivered_year": 1865,
+      "source_edition_year": 1866,
+      "source_document_title": "Authorized Report of the Proceedings of the Church Congress held at Norwich, October 3–5, 1865",
+      "source_document_filename": "Pusey - Norwich congress 1865.pdf",
+      "source_pdf_pages": [
+        216,
+        225
+      ],
+      "source_printed_pages": [
+        181,
+        190
+      ]
     },
     {
       "id": "1867-preface-to-essays-on-the-re-union-of-christendom",
