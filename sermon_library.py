@@ -397,6 +397,54 @@ async function loadEngine(){
  await engine.options({baseUrl:new URL('.',location.href).pathname,highlightParam:'highlight'});
  return engine;
 }
+// Match the main corpus result display, but expand the Pagefind hit into
+// its original sermon sentence so the highlighted match is always contextual.
+function hitSentence(d,query){
+ const content=String(d.content||'').replace(/\s+/g,' ').trim();
+ if(!content)return d.excerpt||'';
+ const terms=(query.match(/[\p{L}\p{N}]+/gu)||[]).filter(x=>x.length>1).slice(0,10);
+ const hit=Array.isArray(d.locations)&&d.locations.length?d.locations[0]:null;
+ let at=-1;
+ if(Number.isInteger(hit)&&hit>=0){
+  let wordIndex=0;
+  for(const word of content.matchAll(/\S+/g)){
+   if(wordIndex++===hit){at=word.index;break;}
+  }
+ }
+ if(at<0){
+  const lower=content.toLocaleLowerCase();
+  at=lower.indexOf(query.toLocaleLowerCase());
+  if(at<0)for(const term of terms){at=lower.indexOf(term.toLocaleLowerCase());if(at>=0)break;}
+ }
+ if(at<0)return d.excerpt||'';
+ let start=Math.max(0,at-145),end=Math.min(content.length,at+215);
+ // Prefer a complete sentence, but avoid vast run-ons in imperfect OCR.
+ const base=Math.max(0,at-290);
+ const earlier=content.slice(base,at);
+ for(const punctuation of earlier.matchAll(/[.!?]["'’”)]*\s+/g)){
+  const candidate=base+punctuation.index+punctuation[0].length;
+  if(at-candidate<=225)start=candidate;
+ }
+ const later=content.slice(at,Math.min(content.length,at+360));
+ const stop=later.match(/[.!?]["'’”)]*(?=\s|$)/);
+ if(stop&&stop.index>=15)end=at+stop.index+stop[0].length;
+ if(end-start>460){start=Math.max(start,at-125);end=Math.min(end,start+460);}
+ const passage=content.slice(start,end).trim();
+ if(!passage)return d.excerpt||'';
+ // Escape the entire OCR passage, retaining only our generated mark tags.
+ const special='\\^$.*+?()[]{}|/';
+ const escapedTerms=terms.map(term=>Array.from(term).map(c=>special.includes(c)?'\\'+c:c).join(''));
+ const marker=escapedTerms.length?new RegExp(escapedTerms.join('|'),'giu'):null;
+ let highlighted='',last=0,marks=0;
+ if(marker)for(const match of passage.matchAll(marker)){
+  highlighted+=esc(passage.slice(last,match.index))+'<mark>'+esc(match[0])+'</mark>';
+  last=match.index+match[0].length;marks++;
+ }
+ highlighted+=esc(passage.slice(last));
+ // Stemmed/OCR matches sometimes have no literal query token.
+ if(!marks&&d.excerpt)return d.excerpt;
+ return (start>0?'… ':'')+highlighted+(end<content.length?' …':'');
+}
 async function renderMore(){
  if(!all.length)return;
  const current=sequence,batch=all.slice(shown,shown+20);
@@ -411,7 +459,7 @@ async function renderMore(){
   const source=esc(d.meta?.source||'');
   li.innerHTML='<h3><a href="'+esc(d.url)+'">'+title+'</a></h3>'
    +'<div class="meta">'+[scripture,year,source].filter(Boolean).join(' · ')+'</div>'
-   +'<p class="excerpt">'+(d.excerpt||'')+'</p>';
+   +'<p class="excerpt">'+hitSentence(d,q.value.trim())+'</p>';
   hits.appendChild(li);
  }
  more.hidden=shown>=all.length;
