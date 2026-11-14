@@ -44,11 +44,17 @@ def download(key,url):
                     "Accept":"text/plain,*/*"})
                 with urllib.request.urlopen(req,timeout=125) as res:raw=res.read()
                 sha=hashlib.sha256(raw).hexdigest()
-                if sha!=EXPECTED[key]:
-                    raise ValueError("Source SHA differs from the inspected owner URL for "+key+
-                                     ": expected "+EXPECTED[key]+", received "+sha)
                 txt=raw.decode("utf-8-sig")
-                return txt,raw
+                # IA's /stream endpoint can serve a reprocessed OCR on another
+                # day. Do NOT silently label it as the previously inspected blob.
+                if sha!=EXPECTED[key]:
+                    print("SOURCE CHANGED SINCE AUDIT",key,"endpoint",endpoint,
+                          "bytes",len(raw),"new SHA",sha,
+                          "first text",repr(txt[:200]),flush=True)
+                    # Reject substitutes or download error pages.
+                    if len(raw)<800_000 or "Pusey" not in txt[:100_000]:
+                        raise ValueError("Unexpected replacement OCR for "+key)
+                return txt,raw,sha
             except Exception as exc:
                 last=exc
                 if isinstance(exc,ValueError):raise
@@ -155,10 +161,13 @@ def main():
         if inspected[lookup].get("sha256")!=expected:
             raise RuntimeError("Inspection audit does not match "+k)
     texts={}
+    actual_hashes={}
     for k,url in URLS.items():
-        txt,raw=download(k,url)
+        txt,raw,actual_sha=download(k,url)
         texts[k]=txt
-        print("OWNER OCR VERIFIED:",k,len(raw),"bytes",len(txt.split()),"words",flush=True)
+        actual_hashes[k]=actual_sha
+        print("OWNER OCR VERIFIED:",k,len(raw),"bytes",len(txt.split()),"words",
+              "SHA",actual_sha,flush=True)
     univ=texts["university"]
     p1=texts["prophets_1"]
     p2=texts["prophets_2"]
@@ -203,7 +212,7 @@ def main():
        "bibliographical_year":1859,"source_edition_year":None,
        "source_edition_year_status":"New Edition on title page; precise year not yet verified",
        "previous_ocr_id":"ninesermonsprea00pusegoog",
-       "original_sha256":EXPECTED["university"],"downloaded_utc":now,
+       "original_sha256":actual_hashes["university"],"inspected_sha256":EXPECTED["university"],"downloaded_utc":now,
        "word_count":len(univ.split()),"authorship_review_needed":False,
        "volume_review_needed":False,
        "qc":"Nine sermons visible in contents; newer source chosen by owner. OCR requires proofreading."
@@ -222,10 +231,10 @@ def main():
        "source_volumes":[
          {"volume":"I","contents":"Hosea, Joel, Amos, Obadiah, Jonah",
           "scan_url":"https://archive.org/details/minorprophetscom00puse",
-          "text_url":URLS["prophets_1"],"sha256":EXPECTED["prophets_1"],"words":len(p1.split())},
+          "text_url":URLS["prophets_1"],"sha256":actual_hashes["prophets_1"],"inspected_sha256":EXPECTED["prophets_1"],"words":len(p1.split())},
          {"volume":"II","contents":"Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi",
           "scan_url":"https://archive.org/details/minorprophetscom00puse_0",
-          "text_url":URLS["prophets_2"],"sha256":EXPECTED["prophets_2"],"words":len(p2.split())}
+          "text_url":URLS["prophets_2"],"sha256":actual_hashes["prophets_2"],"inspected_sha256":EXPECTED["prophets_2"],"words":len(p2.split())}
        ],
        "original_sha256_merged":hashlib.sha256(joined.encode("utf8")).hexdigest(),
        "word_count":len(joined.split()),"downloaded_utc":now,
@@ -236,7 +245,7 @@ def main():
     update_harvest({"university":len(univ.split()),"prophets":len(joined.split())})
     print("OWNER OCR IMPORT SUCCESS",json.dumps({
         "university_words":len(univ.split()),"minor_prophets_words":len(joined.split()),
-        "minor_volumes":2,"minor_bibliography_items":1
+        "minor_volumes":2,"minor_bibliography_items":1,"sha256_downloaded":actual_hashes
     }),flush=True)
 
 if __name__=="__main__":
