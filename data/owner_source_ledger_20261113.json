@@ -165,6 +165,29 @@
       "owner_uploaded_pdf_filename": "Paradise_of_the_Christian_soul_enriched.pdf",
       "github_raw_path": "data/raw/1845-paradise-for-the-christian-soul-horst-preface-and-transl.txt",
       "github_clean_path": "data/clean/1845-paradise-for-the-christian-soul-horst-preface-and-transl.txt"
+    },
+    {
+      "bibliography_id": "1859-university-sermons-vol-i-nine-sermons",
+      "label": "University Sermons Volume I — improved owner-supplied OCR",
+      "user_supplied_url": "https://archive.org/stream/a605354300puseuoft/a605354300puseuoft_djvu.txt",
+      "ingestion_status": "verified_owner_replacement_ocr",
+      "github_source_url": "https://archive.org/details/a605354300puseuoft",
+      "source_notes": "213,753-word owner-provided replacement OCR imported into existing clean and raw files, superseding ninesermonsprea00pusegoog. Nine sermons documented in contents; individual sermon extraction incomplete pending sectional verification. Original version recoverable in git history.",
+      "github_clean_path": "data/clean/1859-university-sermons-vol-i-nine-sermons.txt",
+      "github_raw_path": "data/raw/1859-university-sermons-vol-i-nine-sermons.txt"
+    },
+    {
+      "bibliography_id": "1860-the-minor-prophets-with-commentary",
+      "label": "Minor Prophets commentary — owner-supplied volumes I and II merged",
+      "user_supplied_url": "https://archive.org/stream/minorprophetscom00puse/minorprophetscom00puse_djvu.txt",
+      "additional_user_supplied_urls": [
+        "https://archive.org/stream/minorprophetscom00puse_0/minorprophetscom00puse_0_djvu.txt"
+      ],
+      "ingestion_status": "verified_two_owner_ocr_volumes",
+      "github_source_url": "https://archive.org/details/minorprophetscom00puse",
+      "source_notes": "Two distinct 1950 Baker Book House physical volumes, preserved separately and merged into one searchable bibliography entry: volume I Hosea–Jonah, volume II Micah–Malachi. Original 1950 OCR unproofread; exact SHA hashes in individual record.",
+      "github_clean_path": "data/clean/1860-the-minor-prophets-with-commentary.txt",
+      "github_raw_path": "data/raw/1860-the-minor-prophets-with-commentary.txt"
     }
   ]
 }
