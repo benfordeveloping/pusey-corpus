@@ -247,7 +247,16 @@ input.addEventListener('input',()=>{const query=input.value.trim().toLowerCase()
 while((at=lower.indexOf(query,last))>=0){f.append(document.createTextNode(original.slice(last,at)));const m=document.createElement('mark');m.textContent=original.slice(at,at+query.length);f.append(m);last=at+query.length;n++;}f.append(document.createTextNode(original.slice(last)));box.replaceChildren(f);msg.textContent=' '+n+' matches';box.querySelector('mark')?.scrollIntoView({block:'center'});});
 """,encoding='utf8')
  stats={'total':len(rows),'available':len(available),'missing':len(missing),'volumes_with_text':sum(len(x['t'])>2000 for x in sources.values())}
- print('SERMON LIBRARY '+json.dumps(stats));return stats
+ print('SERMON LIBRARY '+json.dumps(stats))
+ by_code={}
+ for e in rows:
+  key=e.get('code') or (e['refs'][0].split(':')[0] if e['refs'] else 'NONE')
+  x=by_code.setdefault(key,{'available':0,'missing':0})
+  x[e['status']]+=1
+ print('SERMON SOURCE COUNTS '+json.dumps(by_code,sort_keys=True))
+ for e in missing:
+  print('SERMON MISSING: '+json.dumps({'id':e['id'],'refs':e['refs'],'title':e['title'],'reason':e.get('reason'),'matched_source':e.get('code'),'score':e.get('match_score')}))
+ return stats
 
 if __name__=='__main__':
  root=Path(__file__).resolve().parent;write_site(root,root/'site')
