@@ -111,7 +111,7 @@ def extract_text(payload: bytes, volume: int, chapter: int) -> str:
         tag.decompose()
     body = soup.body or soup
     # Preserve all text nodes, including letters, block quotations and notes.
-    # Explicit block boundaries avoid losing punctuation or splitting italic words.
+    # The original HTML uses some unconventional 2002-era heading markup.
     for tag in list(body.find_all(["p", "div", "blockquote", "h1", "h2", "h3", "h4", "li", "tr", "br"])):
         if tag.name == "br":
             tag.replace_with(NavigableString("\n"))
@@ -122,19 +122,31 @@ def extract_text(payload: bytes, volume: int, chapter: int) -> str:
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r" *\n *", "\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text).strip()
-    heading = re.search(r"\bCHAPTER\s+" + ROMANS[chapter] + r"\b[.:]?", text, flags=re.I)
+    source_words = len(text.split())
+
+    # Do not match the *first occurrence anywhere* of 'Chapter XIX', because
+    # the narrative itself contains chapter references. Begin immediately
+    # after the transcription credit, and locate the near-opening heading.
+    credit = re.search(r"\bAD\s*2002\b", text, re.I)
+    beginning = text[credit.end():] if credit else text
+    heading = re.search(r"\bCHAPTER\b", beginning[:3500], re.I)
     if not heading:
-        raise ValueError(f"Cannot locate printed chapter heading in {key(volume,chapter)}")
-    text = text[heading.start():]
-    # Remove the source website's closing footer, not any biography narrative.
-    footer = re.search(r"\n\s*\* *\* *\*\s*\n\s*Project Canterbury\b", text, re.I)
-    if footer:
-        text = text[:footer.start()]
+        raise ValueError(f"No opening chapter heading in {key(volume,chapter)}; "
+                         f"source text begins {beginning[:200]!r}")
+    text = beginning[heading.start():]
+
+    # Strip only the FINAL Project Canterbury footer. An internal ornament
+    # or cross-reference should never terminate a chapter prematurely.
+    footers = list(re.finditer(r"\n\s*\* *\* *\*\s*\n\s*Project Canterbury\b", text, re.I))
+    if footers and footers[-1].start() > len(text) * .70:
+        text = text[:footers[-1].start()]
     elif text.rstrip().endswith("Project Canterbury"):
         text = text[:text.rfind("Project Canterbury")]
     text = text.strip()
-    if len(text.split()) < 400:
-        raise ValueError(f"Too little transcribed text in {key(volume,chapter)}: {len(text.split())} words")
+    extracted = len(text.split())
+    if extracted < 400 or extracted < source_words * .85:
+        raise ValueError(f"Possible truncated chapter {key(volume,chapter)}: "
+                         f"{extracted} extracted versus {source_words} source words")
     return text
 
 def harvest() -> None:
