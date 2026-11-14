@@ -1,0 +1,173 @@
+{
+  "id": "1842-introduction-and-notes-to-tertullian",
+  "year": 1842,
+  "title": "Introduction and Notes to Tertullian (1842)",
+  "category": "Introductions",
+  "contribution": "editorial",
+  "status": "downloaded",
+  "source": "Owner-supplied IA OCR; Library of Fathers Vol. X, Tertullian Vol. I (1842)",
+  "archive_id": "10ALibraryOfFathersOfTheHolyCatholicV10",
+  "identifier": "10ALibraryOfFathersOfTheHolyCatholicV10",
+  "scan_url": "https://archive.org/details/10ALibraryOfFathersOfTheHolyCatholicV10",
+  "text_url": "https://archive.org/stream/10ALibraryOfFathersOfTheHolyCatholicV10/10ALibraryOfFathersOfTheHolyCatholicV10_djvu.txt",
+  "source_title": "Tertullian, Apologetic and Practical Treatises, Library of Fathers X (1842)",
+  "source_creator": "E. B. Pusey (signed preface, editorial notes); C. Dodgson (translation excluded)",
+  "source_date": "1842",
+  "original_sha256": "3726854cad7ce4716791750d72e6e218412cecb65dbb9f0f40bf3a5d4f2a8171",
+  "downloaded_utc": "2026-11-14T05:36:24.667239+00:00",
+  "word_count": 77419,
+  "authorship_review_needed": false,
+  "scope_verified": true,
+  "content_scope": "pusey_preface_or_introduction_only",
+  "extraction_boundaries": {
+    "included_sections": [
+      {
+        "section": "Pusey signed Preface",
+        "start": 6955,
+        "end": 61191,
+        "ends_before": "The Book of Apology"
+      },
+      {
+        "section": "Note A",
+        "start": 410781,
+        "end": 421510,
+        "end_boundary": "Note B",
+        "characters": 10729
+      },
+      {
+        "section": "Note B",
+        "start": 421510,
+        "end": 449829,
+        "end_boundary": "Note C",
+        "characters": 28319
+      },
+      {
+        "section": "Note C",
+        "start": 449829,
+        "end": 465508,
+        "end_boundary": "Note D",
+        "characters": 15679
+      },
+      {
+        "section": "Note D",
+        "start": 465508,
+        "end": 506297,
+        "end_boundary": "Of the Witness of the Soul (translated; excluded)",
+        "characters": 40789
+      },
+      {
+        "section": "Note E",
+        "start": 675012,
+        "end": 683981,
+        "end_boundary": "Of Public Shows (translated; excluded)",
+        "characters": 8969
+      },
+      {
+        "section": "Note F",
+        "start": 885528,
+        "end": 893769,
+        "end_boundary": "Of Baptism (translated; excluded)",
+        "characters": 8241
+      },
+      {
+        "section": "Note G",
+        "start": 982724,
+        "end": 1051656,
+        "end_boundary": "Of Prayer (translated; excluded)",
+        "characters": 68932
+      },
+      {
+        "section": "Note H",
+        "start": 1128955,
+        "end": 1141481,
+        "end_boundary": "Note I",
+        "characters": 12526
+      },
+      {
+        "section": "Note I",
+        "start": 1141481,
+        "end": 1148716,
+        "end_boundary": "Of Patience (translated; excluded)",
+        "characters": 7235
+      },
+      {
+        "section": "Note K",
+        "start": 1275537,
+        "end": 1304578,
+        "end_boundary": "Note L",
+        "characters": 29041
+      },
+      {
+        "section": "Note L",
+        "start": 1304578,
+        "end": 1317808,
+        "end_boundary": "Note M",
+        "characters": 13230
+      },
+      {
+        "section": "Note M",
+        "start": 1317808,
+        "end": 1434462,
+        "end_boundary": "The First Book to His Wife (translated; excluded)",
+        "characters": 116654
+      },
+      {
+        "section": "Note N",
+        "start": 1469725,
+        "end": 1472538,
+        "end_boundary": "The Second Book to His Wife (translated; excluded)",
+        "characters": 2813
+      },
+      {
+        "section": "Note O",
+        "start": 1506820,
+        "end": 1512236,
+        "end_boundary": "On Prescription Against Heretics (translated; excluded)",
+        "characters": 5416
+      },
+      {
+        "section": "Note P",
+        "start": 1671183,
+        "end": 1723306,
+        "end_boundary": "Note Q",
+        "characters": 52123
+      },
+      {
+        "section": "Note Q",
+        "start": 1723306,
+        "end": 1743896,
+        "end_boundary": "Note R",
+        "characters": 20590
+      },
+      {
+        "section": "Note R",
+        "start": 1743896,
+        "end": 1750731,
+        "end_boundary": "Additional Notes (attribution not yet confirmed; excluded)",
+        "characters": 6835
+      }
+    ],
+    "editorial_notes": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R"
+    ],
+    "excluded_translations": "All Tertullian treatises, translated by C. Dodgson",
+    "excluded_additional_notes": "Unsigned pp. 499–502 pending corroboration"
+  },
+  "qc": "18 nonoverlapping, independently inspected segments, complete signed preface, all 17 lettered Notes; no translated treatises; OCR proofreading pending."
+}

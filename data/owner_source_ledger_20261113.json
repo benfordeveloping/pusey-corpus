@@ -58,9 +58,11 @@
       "bibliography_id": "1842-introduction-and-notes-to-tertullian",
       "label": "Tertullian preface and lettered Notes A–I, K–R",
       "user_supplied_url": "https://archive.org/stream/10ALibraryOfFathersOfTheHolyCatholicV10/10ALibraryOfFathersOfTheHolyCatholicV10_djvu.txt",
-      "ingestion_status": "candidate_found",
-      "github_source_url": null,
-      "source_notes": "Owner explicitly requests whole Pusey preface plus all Pusey editorial Notes, including Additional Notes if attributable; exclude translated Tertullian. Audit saved; import pending"
+      "ingestion_status": "verified_pusey_preface_and_17_editorial_notes",
+      "github_source_url": "https://archive.org/details/10ALibraryOfFathersOfTheHolyCatholicV10",
+      "source_notes": "Imported signed 1842 E.B.P. preface and Notes A-I, K-R as 18 audited Pusey-editorial segments. Full raw translated source preserved but excluded from indexed clean text. Unsigned Additional Notes remain unindexed until authorship is verified.",
+      "github_clean_path": "data/clean/1842-introduction-and-notes-to-tertullian.txt",
+      "github_raw_path": "data/raw/1842-introduction-and-notes-to-tertullian.txt"
     },
     {
       "bibliography_id": "1844-the-foundations-of-the-spiritual-life-surin-preface-and",

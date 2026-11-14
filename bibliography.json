@@ -203,7 +203,7 @@
       "search": "tertullian apologetic practical treatises pusey",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Owner specified full Pusey preface AND separately lettered scholarly end-notes (Notes A–I, K–R) plus any verified Pusey editorial Additional Notes from Library of Fathers Vol. X (1842). The Preface closes with E.B.P. on Feast of St John the Baptist 1842 and assigns responsibility for notes to the immediate editor. The volume's translator is Charles Dodgson, not Pusey. Never index translated Tertullian treatises, or unattributed Additional Notes without corroboration.",
+      "notes": "Pusey-only editorial text imported: the complete signed Preface (Feast of St. John the Baptist, 1842), and Notes A-I, K-R (17 notes; no J). Extracted by exact audited boundaries from Library of Fathers Vol X (1842). Charles Dodgson's translations and unsigned Additional Notes are excluded pending attribution. OCR remains unproofread; see data/records and data/tertullian_note_boundary_inspection_20261114.json.",
       "indexing_scope": "pusey_preface_or_introduction_only",
       "source_edition_id": "10ALibraryOfFathersOfTheHolyCatholicV10",
       "source_edition_year": 1842,
@@ -228,7 +228,27 @@
         "Note Q",
         "Note R",
         "Additional Notes (if Pusey's authorship is corroborated)"
-      ]
+      ],
+      "editorial_notes_imported": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "Q",
+        "R"
+      ],
+      "additional_notes_indexed": false
     },
     {
       "id": "1844-a-guide-for-passing-advent-holily-avrillon-preface-and-t",
