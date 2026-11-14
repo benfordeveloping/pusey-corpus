@@ -111,6 +111,34 @@ def update_bibliography():
     w["additional_notes_indexed"]=False
     save_json("bibliography.json",obj)
 
+def update_tracking(wordcount):
+    report=ROOT/"data/harvest_report.csv"
+    with report.open(newline="",encoding="utf8") as fh:
+        rows=list(csv.reader(fh))
+    for row in rows:
+        if len(row)>2 and row[1].startswith("Introduction and Notes to Tertullian"):
+            while len(row)<8:row.append("")
+            row[4]="downloaded"
+            row[5]=str(wordcount)
+            row[7]="Signed Pusey preface + all 17 lettered editorial Notes; translation and unsigned Additional Notes excluded"
+    with report.open("w",newline="",encoding="utf8") as fh:
+        csv.writer(fh,lineterminator="\n").writerows(rows)
+    ledger=ROOT/"data/owner_source_ledger_20261113.json"
+    if ledger.exists():
+        obj=json.loads(ledger.read_text(encoding="utf8"))
+        for e in obj.get("entries",[]):
+            if e.get("bibliography_id")==IDENT:
+                e["ingestion_status"]="verified_pusey_preface_and_17_editorial_notes"
+                e["github_source_url"]="https://archive.org/details/"+ARCHIVE_ID
+                e["github_clean_path"]="data/clean/"+IDENT+".txt"
+                e["github_raw_path"]="data/raw/"+IDENT+".txt"
+                e["source_notes"]=(
+                    "Imported signed 1842 E.B.P. preface and Notes A-I, K-R as 18 "
+                    "audited Pusey-editorial segments. Full raw translated source "
+                    "preserved but excluded from indexed clean text. Unsigned Additional "
+                    "Notes remain unindexed until authorship is verified.")
+        save_json("data/owner_source_ledger_20261113.json",obj)
+
 def main():
     inspection=json.loads((ROOT/"data/tertullian_note_boundary_inspection_20261114.json").read_text("utf8"))
     assert inspection["sha256"]==EXPECTED_SHA
@@ -184,6 +212,7 @@ def main():
        "qc":"18 nonoverlapping, independently inspected segments, complete signed preface, all 17 lettered Notes; no translated treatises; OCR proofreading pending."
     })
     update_registry();update_bibliography()
+    update_tracking(len(clean.split()))
     # Audit the actual Pusey-only extract lengths, not the mixed-source raw OCR.
     print("TERTULLIAN EDITORIAL IMPORT",json.dumps({
       "preface_characters":len(preface),"lettered_notes":len(EDITS),
