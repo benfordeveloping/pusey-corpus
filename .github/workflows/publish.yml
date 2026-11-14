@@ -35,6 +35,8 @@ jobs:
           python build.py
           python tools/test_owner_imports.py
           python tools/test_sermon_search.py
+          python tools/test_liddon.py
+          node --check liddon_search.js
           node --check site/sermons/listing.js
           node --check site/search.js
           node --check site/ocr_variants.js
@@ -45,6 +47,11 @@ jobs:
           npx -y pagefind@1.4.0 --site site --glob 'sermons/m???.html' --output-subdir sermons/pagefind
           test -f site/pagefind/pagefind.js
           test -f site/sermons/pagefind/pagefind.js
+          # One independent search across every Liddon chapter and volume.
+          if [ -d site/liddon/sections ]; then
+            npx -y pagefind@1.4.0 --site site --glob 'liddon/sections/*.html' --output-subdir liddon/pagefind
+            test -f site/liddon/pagefind/pagefind.js
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
