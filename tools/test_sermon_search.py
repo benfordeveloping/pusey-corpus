@@ -23,7 +23,7 @@ assert 'id="search-hits"' in main and 'id="sermon-browse"' in main
 assert 'id="browse-q"' not in main, "Remove the redundant catalogue query box"
 assert 'id="sort"' in main and 'Chronological / date range' in main
 assert 'Title A–Z' in main and 'Scripture (Madan order)' in main
-assert 'id="scope"' in main and 'id="sort"' in js and 'browseQ' not in js
+assert 'id="scope"' in main and "querySelector('#sort')" in js and 'browseQ' not in js
 assert 'type="module" src="listing.js"' in main
 assert "import('./pagefind/pagefind.js')" in js, "Sermon search must use its own Pagefind index"
 assert "p.search(query)" in js, "Search every indexed word, not just a title"
