@@ -1,0 +1,42 @@
+{
+  "id": "1860-the-minor-prophets-with-commentary",
+  "year": 1860,
+  "title": "The Minor Prophets with a Commentary",
+  "category": "Commentaries",
+  "contribution": "authored",
+  "status": "downloaded",
+  "source": "Two owner-supplied Archive OCR volumes combined in canonical prophet order",
+  "archive_id": "minorprophetscom00puse;minorprophetscom00puse_0",
+  "scan_url": "https://archive.org/details/minorprophetscom00puse",
+  "text_url": "https://archive.org/stream/minorprophetscom00puse/minorprophetscom00puse_djvu.txt ; https://archive.org/stream/minorprophetscom00puse_0/minorprophetscom00puse_0_djvu.txt",
+  "source_creator": "E. B. Pusey",
+  "bibliographical_year": 1860,
+  "source_edition_year": 1950,
+  "source_edition_note": "Baker Book House 1950 reprint of nineteenth-century commentary",
+  "source_volumes": [
+    {
+      "volume": "I",
+      "contents": "Hosea, Joel, Amos, Obadiah, Jonah",
+      "scan_url": "https://archive.org/details/minorprophetscom00puse",
+      "text_url": "https://archive.org/stream/minorprophetscom00puse/minorprophetscom00puse_djvu.txt",
+      "sha256": "99e300fba711bfdd1dfb341efb6c8f59b09de819d01c5e2037cd0a3e0c8c87dd",
+      "inspected_sha256": "99e300fba711bfdd1dfb341efb6c8f59b09de819d01c5e2037cd0a3e0c8c87dd",
+      "words": 402651
+    },
+    {
+      "volume": "II",
+      "contents": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi",
+      "scan_url": "https://archive.org/details/minorprophetscom00puse_0",
+      "text_url": "https://archive.org/stream/minorprophetscom00puse_0/minorprophetscom00puse_0_djvu.txt",
+      "sha256": "5ab42cfef11c1d9218919e000bc01a5cce65b21c3d325cb8e16b2525811bc612",
+      "inspected_sha256": "5ab42cfef11c1d9218919e000bc01a5cce65b21c3d325cb8e16b2525811bc612",
+      "words": 488978
+    }
+  ],
+  "original_sha256_merged": "88b06321aba998f8be0ad43a3b0cb7bb1b33003a3612cc20c7fdfdf03bba021b",
+  "word_count": 891666,
+  "downloaded_utc": "2026-11-14T05:30:01.657322+00:00",
+  "authorship_review_needed": false,
+  "volume_review_needed": false,
+  "qc": "Both complete physical volumes from separately inspected IA scans; no OCR proofreading yet."
+}

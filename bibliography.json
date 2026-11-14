@@ -543,8 +543,10 @@
       "search": "nine sermons university oxford pusey 1859",
       "category": "Sermons",
       "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "notes": "Owner-supplied clearer OCR of all nine sermons replaced ninesermonsprea00pusegoog. The new scan is a later 'New Edition'; verify its exact printing date before labelling the source edition.",
+      "indexing_scope": "full_original_work",
+      "source_edition_id": "a605354300puseuoft",
+      "source_document_url": "https://archive.org/details/a605354300puseuoft"
     },
     {
       "id": "1860-god-s-prohibition-of-marriage-with-a-deceased-wife-s-sis",
@@ -569,18 +571,24 @@
         {
           "name": "Volume I",
           "expected_contents": "Hosea, Joel, Amos, Obadiah, Jonah",
-          "verification_status": "needs_exact_volume_ocr"
+          "verification_status": "verified_owner_supplied_ocr",
+          "source_id": "minorprophetscom00puse",
+          "ocr_url": "https://archive.org/stream/minorprophetscom00puse/minorprophetscom00puse_djvu.txt"
         },
         {
           "name": "Volume II",
           "expected_contents": "Micah, Nahum, Habakkuk, Zephaniah, Haggai, Zechariah, Malachi",
-          "verification_status": "needs_exact_volume_ocr"
+          "verification_status": "verified_owner_supplied_ocr",
+          "source_id": "minorprophetscom00puse_0",
+          "ocr_url": "https://archive.org/stream/minorprophetscom00puse_0/minorprophetscom00puse_0_djvu.txt"
         }
       ],
       "merged_previous_ids": [
         "1860-the-minor-prophets-with-commentary-vol-i",
         "1860-the-minor-prophets-with-commentary-vol-ii"
-      ]
+      ],
+      "source_edition_year": 1950,
+      "source_edition_note": "Baker Book House 1950 reprint; original composition/publication belongs to the 1860s"
     },
     {
       "id": "1861-preface-to-the-works-of-st-justin-martyr",
