@@ -1,10 +1,10 @@
 # The Pusey Corpus — reproducible harvesting + public search
 
-**Current catalogue (14 November 2026):** 66 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, the Thomas of Jesus translation, and the Justin Martyr editorial preface, and the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
+**Current catalogue (14 November 2026):** 65 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, the Thomas of Jesus translation, the Justin Martyr editorial preface, and the duplicate 1860 marriage prohibition entry, plus the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
 
-## Source catalogue: 66 owner-approved bibliography entries
+## Source catalogue: 65 owner-approved bibliography entries
 
-`data/source_registry.csv` is the **authoritative 66-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
+`data/source_registry.csv` is the **authoritative 65-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
 
 The source status is explicit:
 
@@ -16,13 +16,13 @@ The source status is explicit:
 
 `data/source_candidates.csv` collects up to four leads per unresolved title including the candidate title, author, edition year, full scan link, OCR filename, and *direct* OCR download URL retrieved from Archive.org metadata rather than guessed. The `Identify OCR sources for Pusey bibliography` GitHub Actions workflow builds that report. **Do not mark a source verified solely because the filename or title looks plausible**: check the actual volume and OCR contents. Some bibliography entries are Pusey prefaces or excerpts embedded in larger multi-author books; these need additional passage-range controls before claiming a strict Pusey-only search.
 
-Only `verified_ocr` entries may be harvested by the automated downloader. After reviewing a candidate, record its Archive.org identifier and exact TXT URL in the 74-row source register, set `verification_status` to `verified_ocr`, and push that change. GitHub's harvest workflow can then collect it. This deliberately prevents conflating the first plausible Archive.org match with the correct Pusey work.
+Only `verified_ocr` entries may be harvested by the automated downloader. After reviewing a candidate, record its Archive.org identifier and exact TXT URL in the current source register, set `verification_status` to `verified_ocr`, and push that change. GitHub's harvest workflow can then collect it. This deliberately prevents conflating the first plausible Archive.org match with the correct Pusey work.
 
-As of the initial release, *Daniel the Prophet* has one confirmed plaintext OCR URL and *Eirenicon* Part I has a confirmed scan awaiting OCR-file inspection; the remainder still need source matching. This is a **work-in-progress source catalogue**, not a claim that all 74 OCR files are present.
+As of the initial release, *Daniel the Prophet* has one confirmed plaintext OCR URL and *Eirenicon* Part I has a confirmed scan awaiting OCR-file inspection; the remainder still need source matching. This is a **work-in-progress source catalogue**, not a claim that all current OCR files are present.
 
 ## What's included
 
-- `bibliography.json` — 67 owner-approved bibliography targets transcribed from the bibliography. Multi-volume works are split; two overlapping/revised editions are excluded from *default* indexing but retained in the bibliography.
+- `bibliography.json` — 65 owner-approved bibliography entries, after removals of duplicates and excluded titles and consolidation of Nouet's three physical volumes. Indexed text is restricted to Pusey's own writing where a source contains multiple authors.
 - `harvest.py` — uses the Internet Archive advanced-search/metadata APIs, downloads plain-text OCR, retains the unaltered text, creates lightly cleaned copies, and records scan URLs/edition metadata. Questionable results are *flagged for review* rather than silently indexed.
 - `build.py` — generates static HTML text-reading sections for every downloaded work and prepares the site for [Pagefind](https://pagefind.app/), a fast browser-based search index. Results identify title, year and text section, with highlighted snippets and a link to the full context.
 - `local_search.py` — alternative **fully offline** search website using SQLite FTS5, with quoted-phrase search and highlighted context. Requires only Python and downloaded OCR.

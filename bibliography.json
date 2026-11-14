@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Owner-curated Pusey corpus: 66 unique bibliography entries after removal of 4 inappropriate/duplicative entries and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
+  "description": "Owner-curated Pusey corpus: 65 unique bibliography entries after the owner's further removals of duplicates and unsuitable titles and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -550,16 +550,6 @@
       "indexing_scope": "full_original_work",
       "source_edition_id": "a605354300puseuoft",
       "source_document_url": "https://archive.org/details/a605354300puseuoft"
-    },
-    {
-      "id": "1860-god-s-prohibition-of-marriage-with-a-deceased-wife-s-sis",
-      "year": 1860,
-      "title": "God's Prohibition of Marriage with a Deceased Wife's Sister",
-      "search": "gods prohibition marriage deceased wife's sister leviticus",
-      "category": "Church affairs",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
     },
     {
       "id": "1860-the-minor-prophets-with-commentary",
