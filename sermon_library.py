@@ -76,6 +76,7 @@ def load_sources(root):
     h['page']=int(pages[0]) if pages else None
   cutoff=toc[-1]['at'] if toc else 0
   results[code]={'code':code,'slug':slug,'label':label,'year':pubyear,'t':t,'toc':toc,'cutoff':cutoff,'heads':hs}
+  if code=='US3':results[code]['pamphlets']=us3_boundaries(t,cutoff) if t else {}
  return results
 
 def title_positions(t,title,cutoff):
@@ -164,6 +165,33 @@ def direct_lookup(entry,code,src,page,ordinal=None):
          "start":chosen,"printed_page":page,"ordinal":ordinal,
          "match_score":0.78 if page is not None else 0.66,
          "method":"Madan title + source page / heading"}
+
+US3_PAMPHLETS=[
+ ("m063",r"(?m)^EVEBLASTING PUNISHMENT\.$"),
+ ("m058",r"(?m)^THE MIRACLES OF PRATER[,]?$"),
+ ("m093",r"(?m)^WILL YE ALSO GO AWAY\?$"),
+ ("m064",r"(?m)^A SERMON\s*\n\s*PREACHED BEFORE THE UNIVERSITY\s*\n\s*AT S\. MARY"),
+ ("m099",r"(?m)^THE RESPONSIBILITY OF INTELLECT IN\s*\n\s*MATTERS OF FAITH\.$"),
+ ("m095",r"(?m)^SINFUL BLINDNESS AMIDST IMAGINED"),
+ ("m076",r"(?m)^CHRISTIANITY WITHOUT THE CROSS$"),
+ ("m108",r"(?m)^GOD\s*\n\s*AND HUMAN INDEPENDENCE\.$"),
+ ("m090",r"(?m)^UN-SCIENCE, NOT SCIENCE,$"),
+ ("m178",r"(?m)^PROPHECY OF JESUS$"),
+ ("m043",r'(?m)^[ \t]*" BLESSED ARE THE MEEK\."[ \t]*$')]
+def us3_boundaries(text,cutoff):
+ anchors={}
+ for eid,pattern in US3_PAMPHLETS:
+  hits=[m.start() for m in re.finditer(pattern,text) if m.start()>cutoff+50]
+  if hits:anchors[eid]=hits[0]
+ if len(anchors)!=11:
+  print("SERMON WARNING: US3 headings missing "+repr([eid for eid,_ in US3_PAMPHLETS if eid not in anchors]))
+  return {}
+ positions=[anchors[eid] for eid,_ in US3_PAMPHLETS]
+ if positions!=sorted(positions) or len(set(positions))!=11:
+  print("SERMON WARNING: US3 pamphlets out of order")
+  return {}
+ return anchors
+
 def locate(entry,sources):
  candidates=[]
  for ref in entry["refs"]:
@@ -174,6 +202,13 @@ def locate(entry,sources):
   if code=="SSL":
    hit=extract_leeds(entry,src)
    if hit:candidates.append(hit)
+   continue
+  if code=="US3" and src.get("pamphlets"):
+   pos=src["pamphlets"].get(entry["id"])
+   if pos is not None:
+    candidates.append({"code":code,"slug":src["slug"],"source_title":src["label"],
+     "source_year":src["year"],"start":pos,"printed_page":None,
+     "match_score":0.99,"method":"separately printed sermon pamphlet heading"})
    continue
   page=int(ref.split(":")[1]) if ":" in ref and ref.split(":")[1].isdigit() else None
   ranked=[]
@@ -230,9 +265,12 @@ def find_entries(root):
    following=[selected[i+1]['start']] if i+1<len(selected) else []
    # Also stop before a known numbered heading even if that sermon was not matched.
    following += [h['at'] for h in source['heads'] if h['at']>pos+1700 and h['at']>source['cutoff']]
+   if code=='US3' and source.get('pamphlets'):
+    following += [p for p in source['pamphlets'].values() if p>pos]
    end=min(following+[len(source['t'])])
    length=end-pos
-   if length<2500 or length>75000:
+   cap=155000 if code=='US3' and source.get('pamphlets') else 75000
+   if length<2500 or length>cap:
     e.update(status='missing',reason=f'Unverified end boundary ({length:,} characters)')
    else:
     e.update(status='available',end=end,characters=length,word_count=len(source['t'][pos:end].split()),
