@@ -109,7 +109,9 @@ def extract_text(payload: bytes, volume: int, chapter: int) -> str:
     soup = BeautifulSoup(payload, "html.parser")
     for tag in soup.select("script,style,noscript"):
         tag.decompose()
-    body = soup.body or soup
+    # Some Project Canterbury chapters contain irregular or repeated BODY tags.
+    # Extract the entire parsed document rather than the first BODY subtree.
+    body = soup
     # Preserve all text nodes, including letters, block quotations and notes.
     # The original HTML uses some unconventional 2002-era heading markup.
     for tag in list(body.find_all(["p", "div", "blockquote", "h1", "h2", "h3", "h4", "li", "tr", "br"])):
