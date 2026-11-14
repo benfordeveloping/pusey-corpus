@@ -2,7 +2,7 @@
 
 This project aims to create a **full-text searchable concordance of the major works of E. B. Pusey**. Its source of truth is the owner's [bibliography](https://sites.google.com/view/drpusey/works).
 
-**Status at handoff:** The harvesting software, master bibliography, static-site generator, and GitHub Actions workflows are supplied. **The OCR files have NOT yet been downloaded in this package** because the file-building environment has no general outbound access to Archive.org. Do not mistake the bibliography for an indexed corpus. The included site reports the true number of indexed works.
+**Current verified state (14 November 2026):** GitHub Pages last successfully built **56 searchable works**, **5,157 HTML sections**, and **5,044,238 indexed words** (Actions run [43562576124](https://github.com/benfordeveloping/pusey-corpus/actions/runs/43562576124)). The current `bibliography.json`, `data/source_registry.csv`, and `data/harvest_report.csv` each contain **72** work records, although the original bibliography milestone was **74**; the two missing catalogue entries have **not yet been identified**, so do not present 56/72 as completion of the 74-item target. **16 current catalogue records remain unharvested.** Candidate matches are not verified OCR. See `data/owner_source_ledger_20261113.json` for owner-provided URLs and PDF provenance. The actual live index count is determined by the build log, not by candidate counts.
 
 ## Source catalogue: first mandatory milestone (74 bibliography entries)
 
