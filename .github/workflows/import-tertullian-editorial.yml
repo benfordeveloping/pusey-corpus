@@ -1,0 +1,30 @@
+name: Import Pusey-only Tertullian preface and notes
+on:
+  push:
+    paths:
+      - 'tools/import_tertullian_pusey_editorial_20261114.py'
+      - '.github/workflows/import-tertullian-editorial.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract exact audited Pusey editorial text
+        run: python tools/import_tertullian_pusey_editorial_20261114.py
+      - name: Commit only Pusey-only text and provenance
+        run: |
+          git config user.name "pusey-corpus-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bibliography.json data/raw/1842-introduction-and-notes-to-tertullian.txt data/clean/1842-introduction-and-notes-to-tertullian.txt data/records/1842-introduction-and-notes-to-tertullian.json data/source_registry.csv data/harvest_report.csv data/owner_source_ledger_20261113.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Index Pusey's signed Tertullian preface and 17 editorial notes only"
+            git pull --rebase origin main
+            git push
+          fi
