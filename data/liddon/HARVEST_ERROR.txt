@@ -17,11 +17,11 @@ LIDDON 16/69 Volume I · Chapter XVI: 11,232 words
 LIDDON 17/69 Volume I · Chapter XVII: 8,125 words
 LIDDON 18/69 Volume I · Chapter XVIII: 13,527 words
 Traceback (most recent call last):
-  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 303, in <module>
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 315, in <module>
     harvest()
-  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 146, in harvest
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 158, in harvest
     text = extract_text(original, volume, chapter)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 137, in extract_text
-    raise ValueError(f"Too little transcribed text in {key(volume,chapter)}: {len(text.split())} words")
-ValueError: Too little transcribed text in v02-c19: 367 words
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 148, in extract_text
+    raise ValueError(f"Possible truncated chapter {key(volume,chapter)}: "
+ValueError: Possible truncated chapter v02-c19: 367 extracted versus 393 source words
