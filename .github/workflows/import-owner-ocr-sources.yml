@@ -1,0 +1,32 @@
+name: Import verified University Sermons and Minor Prophets OCR
+on:
+  push:
+    paths:
+      - 'tools/import_owner_ocr_sources_20261114.py'
+      - '.github/workflows/import-owner-ocr-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download SHA-verified OCRs and update original corpus sources
+        run: python tools/import_owner_ocr_sources_20261114.py
+      - name: Commit source texts with provenance to the main corpus
+        run: |
+          git config user.name "pusey-corpus-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bibliography.json data/raw/ data/clean/ data/records/ data/source_registry.csv data/harvest_report.csv
+          if ! git diff --staged --quiet; then
+            git commit -m "Replace University Sermons I and import both Minor Prophets OCR volumes"
+            git pull --rebase origin main
+            git push
+          fi
