@@ -123,7 +123,7 @@ def measure(text):
     }
 
 def audit_marriage():
-    existing_path=ROOT/'data/raw/'+MARRIAGE+'.txt'
+    existing_path=ROOT/'data/raw'/(MARRIAGE+'.txt')
     if not existing_path.exists():raise ValueError('Previously verified 1849 marriage OCR missing')
     ident='marriagewithade00pusegoog'
     md,filename,url,raw,enc,sha,qc=source(ident)
