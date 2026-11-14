@@ -1,12 +1,10 @@
 # The Pusey Corpus — reproducible harvesting + public search
 
-This project aims to create a **full-text searchable concordance of the major works of E. B. Pusey**. Its source of truth is the owner's [bibliography](https://sites.google.com/view/drpusey/works).
+**Current catalogue (14 November 2026):** 67 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, and the Thomas of Jesus translation, and the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
 
-**Current verified state (14 November 2026):** GitHub Pages last successfully built **56 searchable works**, **5,157 HTML sections**, and **5,044,238 indexed words** (Actions run [43562576124](https://github.com/benfordeveloping/pusey-corpus/actions/runs/43562576124)). The current `bibliography.json`, `data/source_registry.csv`, and `data/harvest_report.csv` each contain **72** work records, although the original bibliography milestone was **74**; the two missing catalogue entries have **not yet been identified**, so do not present 56/72 as completion of the 74-item target. **16 current catalogue records remain unharvested.** Candidate matches are not verified OCR. See `data/owner_source_ledger_20261113.json` for owner-provided URLs and PDF provenance. The actual live index count is determined by the build log, not by candidate counts.
+## Source catalogue: 67 owner-approved bibliography entries
 
-## Source catalogue: first mandatory milestone (74 bibliography entries)
-
-`data/source_registry.csv` is the **authoritative 74-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
+`data/source_registry.csv` is the **authoritative 67-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
 
 The source status is explicit:
 
@@ -24,7 +22,7 @@ As of the initial release, *Daniel the Prophet* has one confirmed plaintext OCR 
 
 ## What's included
 
-- `bibliography.json` — 74 volume-level targets transcribed from the bibliography. Multi-volume works are split; two overlapping/revised editions are excluded from *default* indexing but retained in the bibliography.
+- `bibliography.json` — 67 owner-approved bibliography targets transcribed from the bibliography. Multi-volume works are split; two overlapping/revised editions are excluded from *default* indexing but retained in the bibliography.
 - `harvest.py` — uses the Internet Archive advanced-search/metadata APIs, downloads plain-text OCR, retains the unaltered text, creates lightly cleaned copies, and records scan URLs/edition metadata. Questionable results are *flagged for review* rather than silently indexed.
 - `build.py` — generates static HTML text-reading sections for every downloaded work and prepares the site for [Pagefind](https://pagefind.app/), a fast browser-based search index. Results identify title, year and text section, with highlighted snippets and a link to the full context.
 - `local_search.py` — alternative **fully offline** search website using SQLite FTS5, with quoted-phrase search and highlighted context. Requires only Python and downloaded OCR.

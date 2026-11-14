@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Owner-curated Pusey writings and personal contributions: 72 bibliography entries, including an independently indexed 1851 Hints for a First Confession; the two Minor Prophets physical volumes count as one work and Duquesne translations without Pusey prefaces are excluded.",
+  "description": "Owner-curated Pusey corpus: 67 unique bibliography entries after removal of 3 inappropriate/duplicative entries and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -154,17 +154,6 @@
       "indexing_scope": "full_original_work",
       "source_edition_id": "scripturalviews1840puse",
       "source_edition_year": 1840
-    },
-    {
-      "id": "1841-plain-sermons-by-contributors-to-the-tracts-for-the-time",
-      "year": 1841,
-      "title": "Plain Sermons by Contributors to the Tracts for the Times, Vol. III",
-      "search": "plain sermons contributors tracts times volume 3 pusey",
-      "category": "Sermons",
-      "contribution": "mixed",
-      "notes": "Multi-author Plain Sermons collection; only identified sermons written by E. B. Pusey may be imported. MUST compare sermon list with already indexed Parochial Sermons Vol. III (sermons preached by 1838, revised 1873, printing 1878) to prevent double-counting identical content. Never harvest entire third physical volume as Pusey authorship. Owner confirmation of whether this is a separate bibliographic work remains desirable.",
-      "index_by_default": false,
-      "indexing_scope": "pusey_authored_passages_only"
     },
     {
       "id": "1841-the-articles-treated-on-in-tract-90-reconsidered",
@@ -368,34 +357,29 @@
       "indexing_scope": "pusey_translator_introduction_only"
     },
     {
-      "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-i",
-      "year": 1846,
-      "title": "The Life of Jesus Christ in Glory on Earth (Nouet), Vol. I",
-      "search": "life jesus christ glory earth nouet pusey volume 1",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
-    },
-    {
-      "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-ii",
-      "year": 1846,
-      "title": "The Life of Jesus Christ in Glory on Earth (Nouet), Vol. II",
-      "search": "life jesus christ glory earth nouet pusey volume 2",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
-    },
-    {
       "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-iii",
       "year": 1846,
-      "title": "The Life of Jesus Christ in Glory on Earth (Nouet), Vol. III",
-      "search": "life jesus christ glory earth nouet pusey volume 3",
+      "title": "The Life of Jesus Christ in Glory on Earth (Nouet)",
+      "search": "life jesus christ glory earth nouet pusey historical editor advertisement introduction",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "One combined bibliographical entry for all physical volumes. Preserves the already indexed, Pusey-signed Advertisement located in the third source volume (1846). No translated meditations or unverified prefaces from Volumes I–II are indexed. Historical file identifier ending vol-iii deliberately retained to preserve existing reader links.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "source_components": [
+        {
+          "volume": "I",
+          "status": "no separate verified Pusey preface indexed"
+        },
+        {
+          "volume": "II",
+          "status": "no separate verified Pusey preface indexed"
+        },
+        {
+          "volume": "III",
+          "archive_id": "lifejesuschrist03chrigoog",
+          "status": "Pusey Advertisement already indexed"
+        }
+      ]
     },
     {
       "id": "1846-the-spiritual-combat-scupoli-preface-and-translation",
@@ -473,16 +457,6 @@
       "first_published_year": 1851,
       "source_edition_year": 1884,
       "notes": "Separate Pusey-authored work, first printed 1851. Project Canterbury transcription of 1884 reprint in Penitence, edited by C. W. Furse (London: Walter Smith). Extract signed text through E.B.P.; source transcribed by Rev. John D. Alexander (2000). Do not append following two-line verse or site navigation."
-    },
-    {
-      "id": "1853-a-letter-to-the-archbishop-of-dublin-on-miss-sellon-s-es",
-      "year": 1853,
-      "title": "A Letter to the Archbishop of Dublin on Miss Sellon's Establishment",
-      "search": "letter archbishop dublin miss sellon devonport",
-      "category": "Letters",
-      "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
     },
     {
       "id": "1853-parochial-sermons-vol-ii",
@@ -717,16 +691,6 @@
       "contribution": "authored",
       "notes": "",
       "indexing_scope": "full_original_work"
-    },
-    {
-      "id": "1869-the-sufferings-of-jesus-thomas-of-jesus-preface-and-tran",
-      "year": 1869,
-      "title": "The Sufferings of Jesus (Thomas of Jesus): Preface and Translation",
-      "search": "sufferings jesus thomas jesu pusey",
-      "category": "Translations",
-      "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
     },
     {
       "id": "1870-eirenicon-part-iii-is-healthful-reunion-impossible",
