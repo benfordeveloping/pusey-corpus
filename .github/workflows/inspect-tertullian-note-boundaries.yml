@@ -1,0 +1,30 @@
+name: Inspect Tertullian editorial notes boundaries
+on:
+  push:
+    paths:
+      - 'tools/inspect_tertullian_note_regions.py'
+      - '.github/workflows/inspect-tertullian-note-boundaries.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Locate note headings and translated-work boundaries
+        run: python tools/inspect_tertullian_note_regions.py
+      - name: Commit boundary report only
+        run: |
+          git config user.name "pusey-corpus-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tertullian_note_boundary_inspection_20261114.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record verified Tertullian editorial note passage boundaries"
+            git pull --rebase origin main
+            git push
+          fi
