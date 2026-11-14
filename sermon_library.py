@@ -107,48 +107,93 @@ def find_start(src,trow,page,known_title):
  return choice
 
 def extract_leeds(entry,src):
- t=src['t'];ref=next((x for x in entry['refs'] if x.startswith('SSL')),None)
- if not ref:return None
- page=int(ref.split(':')[1]) if ':' in ref else 0
- if not page:return None
- guess=(page/350)*len(t)
- h=min(src['heads'],key=lambda x:abs(x['at']-guess),default=None)
- if not h or abs(h['at']-guess)>49000:return None
- # A scripture-specific preliminary match: the source has only 10 sermons.
- book=entry['scripture'].split(' ')[-2].lower() if entry['scripture'].startswith('1 ') else entry['scripture'].split()[0].lower()
- if book=='ps':book='ps'
- if book not in norm(t[h['at']:h['at']+750]):return None
- return {'code':'SSL','slug':src['slug'],'source_title':src['label'],'source_year':src['year'],
-         'start':h['at'],'ordinal':h['n'],'printed_page':page,'match_score':.77,'method':'Leeds heading/printed page'}
+ # Madan's Leeds page references are to ten selected Pusey sermons in
+ # SERMON I and XI–XIX; direct page-to-character interpolation is unsafe.
+ refs=[x for x in entry["refs"] if x.startswith("SSL:")]
+ if not refs:return None
+ page=int(refs[0].split(":")[1])
+ page_to_ordinal={1:1,173:11,192:12,211:13,237:14,255:15,
+                  272:16,289:17,309:18,330:19}
+ ordinal=page_to_ordinal.get(page)
+ if ordinal is None:return None
+ h=next((h for h in src["heads"] if h["n"]==ordinal),None)
+ if h is None:return None
+ # Preserve independent sermon identity even for two consecutive sermons
+ # both beginning at the same scriptural text.
+ return {"code":"SSL","slug":src["slug"],"source_title":src["label"],"source_year":src["year"],
+         "start":h["at"],"ordinal":ordinal,"printed_page":page,
+         "match_score":0.94,"method":"Madan Leeds page → confirmed numbered Pusey sermon"}
 
+
+def direct_lookup(entry,code,src,page,ordinal=None):
+ """Fallback when OCR damaged the parent volume's numbered contents.
+
+ Only a likely page/ordinal plus an independently found printed title
+ is sufficient for extraction. Never extract from an estimated offset.
+ """
+ t=src["t"];cut=src["cutoff"];book=entry["scripture"].split()[0].lower()
+ if book in ("1","2"):book=entry["scripture"].split()[1].lower()
+ maxpage={"PS1":400,"PS2":400,"PS3":480,"PC":525,"LS":495,
+          "US1":320,"US2":495,"US3":510,"OPS":240}.get(code,450)
+ expected=(cut+(page/maxpage)*(len(t)-cut)) if page is not None else (
+          cut+(ordinal/max(1,len(src["toc"])+1))*(len(t)-cut) if ordinal else None)
+ options=title_positions(t,entry["title"],cut)
+ options=[cut+p for p in options if cut+p>cut+45]
+ # Reject running heads if a likely title is not followed by a biblical
+ # citation nearby; allow titles if OCR has ruined the scripture heading.
+ def evidence(pos):
+  segment=norm(t[pos:pos+650])
+  if book in segment:return True
+  return (page is not None and expected is not None and abs(pos-expected)<17000)
+ grounded=[p for p in options if evidence(p)]
+ if grounded:options=grounded
+ if not options:
+  # OCR may hyphenate/misspell an individual word in an otherwise clear
+  # title. Read only plausible uppercase heading lines near the page.
+  if expected is None:return None
+  start=max(cut,int(expected)-39000);end=min(len(t),int(expected)+39000)
+  for m in re.finditer(r"(?m)^[ \t]*[A-Z][A-Z0-9 ,.!?\'\"’—–-]{8,115}[ \t]*$",t[start:end],re.M):
+   label=m.group(0).strip()
+   if similarity(label,entry["title"])>=0.76:options.append(start+m.start())
+ if not options:return None
+ chosen=min(options,key=lambda x:abs(x-expected)) if expected is not None else options[0]
+ if expected is not None and abs(chosen-expected)>max(60000,len(t)*0.11):
+  return None
+ # Distinct Madan page and title evidence; source headings are not guessed.
+ return {"code":code,"slug":src["slug"],"source_title":src["label"],"source_year":src["year"],
+         "start":chosen,"printed_page":page,"ordinal":ordinal,
+         "match_score":0.78 if page is not None else 0.66,
+         "method":"Madan title + source page / heading"}
 def locate(entry,sources):
  candidates=[]
- for ref in entry['refs']:
-  code=ref.split(':')[0]
+ for ref in entry["refs"]:
+  code=ref.split(":")[0]
   if code not in sources:continue
-  src=sources[code];t=src['t']
+  src=sources[code];t=src["t"]
   if len(t)<2000:continue
-  if code=='SSL':
-   result=extract_leeds(entry,src)
-   if result:candidates.append(result)
+  if code=="SSL":
+   hit=extract_leeds(entry,src)
+   if hit:candidates.append(hit)
    continue
-  page=int(ref.split(':')[1]) if ':' in ref and ref.split(':')[1].isdigit() else None
+  page=int(ref.split(":")[1]) if ":" in ref and ref.split(":")[1].isdigit() else None
   ranked=[]
-  for h in src['toc']:
-   score=similarity(entry['title'],h['title'])
-   if page is not None and h['page'] is not None and abs(page-h['page'])<=2:
-    score=max(score,.89-.07*abs(page-h['page']))
+  for h in src["toc"]:
+   score=similarity(entry["title"],h["title"])
+   if page is not None and h["page"] is not None and abs(page-h["page"])<=2:
+    score=max(score,.89-.07*abs(page-h["page"]))
    ranked.append((score,h))
-  if not ranked:continue
-  score,h=max(ranked,key=lambda x:x[0])
-  if score<.57:continue
-  start=find_start(src,h,page or h['page'],h['title'])
-  if start is None:continue
-  candidates.append({'code':code,'slug':src['slug'],'source_title':src['label'],
-     'source_year':src['year'],'ordinal':h['n'],'printed_page':page or h['page'],
-     'start':start,'match_score':round(score,3),'method':'volume TOC and sermon heading'})
- return max(candidates,key=lambda c:c['match_score'],default=None)
-
+  choice=max(ranked,key=lambda x:x[0]) if ranked else None
+  if choice and choice[0]>=.57:
+   score,h=choice
+   start=find_start(src,h,page or h["page"],h["title"])
+   if start is not None:
+    candidates.append({"code":code,"slug":src["slug"],"source_title":src["label"],
+       "source_year":src["year"],"ordinal":h["n"],"printed_page":page or h["page"],
+       "start":start,"match_score":round(score,3),"method":"volume TOC and sermon heading"})
+  # Directly check Madan's printed page and title where the TOC has bad OCR.
+  fallback=direct_lookup(entry,code,src,page,choice[1]["n"] if choice and choice[0]>.55 else None)
+  if fallback:candidates.append(fallback)
+ return max(candidates,key=lambda c:c["match_score"],default=None)
 def assign_dates(row):
  date=row.get('date')
  if date and re.fullmatch('1[678][0-9]{2}',str(date)):
