@@ -26,7 +26,8 @@ assert 'Title A–Z' in main and 'Scripture (Madan order)' in main
 assert 'id="scope"' in main and "querySelector('#sort')" in js and 'browseQ' not in js
 assert 'type="module" src="listing.js"' in main
 assert "import('./pagefind/pagefind.js')" in js, "Sermon search must use its own Pagefind index"
-assert "p.search(query)" in js, "Search every indexed word, not just a title"
+assert "searchWithOcrVariants(p,query)" in js, "Search sermon text, including bounded OCR variants"
+assert "from '../ocr_variants.js'" in js, "Use shared OCR search helper"
 assert "function hitSentence(d,query)" in js, "Compute contextual sermon sentences"
 assert "d.locations" in js, "Use Pagefind's actual match location in the OCR"
 assert "hitSentence(d,q.value.trim())" in js, "Display the highlighted sentence below each result"
