@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-13",
+  "updated_utc": "2026-11-14",
   "purpose": "Complete owner-supplied sources including exact excerpt boundaries and import status, as of November 13, 2026. Additional sections are never silently promoted as Pusey's prose.",
   "entries": [
     {
@@ -188,6 +188,30 @@
       "source_notes": "Two distinct 1950 Baker Book House physical volumes, preserved separately and merged into one searchable bibliography entry: volume I Hosea–Jonah, volume II Micah–Malachi. Original 1950 OCR unproofread; exact SHA hashes in individual record.",
       "github_clean_path": "data/clean/1860-the-minor-prophets-with-commentary.txt",
       "github_raw_path": "data/raw/1860-the-minor-prophets-with-commentary.txt"
+    },
+    {
+      "bibliography_id": "1836-dr-hampden-s-theological-statements-and-the-thirty-nine",
+      "label": "Dr Hampden's Theological Statements and the Thirty-nine Articles Compared (1836)",
+      "user_supplied_url": "https://archive.org/stream/a604992800puseuoft/a604992800puseuoft_djvu.txt",
+      "ingestion_status": "confirmed_scan_ocr_pending",
+      "github_source_url": "https://archive.org/details/a604992800puseuoft",
+      "source_notes": "Owner provided the previously missing OCR on 2026-11-14; verify exact book title and text before indexing."
+    },
+    {
+      "bibliography_id": "1855-preface-to-meditations-and-prayers-of-st-anselm",
+      "label": "St Anselm Meditations and Prayers — Pusey's Historical Notice ONLY",
+      "user_supplied_url": "https://archive.org/stream/meditationsandp00ansegoog/meditationsandp00ansegoog_djvu.txt",
+      "ingestion_status": "confirmed_scan_excerpt_pending",
+      "github_source_url": "https://archive.org/details/meditationsandp00ansegoog",
+      "source_notes": "Source is Anselm's devotional book, with Pusey's Historical Notice. Bibliography currently labels this entry Preface (1855); the source is described in later scholarship as the 1856 Parker volume. Index only authenticated Pusey notice; exclude Anselm's meditations and all other material."
+    },
+    {
+      "bibliography_id": "1849-marriage-with-a-deceased-wife-s-sister-prohibited-by-hol",
+      "label": "Marriage with a Deceased Wife's Sister (1849), alternative owner-supplied OCR",
+      "user_supplied_url": "https://archive.org/stream/marriagewithade00pusegoog/marriagewithade00pusegoog_djvu.txt",
+      "ingestion_status": "alternative_edition_already_in_source_candidates",
+      "github_source_url": "https://archive.org/details/marriagewithade00pusegoog",
+      "source_notes": "Book already indexed using b29349412 (95,218 words). Owner supplied a second digitization; already source_candidates.csv rank 2. Keep current verified original unless alternative is proven clearer, and do not duplicate bibliography work."
     }
   ]
 }
