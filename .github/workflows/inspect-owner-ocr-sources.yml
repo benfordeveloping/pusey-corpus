@@ -1,0 +1,31 @@
+name: Inspect owner-supplied OCR sources (Nov 2026)
+on:
+  push:
+    paths:
+      - 'tools/inspect_owner_sources_20261114.py'
+      - '.github/workflows/inspect-owner-ocr-sources.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect Archive full-text sources and document boundaries
+        run: python tools/inspect_owner_sources_20261114.py
+      - name: Commit only inspection report
+        run: |
+          git config user.name "pusey-corpus-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/owner_ocr_inspection_20261114.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Record inspected owner-supplied University, Prophets, and Tertullian OCR sources"
+            git push
+          fi
