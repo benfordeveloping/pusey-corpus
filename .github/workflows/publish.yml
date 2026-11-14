@@ -30,10 +30,15 @@ jobs:
           node-version: '22'
       - name: Test category-or-single-work filter
         run: python tools/test_search_scope.py
-      - name: Build static readings and search index
+      - name: Build static readings and independent search indexes
         run: |
           python build.py
-          npx -y pagefind@1.4.0 --site site
+          python tools/test_sermon_search.py
+          # Keep corpus-volume and individual-sermon results in separate indexes.
+          npx -y pagefind@1.4.0 --site site --glob 'works/**/*.html'
+          npx -y pagefind@1.4.0 --site site --glob 'sermons/m???.html' --output-subdir sermons/pagefind
+          test -f site/pagefind/pagefind.js
+          test -f site/sermons/pagefind/pagefind.js
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
