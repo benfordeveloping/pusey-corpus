@@ -344,8 +344,7 @@ def write_site(root,site):
  intro+='<section id="sermon-search-results" hidden><p id="search-count" class="notice" role="status" aria-live="polite"></p>'
  intro+='<ol id="search-hits" class="results"></ol><button id="search-more" class="more" hidden>Show 20 more results</button></section>'
  intro+='<section id="sermon-browse"><h2>Browse the sermon catalogue</h2>'
- intro+='<div class="search-panel"><label for="browse-q">Filter by title or Scripture</label><div class="query-row"><input id="browse-q" type="search" placeholder="Title, biblical reference, year, volume…" autocomplete="off"></div>'
- intro+='<div class="filter-row"><label for="sort">Sort by:</label><select id="sort"><option value="scripture">Scripture (Madan order)</option><option value="date">Chronological / date range</option><option value="title">Title A–Z</option></select>'
+ intro+='<div class="search-panel"><div class="filter-row" style="margin-top:0"><label for="sort">Sort by:</label><select id="sort"><option value="scripture">Scripture (Madan order)</option><option value="date">Chronological / date range</option><option value="title">Title A–Z</option></select>'
  intro+='<label for="scope">Show:</label><select id="scope"><option value="">All sermons</option><option value="available">Readable texts</option><option value="missing">Not yet located</option></select>'
  intro+='<a href="missing.html">Unresolved-sermon list</a></div></div><p id="count" class="notice"></p><ol id="list" style="padding-left:0"></ol></section>'
  intro+='<p class="notice">Preaching years are taken from Madan where stated; otherwise the interface gives a documented volume-level range rather than an invented year. OCR text is not fully proofread; the original sermon volumes remain available in the main corpus.</p>'
@@ -360,7 +359,7 @@ def write_site(root,site):
  (out/'listing.js').write_text("""// The catalog remains browsable, while Pagefind searches the full text
 // of individual sermons in a completely separate sermon-only index.
 const data=JSON.parse(document.querySelector('#data').textContent);
-const q=document.querySelector('#q'),browseQ=document.querySelector('#browse-q');
+const q=document.querySelector('#q');
 const sort=document.querySelector('#sort'),scope=document.querySelector('#scope');
 const browse=document.querySelector('#sermon-browse'),list=document.querySelector('#list'),count=document.querySelector('#count');
 const searchArea=document.querySelector('#sermon-search-results'),hits=document.querySelector('#search-hits');
@@ -369,9 +368,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 let engine=null,all=[],shown=0,sequence=0,timer=null;
 
 function drawBrowse(){
- let items=data.filter(x=>(!scope.value||x.status===scope.value)
-  &&(!browseQ.value||[x.title,x.scripture,x.date_info.label,x.refs.join(' ')]
-    .join(' ').toLowerCase().includes(browseQ.value.toLowerCase().trim())));
+ let items=data.filter(x=>!scope.value||x.status===scope.value);
  if(sort.value==='title')items.sort((a,b)=>a.title.localeCompare(b.title)||a.order-b.order);
  else if(sort.value==='date')items.sort((a,b)=>(a.date_info.earliest??a.date_info.latest??9999)
  -(b.date_info.earliest??b.date_info.latest??9999)||(a.date_info.latest??9999)
@@ -442,9 +439,7 @@ async function runSearch(){
  }
 }
 q.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(runSearch,250)});
-for(const control of [browseQ,sort,scope]){
- control.addEventListener(control===browseQ?'input':'change',drawBrowse);
-}
+for(const control of [sort,scope])control.addEventListener('change',drawBrowse);
 more.addEventListener('click',renderMore);
 const initial=new URLSearchParams(location.search).get('q');
 if(initial)q.value=initial;
