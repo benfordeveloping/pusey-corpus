@@ -32,9 +32,7 @@ EXPECTED={
 REPORT=ROOT/"data"/"owner_ocr_inspection_20261114.json"
 
 def download(key,url):
-    endpoints=[url]
-    if "/stream/" in url:
-        endpoints.append(url.replace("/stream/","/download/",1))
+    endpoints=[url.replace("/stream/","/download/",1),url] if "/stream/" in url else [url]
     last=None
     for endpoint in endpoints:
         for attempt in range(3):
@@ -45,6 +43,8 @@ def download(key,url):
                 with urllib.request.urlopen(req,timeout=125) as res:raw=res.read()
                 sha=hashlib.sha256(raw).hexdigest()
                 txt=raw.decode("utf-8-sig")
+                if txt.lstrip().lower().startswith(("<!doctype html","<html","<head")):
+                    raise RuntimeError("Archive served an HTML page, not the OCR text at "+endpoint)
                 # IA's /stream endpoint can serve a reprocessed OCR on another
                 # day. Do NOT silently label it as the previously inspected blob.
                 if sha!=EXPECTED[key]:
@@ -52,8 +52,8 @@ def download(key,url):
                           "bytes",len(raw),"new SHA",sha,
                           "first text",repr(txt[:200]),flush=True)
                     # Reject substitutes or download error pages.
-                    if len(raw)<800_000 or "Pusey" not in txt[:100_000]:
-                        raise ValueError("Unexpected replacement OCR for "+key)
+                    if len(raw)<800_000 or not re.search(r"pusey",txt[:100_000],re.I):
+                        raise RuntimeError("Unexpected replacement OCR for "+key)
                 return txt,raw,sha
             except Exception as exc:
                 last=exc
