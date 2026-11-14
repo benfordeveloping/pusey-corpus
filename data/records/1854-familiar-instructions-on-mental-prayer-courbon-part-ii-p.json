@@ -1,0 +1,23 @@
+{
+  "id": "1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p",
+  "year": 1854,
+  "title": "Preface to Familiar Instructions on Mental Prayer, Part II (Courbon)",
+  "category": "Translations",
+  "contribution": "translation",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "status": "downloaded",
+  "source": "Owner-supplied complete pasted OCR of Pusey preface",
+  "source_title": "Familiar Instructions on Mental Prayer, Part II (Courbon)",
+  "source_creator": "E. B. Pusey (preface only); Courbon (excluded main work)",
+  "signed_date": "Feast of the Epiphany, 1854",
+  "scope_verified": true,
+  "content_scope": "pusey_translator_introduction_only",
+  "extraction_boundaries": {
+    "start": "PREFACE. In one of the references to the writings of S. Theresa",
+    "end": "E. B. P. / Feast of the Epiphany / 1854.",
+    "excluded": "All Courbon instructional chapters"
+  },
+  "word_count": 895,
+  "authorship_review_needed": false,
+  "qc": "Complete owner-supplied signed preface only, original OCR retained. Glaring OCR errors (including 'eabot^aMisRk ^k^') intentionally not silently conjectured; collate scan later."
+}

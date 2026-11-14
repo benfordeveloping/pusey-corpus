@@ -486,12 +486,13 @@
     {
       "id": "1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p",
       "year": 1854,
-      "title": "Familiar Instructions on Mental Prayer (Courbon), Part II: Preface and Translation",
+      "title": "Preface to Familiar Instructions on Mental Prayer, Part II (Courbon)",
       "search": "familiar instructions mental prayer courbon second part pusey",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Only the second part is edited by Pusey | Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "Full Pusey preface signed E.B.P., Feast of the Epiphany 1854, owner-provided OCR transcript. Courbon translated content excluded. Printed page headers 84–88 removed from search copy, preserved in raw. OCR corruption requires collation against scan.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "preface_signed_year": 1854
     },
     {
       "id": "1855-preface-to-meditations-and-prayers-of-st-anselm",

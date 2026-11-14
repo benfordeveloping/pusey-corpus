@@ -224,6 +224,16 @@
       "github_raw_path": "data/raw/1845-the-year-of-affections-avrillon-preface-and-translation.txt",
       "github_clean_path": "data/clean/1845-the-year-of-affections-avrillon-preface-and-translation.txt",
       "source_notes": "Owner-supplied 1847 Google Books PDF. Exactly PDF viewer pp.12–33 (printed preface vii–xxviii) contain Pusey's own Editor's Preface, signed Christ Church Septuagesima, Feast of Conversion of St Paul 1845. Following Bishop Taylor On Meditation, author's preface and translated Avrillon excluded."
+    },
+    {
+      "bibliography_id": "1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p",
+      "label": "Preface to Familiar Instructions on Mental Prayer, Part II (Courbon)",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_user_supplied_pusey_preface_only",
+      "github_source_url": null,
+      "github_raw_path": "data/raw/1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p.txt",
+      "github_clean_path": "data/clean/1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p.txt",
+      "source_notes": "Owner pasted entire preface, signed E.B.P., Feast of Epiphany 1854. Raw OCR contains uncertain phrase 'eabot^aMisRk ^k^' and other errors; original transcription retained and light copy only strips running headers. All Courbon translation excluded."
     }
   ]
 }
