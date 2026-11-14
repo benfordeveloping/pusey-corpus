@@ -28,10 +28,13 @@ US1 = [
  ("m002",1254917,r"(?im)^[ \t]*PATIENCE\s+AND\s+CONFIDENCE\s+THE\s+STRENGTH\s+OF\s+THE\s+CHURCH")
 ]
 US2 = [
+ ("m036",238839,r"(?im)^[ \t]*SERMON\s+VI\.\s*$"),
+ ("m028",286041,r"(?im)^[ \t]*SERMOX\s+YU\\\s*$"),
  ("m107",327637,r"(?im)^[ \t]*SEEMON\s+YIIL\s*$"),
  ("_gospel_end",365569,r"(?im)^[ \t]*SEEMON\s+IX\.\s*$"),
  ("m119",401107,r"(?im)^[ \t]*SERMON\s+X\.\s*$"),
- ("_atonement_end",449647,r'(?im)^[ \t]*seemo:n"\s+XI\.\s*$'),
+ ("m030",449647,r'(?im)^[ \t]*seemo:n"\s+XI\.\s*$'),
+ ("m148",490481,r"(?im)^[ \t]*SEEMON\s+XII\*\.\s*$"),
  ("m136",526592,r"(?im)^[ \t]*SEEMONXIII\^\s*$"),
  ("m153",564731,r"(?im)^[ \t]*SEEMON\s+XIY\^\s*$"),
  ("m021",596339,r"(?im)^[ \t]*SERMON\s+XV\.\s*$"),

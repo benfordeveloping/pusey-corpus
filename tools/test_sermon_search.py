@@ -55,6 +55,7 @@ requested = {
     "m142": "PREFACE", "m177": "justification",
     "m166": "ADVERTISEMENT", "m137": "ALL", "m107": "SEEMON",
     "m119": "SERMON", "m136": "SEEMON", "m105": "SEEMO",
+    "m036": "SERMON", "m028": "SERMOX", "m030": "seemo", "m148": "SEEMON",
 }
 by_id = {e["id"]: e for e in entries}
 for sid, anchor in requested.items():
