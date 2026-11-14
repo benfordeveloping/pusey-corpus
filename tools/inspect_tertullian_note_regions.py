@@ -61,6 +61,25 @@ def main():
     heads.append({"at":p,"heading":line,"context":snippet(t,p,80)})
   report[name]={"span":[start,end],"candidate_headings":heads[:90],"candidate_count":len(heads)}
   print(name,"candidate headings",len(heads),flush=True)
+ # Locate the exact opening of the translated works after editorial notes.
+ # They are hard STOP markers: never include translated Tertullian with Pusey.
+ critical={
+  "G_to_Of_Prayer":(r"(?im)^\s*OF\s+PRAYER\s*[\.,]?\s*$",980000,1130000),
+  "M_to_First_Wife":(r"(?im)^\s*THE\s+FIRST\s+BOOK\s+TO\s+HIS\s+WIFE\s*[\.,]?\s*$",1310000,1475000),
+  "D_to_Witness":(r"(?im)^\s*OF\s+THE\s+WITNESS\s+OF\s+THE\s+SOUL\s*[\.,]?\s*$",465000,530000),
+  "E_to_Shows":(r"(?im)^\s*OF\s+PUBLIC\s+SHOWS\s*[\.,*]?\s*$",673000,720000),
+  "F_to_Baptism":(r"(?im)^\s*OF\s+BAPTISM\s*[\.,]?\s*$",884000,930000),
+  "I_to_Patience":(r"(?im)^\s*OF\s+PATIENCE\s*[\.,]?\s*$",1140000,1190000),
+  "N_to_Second_Wife":(r"(?im)^\s*THE\s+SECOND\s+BOOK\s+TO\s+HIS\s+WIFE\s*[\.,]?\s*$",1460000,1490000),
+  "O_to_Prescription":(r"(?im)^\s*ON\s+PRESCRIPTION\s+AGAINST\s+HERETICS\s*[\.,]?\s*$",1500000,1550000),
+  "Additional_to_Index":(r"(?im)^\s*INDEX\s*[\.,]?\s*$",1750000,1780000)
+ }
+ report["next_translation_boundaries"]={}
+ for k,(pattern,start,end) in critical.items():
+  hits=[m.start() for m in re.finditer(pattern,t[start:end])]
+  report["next_translation_boundaries"][k]=[
+    {"at":start+pos,"context":snippet(t,start+pos,130)} for pos in hits[:8] ]
+  print("BOUNDARY",k,report["next_translation_boundaries"][k],flush=True)
  # For gaps between the notes and translations, capture page-number/heading
  # contexts at evenly spaced points to allow conservative manual cut decisions.
  targets=[449829,457000,464000,473000,487000,500000,
