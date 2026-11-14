@@ -33,6 +33,7 @@ jobs:
       - name: Build static readings and independent search indexes
         run: |
           python build.py
+          python tools/test_owner_imports.py
           python tools/test_sermon_search.py
           node --check site/sermons/listing.js
           node --check site/search.js
