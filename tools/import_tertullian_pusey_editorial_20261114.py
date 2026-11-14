@@ -148,8 +148,10 @@ def main():
     # and ends before 'THE BOOK OF APOLOGY AGAINST THE HEATHEN'.
     openings=[m.start() for m in re.finditer(r"(?im)^\s*PREFACE\s*\.",text[:14000])]
     openings=[p for p in openings if 6800<p<9000]
-    if len(openings)!=1:raise RuntimeError("Pusey preface opening ambiguous "+repr(openings))
-    start=openings[0]
+    if not openings:raise RuntimeError("Pusey preface opening not found")
+    # Subsequent printed pages repeat PREFACE as a running header.
+    # The first occurrence after the contents is the full Preface opening.
+    start=min(openings)
     sign=re.search(r"E\s*\.\s*B\s*\.\s*P\s*\.",text[57000:64000],re.I)
     if not sign:raise RuntimeError("Pusey signature not found in signed preface")
     signature_pos=57000+sign.start()
