@@ -178,7 +178,8 @@ def main():
             # Full uppercase heading of next treatise must be at the beginning
             # of the excluded text, not inside the Note section.
             after=text[b:b+180]
-            if not re.search(re.escape(forbidden.split(" (")[0][:10]),after,re.I):
+            normalize=lambda word:re.sub(r"[^a-z]","",word.lower())
+            if not normalize(after).startswith(normalize(forbidden)[:12]):
                 raise RuntimeError("Translated work boundary for Note "+letter+" shifted: "+repr(after[:100]))
         clean_sections.append("[EDITORIAL NOTE "+letter+"]\n"+excerpt.strip())
         ranges.append({"section":"Note "+letter,"start":a,"end":b,
