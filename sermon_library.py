@@ -356,7 +356,8 @@ def write_site(root,site):
  (out/'missing.html').write_text(missingpage,encoding='utf8')
  (out/'catalogue.json').write_text(json.dumps({'entries':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf8')
  (out/'match_report.json').write_text(json.dumps([{k:e.get(k) for k in ('id','title','scripture','refs','status','code','start','end','word_count','match_score','method','reason')} for e in rows],indent=2,ensure_ascii=False)+'\n',encoding='utf8')
- (out/'listing.js').write_text("""// The catalog remains browsable, while Pagefind searches the full text
+ (out/'listing.js').write_text("""import {searchWithOcrVariants} from '../ocr_variants.js';
+// The catalog remains browsable, while Pagefind searches the full text
 // of individual sermons in a completely separate sermon-only index.
 const data=JSON.parse(document.querySelector('#data').textContent);
 const q=document.querySelector('#q');
@@ -489,11 +490,12 @@ async function runSearch(){
  searchCount.textContent='Searching sermon texts…';
  try{
   const p=await loadEngine();
-  const result=await p.search(query);
+  const result=await searchWithOcrVariants(p,query);
   if(current!==sequence)return;
   all=result?.results||[];
   searchCount.textContent=all.length.toLocaleString()
-   +' sermons with matching full-text passages. Open a result to read the sermon in context.';
+   +' sermons with matching full-text passages. Open a result to read the sermon in context.'
+   +(result.additional?' Includes '+result.additional+' sermons with possible OCR misreadings.':'');
   if(!all.length)searchCount.textContent='No available sermon texts match that search. Try a different word or phrase.';
   await renderMore();
  }catch(err){
