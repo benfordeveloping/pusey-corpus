@@ -1,0 +1,27 @@
+LIDDON 01/69 Volume I · Chapter I: 10,044 words
+LIDDON 02/69 Volume I · Chapter II: 7,676 words
+LIDDON 03/69 Volume I · Chapter III: 4,452 words
+LIDDON 04/69 Volume I · Chapter IV: 803 words
+LIDDON 05/69 Volume I · Chapter V: 8,311 words
+LIDDON 06/69 Volume I · Chapter VI: 7,918 words
+LIDDON 07/69 Volume I · Chapter VII: 4,184 words
+LIDDON 08/69 Volume I · Chapter VIII: 11,559 words
+LIDDON 09/69 Volume I · Chapter IX: 4,845 words
+LIDDON 10/69 Volume I · Chapter X: 15,631 words
+LIDDON 11/69 Volume I · Chapter XI: 7,604 words
+LIDDON 12/69 Volume I · Chapter XII: 9,448 words
+LIDDON 13/69 Volume I · Chapter XIII: 7,957 words
+LIDDON 14/69 Volume I · Chapter XIV: 7,002 words
+LIDDON 15/69 Volume I · Chapter XV: 5,589 words
+LIDDON 16/69 Volume I · Chapter XVI: 11,232 words
+LIDDON 17/69 Volume I · Chapter XVII: 8,125 words
+LIDDON 18/69 Volume I · Chapter XVIII: 13,527 words
+Traceback (most recent call last):
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 303, in <module>
+    harvest()
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 146, in harvest
+    text = extract_text(original, volume, chapter)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/pusey-corpus/pusey-corpus/liddon_library.py", line 137, in extract_text
+    raise ValueError(f"Too little transcribed text in {key(volume,chapter)}: {len(text.split())} words")
+ValueError: Too little transcribed text in v02-c19: 367 words
