@@ -126,3 +126,11 @@ The 1836 Hampden pamphlet (`a604992800puseuoft`) has been imported from verified
 ## Owner-supplied Enquiry Part II (1830)
 
 The owner's uploaded 1830 PDF is the separate **Part II** of Pusey's *Historical Enquiry*, not the already indexed 1828 Part I. The full text layer (116,551 search-index words) was preserved in `data/raw/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt` and lightly normalized in `data/clean/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt`. It includes the preface, eleven chapters, Additional Notes and Errata. Non-book library marks were omitted. The PDF was not itself committed; source filename, SHA-256 and extraction limits are recorded in `data/records/`. OCR proofreading remains desirable.
+
+## Independent Liddon biography search (1894)
+
+The complete *Life of Edward Bouverie Pusey* by Henry Parry Liddon is a **separate source collection**, not part of the Pusey-authored corpus or Madan sermon index. All **69 linked chapters** of the four-volume Project Canterbury transcription (by the Revd R. D. Hacking, 2002) have been imported as per-chapter JSON source texts under `data/liddon/`, with original URLs and source-content hashes. The table of contents supplies the volume/chapter mapping: I.1–18; II.19–34; III.1–17; IV.1–18.
+
+`python liddon_library.py fetch` independently re-gathers all sources and validates complete chapter coverage. `python liddon_library.py build` generates full chapter readers, approximately 900-word search passages, and one unified biography subpage at `site/liddon/index.html`. The main `build.py` invokes the independent builder, and `.github/workflows/publish.yml` creates a **third, separate Pagefind index** restricted to `liddon/sections/*.html`. Search results identify the volume, chapter and passage, display an excerpt, and link to a full chapter reader.
+
+`tools/test_liddon.py` checks all 69 imported chapters and the generated search pages. No Liddon biography text is included in the search index for Pusey's own works or the individual sermons.
