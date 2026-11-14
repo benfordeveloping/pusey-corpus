@@ -432,8 +432,9 @@ function hitSentence(d,query){
  const passage=content.slice(start,end).trim();
  if(!passage)return d.excerpt||'';
  // Escape the entire OCR passage, retaining only our generated mark tags.
- const special='\\^$.*+?()[]{}|/';
- const escapedTerms=terms.map(term=>Array.from(term).map(c=>special.includes(c)?'\\'+c:c).join(''));
+ const slash=String.fromCharCode(92);
+ const special='^$.*+?()[]{}|/'+slash;
+ const escapedTerms=terms.map(term=>Array.from(term).map(c=>special.includes(c)?slash+c:c).join(''));
  const marker=escapedTerms.length?new RegExp(escapedTerms.join('|'),'giu'):null;
  let highlighted='',last=0,marks=0;
  if(marker)for(const match of passage.matchAll(marker)){
