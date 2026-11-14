@@ -201,9 +201,10 @@
       "bibliography_id": "1855-preface-to-meditations-and-prayers-of-st-anselm",
       "label": "St Anselm Meditations and Prayers — Pusey's Historical Notice ONLY",
       "user_supplied_url": "https://archive.org/stream/meditationsandp00ansegoog/meditationsandp00ansegoog_djvu.txt",
-      "ingestion_status": "confirmed_scan_excerpt_pending",
+      "ingestion_status": "verified_pusey_historical_notice_only",
       "github_source_url": "https://archive.org/details/meditationsandp00ansegoog",
-      "source_notes": "Source is Anselm's devotional book, with Pusey's Historical Notice. Bibliography currently labels this entry Preface (1855); the source is described in later scholarship as the 1856 Parker volume. Index only authenticated Pusey notice; exclude Anselm's meditations and all other material."
+      "source_notes": "Signed September Ember Week 1856; the Historical Notice alone is extracted from OCR chars 3456-21576. The book and its meditations/prayers excluded. Existing 1855 bibliography ID retained.",
+      "github_clean_path": "data/clean/1855-preface-to-meditations-and-prayers-of-st-anselm.txt"
     },
     {
       "bibliography_id": "1849-marriage-with-a-deceased-wife-s-sister-prohibited-by-hol",

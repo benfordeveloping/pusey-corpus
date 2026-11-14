@@ -518,13 +518,15 @@
     },
     {
       "id": "1855-preface-to-meditations-and-prayers-of-st-anselm",
-      "year": 1855,
-      "title": "Preface to Meditations and Prayers of St Anselm",
+      "year": 1856,
+      "title": "Historical Notice to Meditations and Prayers of St Anselm",
       "search": "meditations prayers anselm pusey preface",
       "category": "Introductions",
       "contribution": "editorial",
-      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
-      "indexing_scope": "pusey_preface_or_introduction_only"
+      "notes": "Pusey Historical Notice signed September Ember Week 1856; existing 1855-preface ID retained for link stability. Only Pusey’s introductory text is searchable, not Anselm’s meditations.",
+      "indexing_scope": "pusey_preface_or_introduction_only",
+      "source_edition_year": 1856,
+      "source_document_url": "https://archive.org/details/meditationsandp00ansegoog"
     },
     {
       "id": "1855-the-doctrine-of-the-real-presence-as-contained-in-the-fa",
