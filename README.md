@@ -1,10 +1,10 @@
 # The Pusey Corpus — reproducible harvesting + public search
 
-**Current catalogue (14 November 2026):** 67 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, and the Thomas of Jesus translation, and the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
+**Current catalogue (14 November 2026):** 66 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, the Thomas of Jesus translation, and the Justin Martyr editorial preface, and the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
 
-## Source catalogue: 67 owner-approved bibliography entries
+## Source catalogue: 66 owner-approved bibliography entries
 
-`data/source_registry.csv` is the **authoritative 67-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
+`data/source_registry.csv` is the **authoritative 66-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
 
 The source status is explicit:
 

@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Owner-curated Pusey corpus: 67 unique bibliography entries after removal of 3 inappropriate/duplicative entries and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
+  "description": "Owner-curated Pusey corpus: 66 unique bibliography entries after removal of 4 inappropriate/duplicative entries and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -589,16 +589,6 @@
       ],
       "source_edition_year": 1950,
       "source_edition_note": "Baker Book House 1950 reprint; original composition/publication belongs to the 1860s"
-    },
-    {
-      "id": "1861-preface-to-the-works-of-st-justin-martyr",
-      "year": 1861,
-      "title": "Preface to the Works of St Justin Martyr",
-      "search": "works now extant st justin martyr pusey preface",
-      "category": "Introductions",
-      "contribution": "editorial",
-      "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
-      "indexing_scope": "pusey_preface_or_introduction_only"
     },
     {
       "id": "1864-daniel-the-prophet-nine-lectures",
