@@ -29,4 +29,25 @@ assert.match(safe, /&lt;<mark>charity<\/mark>&gt;/, 'Source text must be escaped
 const fallback = 'OCR displays <mark>grace</mark> in the original context';
 assert.equal(hitSentence({content: 'An unrelated word appears here.', locations: [2], excerpt: fallback}, 'grace'),
   fallback, 'Use Pagefind’s highlighted excerpt for OCR/stemming mismatches');
+
+// Regression: Pagefind supplies a site-relative href from a nested search
+// page. Directly using it produced /sermons/sermons/m146.html (404).
+const linkStart=js.indexOf('function sermonResultUrl(');
+const linkEnd=js.indexOf('\nasync function renderMore()',linkStart);
+assert.ok(linkStart>=0&&linkEnd>linkStart,'Generated sermon URL resolver exists');
+const root='https://benfordeveloping.github.io/pusey-corpus/sermons/';
+const href=vm.runInNewContext(js.slice(linkStart,linkEnd)+'\nsermonResultUrl;',{
+ URL, location:{href:root+'index.html'}
+});
+const wanted=root+'m146.html?highlight=love';
+for(const form of [
+ 'sermons/m146.html?highlight=love',
+ 'm146.html?highlight=love',
+ '/pusey-corpus/sermons/m146.html?highlight=love',
+]){
+ assert.equal(href(form),wanted,'Result URL must always target the local sermon page');
+}
+assert.ok(!href('sermons/m146.html?highlight=love').includes('/sermons/sermons/'),
+ 'Never duplicate the sermon directory in result links');
+
 console.log('SERMON SNIPPET TEST: contextual sentences, highlighted hits, escaped text, and Pagefind fallback OK');
