@@ -27,7 +27,10 @@ assert 'id="scope"' in main and "querySelector('#sort')" in js and 'browseQ' not
 assert 'type="module" src="listing.js"' in main
 assert "import('./pagefind/pagefind.js')" in js, "Sermon search must use its own Pagefind index"
 assert "p.search(query)" in js, "Search every indexed word, not just a title"
-assert "d.excerpt" in js, "Show the matching passage"
+assert "function hitSentence(d,query)" in js, "Compute contextual sermon sentences"
+assert "d.locations" in js, "Use Pagefind's actual match location in the OCR"
+assert "hitSentence(d,q.value.trim())" in js, "Display the highlighted sentence below each result"
+assert "<mark>" in js and "d.excerpt" in js, "Highlight terms and retain Pagefind fallback"
 assert "const initial=new URLSearchParams" in js, "Search links must be shareable"
 assert "browse.hidden=!!query" in js and "searchArea.hidden=!query" in js
 assert 'id="search-more"' in main and "batch=all.slice(shown,shown+20)" in js
