@@ -31,6 +31,7 @@ h1,h2,h3{font-family:Georgia,Cambria,serif;line-height:1.2}h1{font-size:clamp(30
 '''
 
 JS='''
+import {searchWithOcrVariants} from './ocr_variants.js';
 const input = document.querySelector('#query');
 const category = document.querySelector('#category');
 const work = document.querySelector('#work');
@@ -96,12 +97,12 @@ async function runSearch(){
   try{
     const p=await loadEngine();
     const options=work.value ? {filters:{work_id:work.value}} : category.value ? {filters:{category:category.value}} : {};
-    const found=await p.search(q,options);
+    const found=await searchWithOcrVariants(p,q,options);
     if(mySequence!==sequence)return;
     all=found?.results||[];
     const selectedWork = work.options[work.selectedIndex]?.textContent || '';
     const scope = work.value ? ` within “${selectedWork}”` : category.value ? ` in ${category.value}` : ' across the corpus';
-    count.textContent=`${all.length.toLocaleString()} matching text sections${scope}. Each result identifies the work and opens the full passage.`;
+    count.textContent=`${all.length.toLocaleString()} matching text sections${scope}. Each result identifies the work and opens the full passage.${found.additional?' Includes '+found.additional+' extra sections found through likely OCR misreadings.':''}`;
     await renderMore();
   }catch(err){if(mySequence===sequence)count.textContent='Search not yet available. Finish the harvesting and indexing steps first.';}
 }
