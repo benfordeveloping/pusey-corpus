@@ -28,15 +28,36 @@ jobs:
       - name: Install HTML parsing dependency
         run: python -m pip install beautifulsoup4
       - name: Gather and validate every linked source chapter
-        run: python liddon_library.py fetch
-      - name: Commit 69 transcribed chapters to repository
+        id: gather
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python liddon_library.py fetch 2>&1 | tee /tmp/liddon-harvest.log
+      - name: Save all 69 texts or a diagnostic on failure
+        if: always()
+        shell: bash
+        env:
+          GATHER_OUTCOME: ${{ steps.gather.outcome }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/liddon/
-          if git diff --cached --quiet; then
-            echo "All 69 chapters are unchanged."
+          if [ "$GATHER_OUTCOME" = "success" ]; then
+            git add data/liddon/
+            git rm -f --ignore-unmatch data/liddon/HARVEST_ERROR.txt || true
+            MESSAGE="Import all 69 Liddon biography chapters from Project Canterbury"
           else
-            git commit -m "Import all 69 Liddon biography chapters from Project Canterbury"
+            mkdir -p data/liddon
+            tail -n 100 /tmp/liddon-harvest.log > data/liddon/HARVEST_ERROR.txt || true
+            git add data/liddon/HARVEST_ERROR.txt
+            MESSAGE="Record Liddon harvest diagnostic for correction"
+          fi
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "$MESSAGE"
             git push
           fi
+      - name: Fail check when source import failed
+        if: steps.gather.outcome != 'success'
+        run: exit 1
