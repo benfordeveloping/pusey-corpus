@@ -1,0 +1,56 @@
+name: Verify Liddon biography search
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/verify-liddon.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test generated chapter pages and independent search index
+        id: check
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          (
+            python build.py
+            python tools/test_liddon.py
+            node --check liddon_search.js
+            node --check site/liddon/search.js
+            npx -y pagefind@1.4.0 --site site --glob 'liddon/sections/*.html' --output-subdir liddon/pagefind
+            test -s site/liddon/pagefind/pagefind.js
+            test "$(find site/liddon/chapters -name '*.html' | wc -l)" -eq 69
+          ) 2>&1 | tee /tmp/liddon-verify.log
+      - name: Store validation receipt for independent audit
+        if: always()
+        shell: bash
+        env:
+          VALIDATION: ${{ steps.check.outcome }}
+        run: |
+          if [ "$VALIDATION" = "success" ]; then
+            echo "PASS: All 69 complete chapters, readers, search passages, Javascript, and independent Pagefind index built." > data/liddon/BUILD_VERIFIED.txt
+          else
+            { echo "FAIL: Biography build needs correction."; tail -n 100 /tmp/liddon-verify.log; } > data/liddon/BUILD_VERIFIED.txt
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/liddon/BUILD_VERIFIED.txt
+          git commit -m "Record independent Liddon biography build verification" || true
+          git push
+      - name: Report failed verification
+        if: steps.check.outcome != 'success'
+        run: exit 1
