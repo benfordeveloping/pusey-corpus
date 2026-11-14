@@ -1,0 +1,34 @@
+{
+  "id": "1845-the-year-of-affections-avrillon-preface-and-translation",
+  "year": 1845,
+  "title": "Editor's Preface to The Year of Affections (Avrillon)",
+  "category": "Translations",
+  "contribution": "translation",
+  "indexing_scope": "pusey_translator_introduction_only",
+  "status": "downloaded",
+  "source": "User-provided Google Books PDF; verified Pusey-only preface extracted from searchable text layer",
+  "source_document_filename": "The_Year_of_Affections_Or_Affections_on.pdf",
+  "source_title": "The Year of Affections; Or, Affections on the Love of God, Drawn from the Canticles, for Every Day in the Year",
+  "source_edition_year": 1847,
+  "preface_signed_year": 1845,
+  "signed_date": "Christ Church, Septuagesima; Feast of the Conversion of St. Paul, 1845",
+  "scope_verified": true,
+  "authorship_review_needed": false,
+  "content_scope": "pusey_translator_introduction_only",
+  "extraction_boundaries": {
+    "pdf_viewer_pages": [
+      12,
+      33
+    ],
+    "printed_roman_pages": [
+      "vii",
+      "xxviii"
+    ],
+    "start": "EDITOR'S PREFACE. THIS beautiful book needs, in itself, no introduction.",
+    "end": "E. B. P. / Christ Church / Septuagesima / Feast of the Conversion of St Paul, 1845",
+    "excluded_next_section": "FROM BISHOP TAYLOR'S LIFE OF OUR BLESSED LORD ... ON MEDITATION",
+    "excluded_later": "Avrillon's Author's Preface and devotional year"
+  },
+  "word_count": 5862,
+  "qc": "22 consecutive printed preface pages verified from owner-uploaded source text layer, opening and signed ending inspected; OCR-like word breaks and hyphenation lightly normalized; detailed scholarly proofreading still recommended."
+}

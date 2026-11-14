@@ -349,12 +349,15 @@
     {
       "id": "1845-the-year-of-affections-avrillon-preface-and-translation",
       "year": 1845,
-      "title": "The Year of Affections (Avrillon): Preface and Translation",
-      "search": "year affections avrillon pusey",
+      "title": "Editor's Preface to The Year of Affections (Avrillon)",
+      "search": "Pusey Avrillon The Year of Affections editor's preface 1845 1847 purificative illuminative unitive spiritual exercises",
       "category": "Translations",
       "contribution": "translation",
-      "notes": "Index ONLY the introductory preface or introduction personally written by E. B. Pusey. Exclude ALL translated text and translations. Preserve source pages and excerpt boundaries.",
-      "indexing_scope": "pusey_translator_introduction_only"
+      "notes": "The Year of Affections was printed in 1847; Pusey's Editor's Preface is signed Christ Church, Septuagesima, Feast of the Conversion of St Paul, 1845. ONLY the 22 printed preface pages vii–xxviii (PDF viewer pp.12–33) are indexed. Excludes Bishop Jeremy Taylor's separate chapter 'On Meditation', Avrillon's preface, and all translated meditations.",
+      "indexing_scope": "pusey_translator_introduction_only",
+      "source_edition_year": 1847,
+      "preface_signed_year": 1845,
+      "source_document_filename": "The_Year_of_Affections_Or_Affections_on.pdf"
     },
     {
       "id": "1846-the-life-of-jesus-christ-in-glory-on-earth-nouet-vol-iii",
