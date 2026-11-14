@@ -446,6 +446,19 @@ function hitSentence(d,query){
  if(!marks&&d.excerpt)return d.excerpt;
  return (start>0?'… ':'')+highlighted+(end<content.length?' …':'');
 }
+// Pagefind returns site-root-relative paths such as "sermons/m146.html".
+// The Sermons listing is already inside /sermons/, so using d.url directly
+// would incorrectly send readers to /sermons/sermons/m146.html (404).
+// Resolve by the canonical sermon filename, preserving ?highlight=... .
+function sermonResultUrl(rawUrl){
+ const result=new URL(rawUrl,location.href);
+ const match=result.pathname.match(/\/(m\d{3}\.html)$/i);
+ if(!match)return new URL('index.html',location.href).href;
+ const target=new URL(match[1],location.href);
+ target.search=result.search;
+ target.hash=result.hash;
+ return target.href;
+}
 async function renderMore(){
  if(!all.length)return;
  const current=sequence,batch=all.slice(shown,shown+20);
@@ -458,7 +471,7 @@ async function renderMore(){
   const scripture=esc(d.meta?.scripture||'');
   const year=esc(d.meta?.sermon_date||'');
   const source=esc(d.meta?.source||'');
-  li.innerHTML='<h3><a href="'+esc(d.url)+'">'+title+'</a></h3>'
+  li.innerHTML='<h3><a href="'+esc(sermonResultUrl(d.url))+'">'+title+'</a></h3>'
    +'<div class="meta">'+[scripture,year,source].filter(Boolean).join(' · ')+'</div>'
    +'<p class="excerpt">'+hitSentence(d,q.value.trim())+'</p>';
   hits.appendChild(li);
