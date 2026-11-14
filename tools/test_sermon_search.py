@@ -49,6 +49,33 @@ for sermon in sample:
     assert "src=\"within.js\" defer" in page, "Maintain per-sermon find"
     assert len(re.findall(r"\w+", page)) > 1000, "Extracted sermon seems too short"
 
+# Owner-approved University Sermons I and II, including genuine prefatory matter.
+requested = {
+    "m065": "PREFACE", "m110": "PREFACE", "m144": "SERMON",
+    "m142": "PREFACE", "m177": "justification",
+    "m166": "ADVERTISEMENT", "m137": "ALL", "m107": "SEEMON",
+    "m119": "SERMON", "m136": "SEEMON", "m105": "SEEMO",
+}
+by_id = {e["id"]: e for e in entries}
+for sid, anchor in requested.items():
+    e = by_id[sid]
+    assert e["status"] == "available", (sid, e.get("reason"))
+    assert e["method"] == "Owner-reviewed pamphlet or numbered-sermon OCR boundaries"
+    assert e["end"] - e["start"] >= 15_000, (sid, e.get("characters"))
+    html_path = sermons / (sid + ".html")
+    page_text = html_path.read_text(encoding="utf-8")
+    assert anchor.lower() in page_text.lower(), (sid, anchor)
+# Correct an existing table-of-contents-only error for Real Faith Entire.
+assert by_id["m118"]["status"] == "available"
+assert by_id["m118"]["start"] > by_id["m137"]["end"] - 5
+assert by_id["m002"]["status"] == "available"
+assert by_id["m021"]["status"] == "available", "Volume II almsgiving boundary should now be safe"
+# Each real sermon must have no overlap with any other owner-approved segment.
+reviewed = sorted((e for e in entries if e.get("method") == "Owner-reviewed pamphlet or numbered-sermon OCR boundaries"), key=lambda e: (e["code"], e["start"]))
+for earlier, later in zip(reviewed, reviewed[1:]):
+    if earlier["code"] == later["code"]:
+        assert earlier["end"] <= later["start"], (earlier["id"], later["id"])
+
 generated = sorted(p.name for p in sermons.glob("m???.html"))
 expected = sorted(e["id"] + ".html" for e in available)
 assert generated == expected, "Sermon HTML should exist for all and only available sermons"

@@ -4,6 +4,7 @@ Never edits original OCR; uncertain boundaries remain unlinked.
 """
 import re, json, html, unicodedata, difflib, shutil
 from pathlib import Path
+from sermon_verified_university import explicit_university_spans
 
 VOLUMES = {
  'PS1':('1848-parochial-sermons-vol-i-advent-to-whitsuntide','Parochial Sermons I',1848),
@@ -270,13 +271,26 @@ def assign_dates(row):
 def find_entries(root):
  data=json.loads((root/'data'/'sermons'/'madan_catalogue.json').read_text('utf8'))
  src=load_sources(root)
+ pinned=explicit_university_spans(src)
  rows=[]
  for e in data['entries']:
   row=dict(e)
-  match=locate(e,src)
-  if match:row.update(match);row['status']='candidate'
-  else:row.update(status='missing',reason='Source text or reliable sermon boundary not yet located')
+  if e['id'] in pinned:
+   # A reviewed source boundary takes precedence over fuzzy TOC matching.
+   row.update(pinned[e['id']]);row['status']='candidate'
+  else:
+   match=locate(e,src)
+   if match:row.update(match);row['status']='candidate'
+   else:row.update(status='missing',reason='Source text or reliable sermon boundary not yet located')
   rows.append(row)
+ # Do not publish a second entry derived from a running head or contents
+ # accidentally found *inside* any of the manually bounded pamphlets.
+ pinned_ranges=list(pinned.values())
+ for e in rows:
+  if e.get('status')!='candidate' or e['id'] in pinned:continue
+  if any(p['code']==e.get('code') and p['start']<=e['start']<p['pinned_end']
+         for p in pinned_ranges):
+   e.update(status='missing',reason='Automatic OCR hit falls inside an independently verified sermon span')
  # A single passage cannot be assigned to two Madan entries.
  positions={}
  for e in rows:
@@ -294,14 +308,17 @@ def find_entries(root):
    if code=='US3' and source.get('pamphlets'):
     following += [p for p in source['pamphlets'].values() if p>pos]
    if code=='LS':following += [p for p in source.get('corrected_starts',{}).values() if p>pos]
-   end=min(following+[len(source['t'])])
+   end=e['pinned_end'] if 'pinned_end' in e else min(following+[len(source['t'])])
    length=end-pos
-   cap=155000 if code=='US3' and source.get('pamphlets') else 75000
+   cap=(320000 if 'pinned_end' in e else
+        155000 if code=='US3' and source.get('pamphlets') else 75000)
    if length<2500 or length>cap:
     e.update(status='missing',reason=f'Unverified end boundary ({length:,} characters)')
    else:
     e.update(status='available',end=end,characters=length,word_count=len(source['t'][pos:end].split()),
-             verification='Automated segmentation checked; OCR proofreading pending')
+             verification=('Owner-checked source boundaries; Pusey preface included where printed; '
+                           'OCR proofreading pending' if 'pinned_end' in e else
+                           'Automated segmentation checked; OCR proofreading pending'))
  for e in rows:e['date_info']=assign_dates(e)
  return rows,src
 
