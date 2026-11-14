@@ -1,6 +1,6 @@
 {
   "bibliography_url": "https://sites.google.com/view/drpusey/works",
-  "description": "Owner-curated Pusey corpus: 65 unique bibliography entries after the owner's further removals of duplicates and unsuitable titles and consolidation of Nouet's three physical volumes into one. Historical work IDs are preserved when published links already exist.",
+  "description": "Owner-curated Pusey corpus: 64 bibliography entries after owner-directed removal of duplicate and unsuitable editions, including the 1876 Eirenicon Part III revision, and consolidation of Nouet's three volumes. Earlier indexed Pusey works and established URLs are preserved.",
   "works": [
     {
       "id": "1828-an-historical-enquiry-into-the-theology-of-germany-part",
@@ -730,17 +730,6 @@
       "contribution": "editorial",
       "notes": "Index ONLY the preface/introduction personally written by Pusey; exclude the primary text and material by others.",
       "indexing_scope": "pusey_preface_or_introduction_only"
-    },
-    {
-      "id": "1876-healthful-reunion-as-conceived-possible-before-the-vatic",
-      "year": 1876,
-      "title": "Healthful Reunion as Conceived Possible before the Vatican Council (new edition)",
-      "search": "healthful reunion conceived possible before vatican council pusey",
-      "category": "Eirenicon",
-      "contribution": "authored",
-      "notes": "Reprint/revision of Eirenicon Part III 1870: avoid duplicative index results",
-      "index_by_default": false,
-      "indexing_scope": "full_original_work"
     },
     {
       "id": "1876-on-the-clause-and-the-son-in-regard-to-the-eastern-churc",
