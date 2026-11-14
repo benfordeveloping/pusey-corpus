@@ -122,3 +122,7 @@ site/                   generated pages; /pagefind added by indexing
 ## Owner-supplied OCR sources, 14 November 2026
 
 The 1836 Hampden pamphlet (`a604992800puseuoft`) has been imported from verified OCR. Pusey's signed *Historical Notice* to St Anselm's *Meditations and Prayers* was extracted from the 1856 edition (`meditationsandp00ansegoog`), excluding the Anselm devotional text. The alternative 1849 marriage OCR (`marriagewithade00pusegoog`) was compared with the existing verified source (`b29349412`), whose indexed text has been restricted to Pusey's Preface and Evidence, excluding the separate Edward Badeley speech. The full original OCR remains retained for provenance.
+
+## Owner-supplied Enquiry Part II (1830)
+
+The owner's uploaded 1830 PDF is the separate **Part II** of Pusey's *Historical Enquiry*, not the already indexed 1828 Part I. The full text layer (116,551 search-index words) was preserved in `data/raw/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt` and lightly normalized in `data/clean/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt`. It includes the preface, eleven chapters, Additional Notes and Errata. Non-book library marks were omitted. The PDF was not itself committed; source filename, SHA-256 and extraction limits are recorded in `data/records/`. OCR proofreading remains desirable.

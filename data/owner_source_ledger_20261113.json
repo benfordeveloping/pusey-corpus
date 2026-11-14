@@ -5,11 +5,17 @@
   "entries": [
     {
       "bibliography_id": "1830-an-historical-enquiry-into-the-theology-of-germany-part",
-      "label": "Part II, Historical Enquiry",
-      "user_supplied_url": "https://drive.google.com/file/d/1hr478gnG-J8Eo440jHbXFvhHH1nMHzcv/view",
-      "ingestion_status": "candidate_found",
+      "label": "An Historical Enquiry into the Theology of Germany — Part II",
+      "user_supplied_url": null,
+      "ingestion_status": "verified_complete_1830_part_ii_pdf_ocr",
       "github_source_url": null,
-      "source_notes": "Google Drive PDF supplied by owner; file bytes not yet connected; check against Part I for duplication"
+      "source_notes": "Original user-uploaded PDF verified as 1830 Part II, separate from 1828 Part I. Extracted text from PDF pages 1–450 (447 pages with text), includes preface 11 chapters and Additional Notes/Errata, omits trailing non-book library pages. Raw/clean OCR files; 116,551 clean index words. The older Google Drive URL is retained solely for provenance, not presumed bitwise-identical.",
+      "owner_uploaded_pdf_filename": "An_Historical_Enquiry_Into_the_Probable - PART TWO.pdf",
+      "user_supplied_prior_drive_url": "https://drive.google.com/file/d/1hr478gnG-J8Eo440jHbXFvhHH1nMHzcv/view",
+      "pdf_sha256": "10ab1912470ba6c0268787d3c820c3963fc546013759df852155e82bf99df3f3",
+      "source_publication_year": 1830,
+      "github_raw_path": "data/raw/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt",
+      "github_clean_path": "data/clean/1830-an-historical-enquiry-into-the-theology-of-germany-part.txt"
     },
     {
       "bibliography_id": "1835-tracts-67-69-scriptural-views-of-holy-baptism",

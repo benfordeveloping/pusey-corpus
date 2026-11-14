@@ -1,0 +1,40 @@
+{
+  "id": "1830-an-historical-enquiry-into-the-theology-of-germany-part",
+  "year": 1830,
+  "title": "An Historical Enquiry into the Theology of Germany — Part II",
+  "category": "Theology",
+  "contribution": "authored",
+  "notes": "Complete Pusey-authored Part II of the 1830 Enquiry, from the owner's Google-digitized PDF (456 physical pages). Includes preface signed Christ Church, March 30, 1830; eleven chapters; Additional Notes; and printed Errata. OCR covers PDF text-bearing pages 1–450 (447 with extractable text); appended library circulation/catalogue matter excluded. Raw OCR and lightly normalized searchable copy retained separately; scholarly proofreading pending. Kept distinct from Part I (1828).",
+  "indexing_scope": "full_original_work",
+  "source_document_filename": "An_Historical_Enquiry_Into_the_Probable - PART TWO.pdf",
+  "source_document_year": 1830,
+  "source_pdf_sha256": "10ab1912470ba6c0268787d3c820c3963fc546013759df852155e82bf99df3f3",
+  "status": "downloaded",
+  "source": "User-supplied original Google-digitized 1830 PDF, extracted searchable text layer",
+  "source_pdf_pages": 456,
+  "source_pdf_parsed_pages_reported": 455,
+  "extracted_pdf_page_range": [
+    1,
+    450
+  ],
+  "extracted_pages_with_text": 447,
+  "printed_preface_date": "Christ Church, March 30, 1830",
+  "edition_year": 1830,
+  "text_source": "PDF selectable OCR, not a different internet Archive volume",
+  "text_provenance": "Raw OCR and lightly normalized clean version both committed; no page images or PDF binary committed",
+  "extraction_boundaries": {
+    "start": "Title page: AN HISTORICAL ENQUIRY ... PART II ... BY E. B. PUSEY ... 1830",
+    "included": "Preface; Contents; Chapters I–XI; Additional Notes; Errata",
+    "end": "ERRATA, following THE END on printed page 435",
+    "excluded": "Library return labels, circulation stickers, catalog cards and blank pages after errata",
+    "text_bearing_pdf_pages": [
+      1,
+      450
+    ]
+  },
+  "word_count": 116551,
+  "auth_or_scope_verified": true,
+  "authorship_review_needed": false,
+  "volume_review_needed": false,
+  "qc": "Full book OCR verified against opening and conclusion of original uploaded PDF. Publisher's printed errata are retained without automatic application; OCR line-break hyphenation lightly normalized; detailed proofreading pending."
+}

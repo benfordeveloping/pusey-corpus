@@ -19,8 +19,11 @@
       "search": "historical enquiry rationalist theology germany part 2",
       "category": "Theology",
       "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "notes": "Complete Pusey-authored Part II of the 1830 Enquiry, from the owner's Google-digitized PDF (456 physical pages). Includes preface signed Christ Church, March 30, 1830; eleven chapters; Additional Notes; and printed Errata. OCR covers PDF text-bearing pages 1–450 (447 with extractable text); appended library circulation/catalogue matter excluded. Raw OCR and lightly normalized searchable copy retained separately; scholarly proofreading pending. Kept distinct from Part I (1828).",
+      "indexing_scope": "full_original_work",
+      "source_document_filename": "An_Historical_Enquiry_Into_the_Probable - PART TWO.pdf",
+      "source_document_year": 1830,
+      "source_pdf_sha256": "10ab1912470ba6c0268787d3c820c3963fc546013759df852155e82bf99df3f3"
     },
     {
       "id": "1833-remarks-on-the-prospective-and-past-benefits-of-cathedra",
