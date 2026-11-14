@@ -60,7 +60,10 @@ def import_anselm(works):
     w['source_edition_year']=1856
     w['source_document_url']='https://archive.org/details/meditationsandp00ansegoog'
     w['indexing_scope']='pusey_preface_or_introduction_only'
-    save_json(ROOT/'bibliography.json',{'works':works})
+    bib_path=ROOT/'bibliography.json'
+    bib=json.loads(bib_path.read_text(encoding='utf8'))
+    bib['works']=works
+    save_json(bib_path,bib)
     harvest.write_record(w,{
         'status':'downloaded','source':'Owner-supplied 1856 Google Books / Internet Archive scan: Pusey signed Historical Notice ONLY',
         'identifier':'meditationsandp00ansegoog',
