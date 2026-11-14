@@ -30,6 +30,7 @@ assert "p.search(query)" in js, "Search every indexed word, not just a title"
 assert "function hitSentence(d,query)" in js, "Compute contextual sermon sentences"
 assert "d.locations" in js, "Use Pagefind's actual match location in the OCR"
 assert "hitSentence(d,q.value.trim())" in js, "Display the highlighted sentence below each result"
+assert "sermonResultUrl(d.url)" in js, "Resolve sermon links against their canonical location"
 assert "<mark>" in js and "d.excerpt" in js, "Highlight terms and retain Pagefind fallback"
 assert "const initial=new URLSearchParams" in js, "Search links must be shareable"
 assert "browse.hidden=!!query" in js and "searchArea.hidden=!query" in js
