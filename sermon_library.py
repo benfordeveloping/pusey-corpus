@@ -77,6 +77,7 @@ def load_sources(root):
   cutoff=toc[-1]['at'] if toc else 0
   results[code]={'code':code,'slug':slug,'label':label,'year':pubyear,'t':t,'toc':toc,'cutoff':cutoff,'heads':hs}
   if code=='US3':results[code]['pamphlets']=us3_boundaries(t,cutoff) if t else {}
+  if code=='LS':results[code]['corrected_starts']=ls_boundaries(t,cutoff) if t else {}
  return results
 
 def title_positions(t,title,cutoff):
@@ -192,6 +193,25 @@ def us3_boundaries(text,cutoff):
   return {}
  return anchors
 
+
+# Five Lenten Sermons have severely misread printed sermon numbers/titles.
+# These literal line headings are observable in the owner-approved OCR and
+# are independently supported by Madan's printed pages.
+LS_CORRECTED_HEADINGS=[
+ ("m004",r"(?m)^SEKMON IVa\.$"), # Balaam, p.69
+ ("m079",r"(?m)^SEEMON Xa\.$"), # Prodigal son on Luke 15:24, p.194
+ ("m078",r"(?m)^SEKMON XI\.$"), # Prodigal son on Luke 15:17,20, p.205
+ ("m138",r"(?m)^SEBMON XIXa\.$"), # Love of Jesus, p.364
+ ("m195",r"(?m)^SEKMON XXIII"), # Worship, p.437
+]
+def ls_boundaries(text,cutoff):
+ starts={}
+ for eid,regex in LS_CORRECTED_HEADINGS:
+  found=[m.start() for m in re.finditer(regex,text) if m.start()>cutoff+50]
+  if len(found)==1:starts[eid]=found[0]
+  else:print('SERMON WARNING: LS heading mismatch '+eid+' '+str(len(found)))
+ return starts
+
 def locate(entry,sources):
  candidates=[]
  for ref in entry["refs"]:
@@ -202,6 +222,12 @@ def locate(entry,sources):
   if code=="SSL":
    hit=extract_leeds(entry,src)
    if hit:candidates.append(hit)
+   continue
+  if code=="LS" and entry["id"] in src.get("corrected_starts",{}):
+   candidates.append({"code":code,"slug":src["slug"],"source_title":src["label"],
+     "source_year":src["year"],"start":src["corrected_starts"][entry["id"]],
+     "printed_page":int(ref.split(":")[1]) if ":" in ref else None,
+     "match_score":0.99,"method":"Madan page + independently checked OCR sermon heading"})
    continue
   if code=="US3" and src.get("pamphlets"):
    pos=src["pamphlets"].get(entry["id"])
@@ -267,6 +293,7 @@ def find_entries(root):
    following += [h['at'] for h in source['heads'] if h['at']>pos+1700 and h['at']>source['cutoff']]
    if code=='US3' and source.get('pamphlets'):
     following += [p for p in source['pamphlets'].values() if p>pos]
+   if code=='LS':following += [p for p in source.get('corrected_starts',{}).values() if p>pos]
    end=min(following+[len(source['t'])])
    length=end-pos
    cap=155000 if code=='US3' and source.get('pamphlets') else 75000
