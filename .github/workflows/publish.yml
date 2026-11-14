@@ -34,6 +34,8 @@ jobs:
         run: |
           python build.py
           python tools/test_sermon_search.py
+          node --check site/sermons/listing.js
+          node tools/test_sermon_snippet.js
           # Keep corpus-volume and individual-sermon results in separate indexes.
           npx -y pagefind@1.4.0 --site site --glob 'works/**/*.html'
           npx -y pagefind@1.4.0 --site site --glob 'sermons/m???.html' --output-subdir sermons/pagefind
