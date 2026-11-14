@@ -317,26 +317,39 @@ def write_site(root,site):
   data=sources[e['code']]['t'][e['start']:e['end']]
   text='<p>'+escape(data).replace('\n\n','</p><p>').replace('\n',' ')+'</p>'
   h='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-  h+='<title>'+escape(e['title'])+' — Pusey Sermons</title><link rel="stylesheet" href="../style.css"></head><body>'
+  h+='<title>'+escape(e['title'])+' — Pusey Sermons</title><link rel="stylesheet" href="../style.css">'
+  # Let the separate Pagefind index read the full sermon text and its source metadata.
+  h+='<meta data-pagefind-meta="sermon_title[content]" content="'+escape(e['title'])+'">'
+  h+='<meta data-pagefind-meta="scripture[content]" content="'+escape(e['scripture'])+'">'
+  h+='<meta data-pagefind-meta="sermon_date[content]" content="'+escape(e['date_info']['label'])+'">'
+  h+='<meta data-pagefind-meta="source[content]" content="'+escape(e['source_title'])+'">'
+  h+='<meta data-pagefind-filter="collection[content]" content="sermons">'
+  h+='</head><body>'
   h+='<header><a class="brand" href="../index.html">The Pusey Corpus</a> · <a href="index.html">Sermons</a></header>'
   h+='<main class="wrap" style="max-width:850px"><p><a href="index.html">← Sermon catalogue</a></p>'
   h+='<h1>'+escape(e['title'])+'</h1><p class="notice">'+escape(e['scripture'])+' · '+escape(e['date_info']['label'])+' · '+escape(e['source_title'])+'</p>'
   h+='<p class="notice">'+escape(e['date_info']['precision'])+' · '+escape(e.get('word_count'))+' words · OCR text not yet fully proofread</p>'
   h+='<p><a href="../works/'+escape(e['slug'])+'/0001.html">Read the complete original volume</a></p>'
   h+='<label for="searchin">Find within this sermon</label> <input id="searchin" type="search" placeholder="Search this sermon" style="padding:8px"><span id="hits" class="notice"></span>'
-  h+='<article id="sermon-text" style="font:18px/1.8 Georgia,serif">'+text+'</article><p><a href="index.html">← Sermon catalogue</a></p></main>'
-  h+='<script src="within.js"></script></body></html>'
+  h+='<article id="sermon-text" class="ocr" data-pagefind-body style="font:18px/1.8 Georgia,serif">'+text+'</article><p><a href="index.html">← Sermon catalogue</a></p></main>'
+  h+='<script src="../reader.js" defer></script><script src="within.js" defer></script></body></html>'
   (out/(e['id']+'.html')).write_text(h,encoding='utf8')
  rows_json=json.dumps(rows,ensure_ascii=False).replace('</','<\\/')
  intro='<main class="wrap"><p><a href="../index.html">← Corpus search</a></p><div class="eyebrow">The Digital Sermon Library</div>'
  intro+='<h1>The Published Sermons of E. B. Pusey</h1><p class="intro">A Scripture-ordered catalogue based on Falconer Madan’s Appendix B (1897), with individual sermons linked wherever safe extraction from existing volumes is possible.</p>'
  intro+='<div class="stats">'+str(len(rows))+' entries · '+str(len(available))+' readable sermon texts · '+str(len(missing))+' unresolved</div>'
- intro+='<section class="search-panel"><label for="q">Find a sermon</label><div class="query-row"><input id="q" type="search" placeholder="Title, Scripture, year, volume…"></div><div class="filter-row">'
- intro+='<label for="sort">Sort by:</label><select id="sort"><option value="scripture">Scripture (Madan order)</option><option value="date">Chronological / date range</option><option value="title">Title A–Z</option></select>'
+ intro+='<section class="search-panel"><label for="q" class="eyebrow">Search the full text of the sermons</label>'
+ intro+='<div class="query-row"><input id="q" type="search" placeholder="Enter a word or phrase…" autocomplete="off" spellcheck="false"></div>'
+ intro+='<div class="filter-row"><span>Searches every word of the '+str(len(available))+' available sermons and shows matching passages, just like the main corpus search.</span></div></section>'
+ intro+='<section id="sermon-search-results" hidden><p id="search-count" class="notice" role="status" aria-live="polite"></p>'
+ intro+='<ol id="search-hits" class="results"></ol><button id="search-more" class="more" hidden>Show 20 more results</button></section>'
+ intro+='<section id="sermon-browse"><h2>Browse the sermon catalogue</h2>'
+ intro+='<div class="search-panel"><label for="browse-q">Filter by title or Scripture</label><div class="query-row"><input id="browse-q" type="search" placeholder="Title, biblical reference, year, volume…" autocomplete="off"></div>'
+ intro+='<div class="filter-row"><label for="sort">Sort by:</label><select id="sort"><option value="scripture">Scripture (Madan order)</option><option value="date">Chronological / date range</option><option value="title">Title A–Z</option></select>'
  intro+='<label for="scope">Show:</label><select id="scope"><option value="">All sermons</option><option value="available">Readable texts</option><option value="missing">Not yet located</option></select>'
- intro+='<a href="missing.html">Unresolved list</a></div></section><p id="count" class="notice"></p><ol id="list" style="padding-left:0"></ol>'
- intro+='<p class="notice">Preaching years are taken from Madan where stated; otherwise the interface gives a documented volume-level range rather than an invented year. The original sermon volumes remain available in the main corpus.</p>'
- intro+='<script type="application/json" id="data">'+rows_json+'</script><script src="listing.js"></script></main>'
+ intro+='<a href="missing.html">Unresolved-sermon list</a></div></div><p id="count" class="notice"></p><ol id="list" style="padding-left:0"></ol></section>'
+ intro+='<p class="notice">Preaching years are taken from Madan where stated; otherwise the interface gives a documented volume-level range rather than an invented year. OCR text is not fully proofread; the original sermon volumes remain available in the main corpus.</p>'
+ intro+='<script type="application/json" id="data">'+rows_json+'</script><script type="module" src="listing.js"></script></main>'
  page='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pusey Sermons | Digital Corpus</title><link rel="stylesheet" href="../style.css"></head><body><header><a class="brand" href="../index.html">The Pusey Corpus</a> · <b>Sermons</b></header>'+intro+'</body></html>'
  (out/'index.html').write_text(page,encoding='utf8')
  li=''.join('<li style="padding:7px 0"><b>'+escape(e['title'])+'</b> — '+escape(e['scripture'])+' · '+escape(', '.join(e['refs']) or 'no source cited')+' · '+escape(e.get('reason'))+'</li>' for e in missing)
@@ -344,13 +357,98 @@ def write_site(root,site):
  (out/'missing.html').write_text(missingpage,encoding='utf8')
  (out/'catalogue.json').write_text(json.dumps({'entries':rows},indent=2,ensure_ascii=False)+'\n',encoding='utf8')
  (out/'match_report.json').write_text(json.dumps([{k:e.get(k) for k in ('id','title','scripture','refs','status','code','start','end','word_count','match_score','method','reason')} for e in rows],indent=2,ensure_ascii=False)+'\n',encoding='utf8')
- (out/'listing.js').write_text("""const data=JSON.parse(document.querySelector('#data').textContent),q=document.querySelector('#q'),sort=document.querySelector('#sort'),scope=document.querySelector('#scope'),list=document.querySelector('#list'),count=document.querySelector('#count');
-function draw(){let items=data.filter(x=>(!scope.value||x.status===scope.value)&&(!q.value||[x.title,x.scripture,x.date_info.label,x.refs.join(' ')].join(' ').toLowerCase().includes(q.value.toLowerCase())));
-if(sort.value==='title')items.sort((a,b)=>a.title.localeCompare(b.title)||a.order-b.order);
-else if(sort.value==='date')items.sort((a,b)=>(a.date_info.earliest??a.date_info.latest??9999)-(b.date_info.earliest??b.date_info.latest??9999)||(a.date_info.latest??9999)-(b.date_info.latest??9999)||a.order-b.order);
-else items.sort((a,b)=>a.order-b.order);
-list.replaceChildren();const frag=document.createDocumentFragment();for(const x of items){const li=document.createElement('li');li.style.cssText='list-style:none;padding:10px 0;border-bottom:1px solid #dcd8cf';const info=document.createElement('span');info.textContent=x.scripture+' · '+x.date_info.label+' · '+x.refs.join(', ');info.style.cssText='display:block;color:#64717d;font-size:13px';const title=document.createElement(x.status==='available'?'a':'span');title.textContent=x.title;if(x.status==='available')title.href=x.id+'.html';else info.textContent+=' · Text not yet located';title.style.cssText='font:600 18px Georgia,serif';li.append(title,info);frag.append(li)}list.append(frag);count.textContent=items.length+' sermons shown'}
-q.addEventListener('input',draw);sort.addEventListener('change',draw);scope.addEventListener('change',draw);draw();
+ (out/'listing.js').write_text("""// The catalog remains browsable, while Pagefind searches the full text
+// of individual sermons in a completely separate sermon-only index.
+const data=JSON.parse(document.querySelector('#data').textContent);
+const q=document.querySelector('#q'),browseQ=document.querySelector('#browse-q');
+const sort=document.querySelector('#sort'),scope=document.querySelector('#scope');
+const browse=document.querySelector('#sermon-browse'),list=document.querySelector('#list'),count=document.querySelector('#count');
+const searchArea=document.querySelector('#sermon-search-results'),hits=document.querySelector('#search-hits');
+const searchCount=document.querySelector('#search-count'),more=document.querySelector('#search-more');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let engine=null,all=[],shown=0,sequence=0,timer=null;
+
+function drawBrowse(){
+ let items=data.filter(x=>(!scope.value||x.status===scope.value)
+  &&(!browseQ.value||[x.title,x.scripture,x.date_info.label,x.refs.join(' ')]
+    .join(' ').toLowerCase().includes(browseQ.value.toLowerCase().trim())));
+ if(sort.value==='title')items.sort((a,b)=>a.title.localeCompare(b.title)||a.order-b.order);
+ else if(sort.value==='date')items.sort((a,b)=>(a.date_info.earliest??a.date_info.latest??9999)
+ -(b.date_info.earliest??b.date_info.latest??9999)||(a.date_info.latest??9999)
+ -(b.date_info.latest??9999)||a.order-b.order);
+ else items.sort((a,b)=>a.order-b.order);
+ list.replaceChildren();
+ const frag=document.createDocumentFragment();
+ for(const x of items){
+  const li=document.createElement('li');
+  li.style.cssText='list-style:none;padding:10px 0;border-bottom:1px solid #dcd8cf';
+  const info=document.createElement('span');
+  info.textContent=x.scripture+' · '+x.date_info.label+' · '+x.refs.join(', ');
+  info.style.cssText='display:block;color:#64717d;font-size:13px';
+  const title=document.createElement(x.status==='available'?'a':'span');
+  title.textContent=x.title;
+  if(x.status==='available')title.href=x.id+'.html';
+  else info.textContent+=' · Text not yet located';
+  title.style.cssText='font:600 18px Georgia,serif';
+  li.append(title,info);frag.append(li);
+ }
+ list.append(frag);count.textContent=items.length+' sermons shown';
+}
+async function loadEngine(){
+ if(engine)return engine;
+ engine=await import('./pagefind/pagefind.js');
+ await engine.options({baseUrl:new URL('.',location.href).pathname,highlightParam:'highlight'});
+ return engine;
+}
+async function renderMore(){
+ if(!all.length)return;
+ const current=sequence,batch=all.slice(shown,shown+20);
+ shown+=batch.length;
+ const details=await Promise.all(batch.map(result=>result.data()));
+ if(current!==sequence)return;
+ for(const d of details){
+  const li=document.createElement('li');li.className='result';
+  const title=esc(d.meta?.sermon_title||d.meta?.title||'Untitled sermon');
+  const scripture=esc(d.meta?.scripture||'');
+  const year=esc(d.meta?.sermon_date||'');
+  const source=esc(d.meta?.source||'');
+  li.innerHTML='<h3><a href="'+esc(d.url)+'">'+title+'</a></h3>'
+   +'<div class="meta">'+[scripture,year,source].filter(Boolean).join(' · ')+'</div>'
+   +'<p class="excerpt">'+(d.excerpt||'')+'</p>';
+  hits.appendChild(li);
+ }
+ more.hidden=shown>=all.length;
+}
+async function runSearch(){
+ const current=++sequence,query=q.value.trim();
+ const url=new URL(location.href);
+ if(query)url.searchParams.set('q',query);else url.searchParams.delete('q');
+ history.replaceState(null,'',url.pathname+url.search);
+ hits.replaceChildren();shown=0;all=[];more.hidden=true;
+ browse.hidden=!!query;searchArea.hidden=!query;
+ if(!query){searchCount.textContent='';return;}
+ searchCount.textContent='Searching sermon texts…';
+ try{
+  const p=await loadEngine();
+  const result=await p.search(query);
+  if(current!==sequence)return;
+  all=result?.results||[];
+  searchCount.textContent=all.length.toLocaleString()
+   +' sermons with matching full-text passages. Open a result to read the sermon in context.';
+  if(!all.length)searchCount.textContent='No available sermon texts match that search. Try a different word or phrase.';
+  await renderMore();
+ }catch(err){
+  if(current===sequence)searchCount.textContent='Sermon search is currently unavailable. The full-text index may still be building.';
+ }
+}
+q.addEventListener('input',()=>{clearTimeout(timer);timer=setTimeout(runSearch,250)});
+for(const control of [browseQ,sort,scope]){
+ control.addEventListener(control===browseQ?'input':'change',drawBrowse);
+}
+more.addEventListener('click',renderMore);
+const initial=new URLSearchParams(location.search).get('q');
+if(initial)q.value=initial;
+drawBrowse();if(initial)runSearch();
 """,encoding='utf8')
  (out/'within.js').write_text("""const box=document.querySelector('#sermon-text'),input=document.querySelector('#searchin'),msg=document.querySelector('#hits'),original=box.textContent;
 input.addEventListener('input',()=>{const query=input.value.trim().toLowerCase();box.textContent=original;if(!query){msg.textContent='';return;}const f=document.createDocumentFragment(),lower=original.toLowerCase();let last=0,n=0,at;
