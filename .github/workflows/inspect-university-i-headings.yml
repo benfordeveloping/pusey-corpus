@@ -1,0 +1,30 @@
+name: Audit University Sermons I improved headings
+on:
+  push:
+    paths:
+      - 'tools/inspect_university_i_sermon_boundaries.py'
+      - '.github/workflows/inspect-university-i-headings.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Locate nine sermon headings in corrected University OCR
+        run: python tools/inspect_university_i_sermon_boundaries.py
+      - name: Commit source-matched sermon heading report
+        run: |
+          git config user.name "pusey-corpus-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/sermons/university_i_headings_audit.json
+          if ! git diff --staged --quiet; then
+            git commit -m "Record matching headings in newly replaced University Sermons I OCR"
+            git pull --rebase origin main
+            git push
+          fi
