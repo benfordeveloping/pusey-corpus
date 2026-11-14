@@ -1,0 +1,33 @@
+{
+  "id": "1865-historical-preface-to-tract-xc",
+  "year": 1865,
+  "title": "Historical Preface to Tract XC",
+  "category": "Tracts",
+  "contribution": "authored",
+  "notes": "Pusey's signed Historical Preface (Advent 1865), plus his 1866 second-edition Postscript (Easter 1866). Source is the 1890 composite reprint; Newman Tract XC and Keble's essay strictly excluded. The brief 1890 Advertisement before the PREFACE is also excluded.",
+  "indexing_scope": "full_original_work",
+  "source_edition_year": 1890,
+  "source_edition_id": "tractxcpassages00newmuoft",
+  "status": "downloaded",
+  "source": "Owner-provided 1890 Internet Archive composite scan, Pusey signed Preface and Postscript only",
+  "identifier": "tractxcpassages00newmuoft",
+  "scan_url": "https://archive.org/details/tractxcpassages00newmuoft",
+  "text_url": "https://archive.org/download/tractxcpassages00newmuoft/tractxcpassages00newmuoft.txt",
+  "preface_date": "Advent 1865",
+  "postscript_date": "Easter 1866",
+  "word_count": 13684,
+  "source_ocr_sha256": "89a9954e829b34baf46d7aa9693879e783cc919e4d8078bc20efdf80e55e6f07",
+  "scope_verified": true,
+  "content_scope": "pusey_authored_preface_and_postscript_only",
+  "authorship_review_needed": false,
+  "extraction_boundaries": {
+    "source_char_start": 3398,
+    "source_char_end": 90289,
+    "start_heading": "PREFACE. A QUARTER of a century has all but elapsed",
+    "first_signoff": "E. B. P. / Advent, 1865 (OCR says 186b)",
+    "postscript_signoff": "E. B. P. / Easter, 1866",
+    "excluded_preceding": "1890 Advertisement",
+    "excluded_following": "No. 90.] TRACTS FOR THE TIMES — Newman's Tract XC, then Keble essay"
+  },
+  "qc": "Signatures, distinct Postscript, following Newman heading checked against audited SHA; OCR not proofread."
+}

@@ -234,6 +234,16 @@
       "github_raw_path": "data/raw/1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p.txt",
       "github_clean_path": "data/clean/1854-familiar-instructions-on-mental-prayer-courbon-part-ii-p.txt",
       "source_notes": "Owner pasted entire preface, signed E.B.P., Feast of Epiphany 1854. Raw OCR contains uncertain phrase 'eabot^aMisRk ^k^' and other errors; original transcription retained and light copy only strips running headers. All Courbon translation excluded."
+    },
+    {
+      "bibliography_id": "1865-historical-preface-to-tract-xc",
+      "label": "Historical Preface to Tract XC (1865) and second-edition Postscript (1866)",
+      "user_supplied_url": "https://dn760105.eu.archive.org/0/items/tractxcpassages00newmuoft/tractxcpassages00newmuoft.txt",
+      "github_source_url": "https://archive.org/details/tractxcpassages00newmuoft",
+      "ingestion_status": "verified_pusey_preface_and_postscript_only",
+      "github_raw_path": "data/raw/1865-historical-preface-to-tract-xc.txt",
+      "github_clean_path": "data/clean/1865-historical-preface-to-tract-xc.txt",
+      "source_notes": "SHA-checked 1890 composite OCR. Extract Pusey-only section from PREFACE through E.B.P. Easter 1866; exclude Newman, Keble, and preceding Advertisement."
     }
   ]
 }

@@ -631,8 +631,10 @@
       "search": "historical preface tract 90 certain passages xxxix articles pusey",
       "category": "Tracts",
       "contribution": "authored",
-      "notes": "",
-      "indexing_scope": "full_original_work"
+      "notes": "Pusey's signed Historical Preface (Advent 1865), plus his 1866 second-edition Postscript (Easter 1866). Source is the 1890 composite reprint; Newman Tract XC and Keble's essay strictly excluded. The brief 1890 Advertisement before the PREFACE is also excluded.",
+      "indexing_scope": "full_original_work",
+      "source_edition_year": 1890,
+      "source_edition_id": "tractxcpassages00newmuoft"
     },
     {
       "id": "1865-parochial-sermons-preached-and-printed-on-various-occasi",
