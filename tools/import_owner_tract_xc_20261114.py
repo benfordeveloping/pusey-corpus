@@ -28,7 +28,7 @@ def main():
     digest=hashlib.sha256(binary).hexdigest()
     if digest!=check["sha256"]:
         raise ValueError("OCR changed since exact first-pass audit; re-audit before importing")
-    starts=[m for m in re.finditer(r"(?im)^[ \t]*PREFACE\.[ \t]*$",raw)
+    starts=[m for m in re.finditer(r"(?im)^[ \t]*PREFACE\.[ \t]*\r?$",raw)
              if 3000<m.start()<5000 and re.search(r"A\s+QUARTER\s+of\s+a\s+century",raw[m.end():m.end()+240],re.I)]
     if len(starts)!=1:raise ValueError("Cannot uniquely identify Pusey's Historical Preface start: "+str(len(starts)))
     start=starts[0].start()
