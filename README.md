@@ -120,3 +120,7 @@ site/                   generated pages; /pagefind added by indexing
 - Example Eirenicon I scan: https://archive.org/details/churchofenglandp00puseuoft
 - Pagefind API: https://pagefind.app/docs/api/
 - GitHub Pages: https://docs.github.com/en/pages/
+
+## Owner-supplied OCR sources, 14 November 2026
+
+The 1836 Hampden pamphlet (`a604992800puseuoft`) has been imported from verified OCR. Pusey's signed *Historical Notice* to St Anselm's *Meditations and Prayers* was extracted from the 1856 edition (`meditationsandp00ansegoog`), excluding the Anselm devotional text. The alternative 1849 marriage OCR (`marriagewithade00pusegoog`) was compared with the existing verified source (`b29349412`), whose indexed text has been restricted to Pusey's Preface and Evidence, excluding the separate Edward Badeley speech. The full original OCR remains retained for provenance.

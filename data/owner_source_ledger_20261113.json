@@ -210,9 +210,9 @@
       "bibliography_id": "1849-marriage-with-a-deceased-wife-s-sister-prohibited-by-hol",
       "label": "Marriage with a Deceased Wife's Sister (1849), alternative owner-supplied OCR",
       "user_supplied_url": "https://archive.org/stream/marriagewithade00pusegoog/marriagewithade00pusegoog_djvu.txt",
-      "ingestion_status": "alternative_edition_already_in_source_candidates",
+      "ingestion_status": "alternative_ocr_compared_existing_pusey_excerpt_corrected",
       "github_source_url": "https://archive.org/details/marriagewithade00pusegoog",
-      "source_notes": "Book already indexed using b29349412 (95,218 words). Owner supplied a second digitization; already source_candidates.csv rank 2. Keep current verified original unless alternative is proven clearer, and do not duplicate bibliography work."
+      "source_notes": "Alternative Google scan compared but not duplicated or substituted. Verified b29349412 source retained. Search now includes only Pusey's Preface and Evidence; Edward Badeley's separately authored speech excluded. Complete OCR remains in data/raw. See data/marriage_ocr_alternative_audit_20261114.json."
     }
   ]
 }

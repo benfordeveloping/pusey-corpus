@@ -3,7 +3,7 @@
   "year": 1849,
   "title": "Marriage with a Deceased Wife's Sister Prohibited by Holy Scripture",
   "category": "Church affairs",
-  "contribution": "authored",
+  "contribution": "mixed",
   "notes": "",
   "archive_id": "b29349412",
   "status": "downloaded",
@@ -23,8 +23,19 @@
   "source_score": "verified-seed",
   "encoding": "utf-8-sig",
   "original_sha256": "aa6a1e127bcca0edc7b19da557769de849ef01fb5814d58dc306e58b16af3b8e",
-  "word_count": 95218,
-  "qc": "95,280 words; 0 page placeholders",
+  "word_count": 58062,
+  "qc": "Pusey Preface and Evidence only; 58062 OCR words. Badeley appendix retained solely in raw OCR; proofreading pending.",
   "authorship_review_needed": false,
-  "volume_review_needed": false
+  "volume_review_needed": false,
+  "indexing_scope": "pusey_authored_passages_only",
+  "scope_verified": true,
+  "content_scope": "pusey_authored_passages_only",
+  "full_source_contains_other_author": true,
+  "extraction_boundaries": {
+    "start": "Title page, Preface and Pusey's commissioned Evidence",
+    "end": "Before APPENDIX. June 15th, 1847. THE QUEEN v. ST. GILES'-IN-THE-FIELDS. ARGUMENT. MR. BADELEY.",
+    "excluded": "Edward Badeley, separate 1847 speech",
+    "raw_appendix_offset": 410278,
+    "clean_excerpt_end_char": 348439
+  }
 }
