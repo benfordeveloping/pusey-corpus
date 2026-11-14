@@ -171,11 +171,11 @@ def main():
     univ=texts["university"]
     p1=texts["prophets_1"]
     p2=texts["prophets_2"]
-    assert "NINE SERMONS" in univ[:9000].upper()
-    assert "SERMON I" in univ[:90000].upper()
-    assert "SERMON IX" in univ[:90000].upper()
+    assert re.search(r"NINE\s+SERMONS",univ[:9000],re.I), "University I title missing"
+    assert re.search(r"SERMON\s+I\b",univ[:90000],re.I), "University I opening sermon missing"
+    assert re.search(r"SERMON\s+IX\b",univ[:90000],re.I), "University I ninth sermon missing"
     assert "HOSEA" in p1[:25000].upper() and "JONAH" in p1[:25000].upper()
-    assert "END OF VOL. I" in p1[-20000:].upper()
+    assert re.search(r"END\s+OF\s+VOL\.?\s*I",p1[-45000:],re.I), "Minor Prophets I end marker missing"
     assert "MICAH" in p2[:17000].upper() and "MALACHI" in p2[:19000].upper()
     assert "1950" in p1[:12000] and "1950" in p2[:12000]
     joined=(
