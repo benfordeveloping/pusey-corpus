@@ -1,10 +1,10 @@
 # The Pusey Corpus — reproducible harvesting + public search
 
-**Current catalogue (14 November 2026):** 64 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, the Thomas of Jesus translation, the Justin Martyr editorial preface, the duplicate 1860 marriage prohibition entry, and the 1876 revised *Healthful Reunion* edition, plus the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
+**Current catalogue (14 November 2026):** 63 entries after the owner's exclusions of Plain Sermons III, the Miss Sellon letter, the Thomas of Jesus translation, the Justin Martyr editorial preface, the duplicate 1860 marriage prohibition entry, the 1876 revised *Healthful Reunion* edition, and the 1881 St Cyril *Five Tomes Against Nestorius* preface entry, plus the consolidation of Nouet I–III into one bibliography entry. The Nouet entry retains the signed preface already indexed from the third scanned volume. Historic reader filenames may retain the old suffix to preserve links. GitHub Pages build logs, rather than static README totals, remain the authority for the number of published searchable works and words.
 
-## Source catalogue: 64 owner-approved bibliography entries
+## Source catalogue: 63 owner-approved bibliography entries
 
-`data/source_registry.csv` is the **authoritative 64-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
+`data/source_registry.csv` is the **authoritative 63-row one-to-one register**. For each item, the intended output is ONE verified Internet Archive edition and ONE direct plaintext OCR file URL. It does not mean every work already has a scan: empty fields genuinely mean pending identification.
 
 The source status is explicit:
 
@@ -22,7 +22,7 @@ As of the initial release, *Daniel the Prophet* has one confirmed plaintext OCR 
 
 ## What's included
 
-- `bibliography.json` — 64 owner-approved bibliography entries, after removals of duplicates and excluded titles and consolidation of Nouet's three physical volumes. Indexed text is restricted to Pusey's own writing where a source contains multiple authors.
+- `bibliography.json` — 63 owner-approved bibliography entries, after removals of duplicates and excluded titles and consolidation of Nouet's three physical volumes. Indexed text is restricted to Pusey's own writing where a source contains multiple authors.
 - `harvest.py` — uses the Internet Archive advanced-search/metadata APIs, downloads plain-text OCR, retains the unaltered text, creates lightly cleaned copies, and records scan URLs/edition metadata. Questionable results are *flagged for review* rather than silently indexed.
 - `build.py` — generates static HTML text-reading sections for every downloaded work and prepares the site for [Pagefind](https://pagefind.app/), a fast browser-based search index. Results identify title, year and text section, with highlighted snippets and a link to the full context.
 - `local_search.py` — alternative **fully offline** search website using SQLite FTS5, with quoted-phrase search and highlighted context. Requires only Python and downloaded OCR.
