@@ -233,7 +233,7 @@ def build() -> dict:
     out.mkdir(parents=True, exist_ok=True)
     docs = read_records()
     if not docs:
-        placeholder = ('<main><div class="kicker">Liddon</div>'
+        placeholder = ('<main><p><a href="../index.html">← Back to corpus</a></p><div class="kicker">Liddon</div>'
                        '<h1>Liddon’s Life of Edward Bouverie Pusey</h1>'
                        '<p>The independent transcription harvest has not completed yet. '
                        'The chapter search will appear after all 69 chapters have been imported.</p></main>')
@@ -287,7 +287,7 @@ def build() -> dict:
     catalogue = ''.join(
         '<section class="volume"><h2>Volume ' + ROMANS[v] + '</h2><ol class="chapters">' +
         ''.join(volume_links[v]) + '</ol></section>' for v in VOLUME_CHAPTERS)
-    main = ('<main><div class="kicker">Liddon</div>'
+    main = ('<main><p><a href="../index.html">← Back to corpus</a></p><div class="kicker">Liddon</div>'
             '<h1>The Life of Edward Bouverie Pusey</h1>'
             '<p class="intro">Henry Parry Liddon’s biography (1894), searchable as one continuous '
             'work across all four original volumes. Results identify the original volume, chapter, '
