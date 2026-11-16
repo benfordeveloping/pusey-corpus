@@ -25,3 +25,11 @@ Independent source for this attribution: [1885 preface, volume II, pages iii–x
 4. Only then change `source_registry.csv` to an appropriate `verified_pusey_*_only` status and allow publication.
 
 **No automatic candidate promotion or downloaded-work count change is justified by this audit.**
+
+## Follow-up verification — 2026-11-16
+
+- [Liddon's 1885 volume-II preface, pp. iii–iv](https://www.tertullian.org/fathers/cyril_on_john_00_intro2.htm) identifies P. E. Pusey as volume-I translator, and says E. B. Pusey wrote **the greater part**, not necessarily all, of the volume-I preface. It describes the latter as principally concerning the procession of the Holy Spirit.
+- [The 1885 combined table of contents, p. xi](https://www.tertullian.org/fathers/cyril_on_john_00_intro2.htm) identifies the first-volume **Preface by Dr. Pusey at printed p. vii**. This identifies the starting page, not the end of the E. B.-authored material.
+- Crucial exclusion: the separate [Introduction at printed p. 1](https://www.tertullian.org/fathers/cyril_on_john_00_praefatio.htm) is **S. Cyril's own introduction translated by P. E. Pusey**, not a Pusey-authored introduction. It must not be indexed under E. B. Pusey.
+- The Archive.org 1874 volume-I `_djvu.txt` could not be retrieved in this run: web reader access error and container DNS resolution failure. Neither the OCR bytes nor original page images have been checked; this is an access limitation, not evidence of absence.
+- **Status remains candidate_found.** No extract or verified-work count change. Next: retrieve original printed preface pp. vii onward and check its internal authorship boundaries and source images before indexing only E. B. Pusey's contribution.
