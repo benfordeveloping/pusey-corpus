@@ -148,6 +148,31 @@ if(q && 'TreeWalker' in window){
 }
 '''
 
+def strip_google_books_front_matter(text):
+    """Remove identifiable modern Google Books scan notices from reader output.
+
+    Only the opening OCR pages are examined; original data/clean and data/raw
+    remain untouched. Never delete an unbounded span or nineteenth-century
+    publisher material merely because it mentions Google or a library.
+    """
+    head, tail = text[:12000], text[12000:]
+    # The standard Google Books preamble starts with this distinctive sentence
+    # and normally ends with the Google Books URL. Require both boundaries.
+    start_rx = re.compile(
+        r"(?i)this\s+is\s+a\s+digital\s+copy\s+of\s+a\s+book"
+    )
+    url_rx = re.compile(r"(?i)(?:https?://)?(?:books\.google\.[a-z.]+|books\.google\.com)(?:/[^\s]*)?")
+    for _ in range(3):
+        m = start_rx.search(head)
+        if not m:
+            break
+        end = url_rx.search(head, m.end())
+        if not end or end.start() - m.start() > 6500:
+            break  # Ambiguous: preserve rather than delete source text.
+        head = head[:m.start()] + "\n\n" + head[end.end():]
+    return head + tail
+
+
 def make_chunks(text,target=CHUNK_WORDS):
     # OCR line wrapping is not paragraph structure; reflow single newlines only.
     text=text.replace('\f','\n\n')
@@ -201,7 +226,7 @@ def main():
             and bool(rec.get('extraction_boundaries'))
         ))
         if txt.exists() and work.get('index_by_default',True) and excerpt_approved:
-            source=txt.read_text(encoding='utf8')
+            source=strip_google_books_front_matter(txt.read_text(encoding='utf8'))
             chunks=list(make_chunks(source))
             if not chunks: status='empty text'
             else:
