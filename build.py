@@ -157,11 +157,11 @@ def strip_google_books_front_matter(text):
     'at |http: //books .google .com/I', so ordinary URL matching misses it.
     """
     head, tail = text[:12000], text[12000:]
-    start_rx = re.compile(r"(?i)this\\s+is\\s+a\\s+digital\\s+copy\\s+of\\s+a\\s+book")
-    about_rx = re.compile(r"(?i)about\\s+google\\s+book\\s+search")
+    start_rx = re.compile(r"(?i)this\s+is\s+a\s+digital\s+copy\s+of\s+a\s+book")
+    about_rx = re.compile(r"(?i)about\s+google\s+book\s+search")
     url_rx = re.compile(
-        r"(?im)^\\s*(?:at\\s+)?[|I]?\\s*(?:https?\\s*:\\s*//\\s*)?"
-        r"books\\s*\\.\\s*google\\s*\\.\\s*com\\s*/?[|I]?\\s*$"
+        r"(?im)^\s*(?:at\s+)?[|I]?\s*(?:https?\s*:\s*//\s*)?"
+        r"books\s*\.\s*google\s*\.\s*com\s*/?[|I]?\s*$"
     )
     for _ in range(3):
         start = start_rx.search(head[:500])
@@ -175,8 +175,8 @@ def strip_google_books_front_matter(text):
             break  # Preserve ambiguous material.
         # Some scans put a standalone Google watermark immediately before the notice.
         prefix = head[:start.start()]
-        prefix = re.sub(r"(?i)(?:^|\\n)\\s*Google\\s*\\n\\s*$", "\\n", prefix)
-        head = prefix + "\\n\\n" + head[terminal.end():]
+        prefix = re.sub(r"(?i)(?:^|\n)\s*Google\s*\n\s*$", "\n", prefix)
+        head = prefix + "\n\n" + head[terminal.end():]
     return head + tail
 
 
