@@ -149,27 +149,34 @@ if(q && 'TreeWalker' in window){
 '''
 
 def strip_google_books_front_matter(text):
-    """Remove identifiable modern Google Books scan notices from reader output.
+    """Remove the modern Google Books scanning preamble from reader output only.
 
-    Only the opening OCR pages are examined; original data/clean and data/raw
-    remain untouched. Never delete an unbounded span or nineteenth-century
-    publisher material merely because it mentions Google or a library.
+    The original OCR is never modified. Require a distinctive opening sentence,
+    the 'About Google Book Search' heading and a terminal Google Books URL
+    within the first 6,500 characters. OCR often renders that URL as
+    'at |http: //books .google .com/I', so ordinary URL matching misses it.
     """
     head, tail = text[:12000], text[12000:]
-    # The standard Google Books preamble starts with this distinctive sentence
-    # and normally ends with the Google Books URL. Require both boundaries.
-    start_rx = re.compile(
-        r"(?i)this\s+is\s+a\s+digital\s+copy\s+of\s+a\s+book"
+    start_rx = re.compile(r"(?i)this\\s+is\\s+a\\s+digital\\s+copy\\s+of\\s+a\\s+book")
+    about_rx = re.compile(r"(?i)about\\s+google\\s+book\\s+search")
+    url_rx = re.compile(
+        r"(?im)^\\s*(?:at\\s+)?[|I]?\\s*(?:https?\\s*:\\s*//\\s*)?"
+        r"books\\s*\\.\\s*google\\s*\\.\\s*com\\s*/?[|I]?\\s*$"
     )
-    url_rx = re.compile(r"(?i)(?:https?://)?(?:books\.google\.[a-z.]+|books\.google\.com)(?:/[^\s]*)?")
     for _ in range(3):
-        m = start_rx.search(head)
-        if not m:
+        start = start_rx.search(head[:500])
+        if not start:
             break
-        end = url_rx.search(head, m.end())
-        if not end or end.start() - m.start() > 6500:
-            break  # Ambiguous: preserve rather than delete source text.
-        head = head[:m.start()] + "\n\n" + head[end.end():]
+        about = about_rx.search(head, start.end())
+        if not about or about.start() - start.start() > 5800:
+            break
+        terminal = url_rx.search(head, about.end())
+        if not terminal or terminal.end() - start.start() > 6500:
+            break  # Preserve ambiguous material.
+        # Some scans put a standalone Google watermark immediately before the notice.
+        prefix = head[:start.start()]
+        prefix = re.sub(r"(?i)(?:^|\\n)\\s*Google\\s*\\n\\s*$", "\\n", prefix)
+        head = prefix + "\\n\\n" + head[terminal.end():]
     return head + tail
 
 
