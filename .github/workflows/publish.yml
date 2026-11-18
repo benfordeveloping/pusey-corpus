@@ -32,6 +32,7 @@ jobs:
         run: python tools/test_search_scope.py
       - name: Build static readings and independent search indexes
         run: |
+          python tools/test_google_books_cleanup.py
           python build.py
           python tools/test_owner_imports.py
           python tools/test_sermon_search.py
