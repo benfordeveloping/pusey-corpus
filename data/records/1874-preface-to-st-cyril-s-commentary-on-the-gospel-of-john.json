@@ -1,0 +1,29 @@
+{
+  "id": "1874-preface-to-st-cyril-s-commentary-on-the-gospel-of-john",
+  "year": 1874,
+  "title": "Preface to St Cyril's Commentary on the Gospel of John",
+  "category": "Introductions",
+  "contribution": "editorial",
+  "status": "downloaded",
+  "source": "Verified public-domain transcription of the 1874 preface; E. B. Pusey portion only",
+  "identifier": "commentaryongosp01cyri",
+  "scan_url": "https://archive.org/details/commentaryongosp01cyri",
+  "text_url": "https://www.ecatholic2000.com/cyril2/untitled-03.shtml",
+  "owner_supplied_ocr_url": "https://archive.org/stream/commentaryongosp01cyri/commentaryongosp01cyri_djvu.txt",
+  "source_edition_year": 1874,
+  "source_title": "Commentary on the Gospel according to S. John, vol. I (John I–VIII), 1874",
+  "source_creator": "E. B. Pusey (bracketed pp. xxi-end); P. E. Pusey (other preface and translation excluded)",
+  "word_count": 11247,
+  "original_sha256": "4f38bedcc9783e00adde81b6a11f175a7a2e9efaac1df73f925348cbf85fd7cc",
+  "scope_verified": true,
+  "content_scope": "pusey_preface_or_introduction_only",
+  "extraction_boundaries": {
+    "printed_start_page": "xxi",
+    "printed_end_page": "end of Preface (before separate Introduction by Cyril)",
+    "start": "The relation of the Three Divine Persons, Father, Son, and Holy Ghost",
+    "end": "should forfeit the belief itself, and become misbelievers in our God.",
+    "other_authors_excluded": true
+  },
+  "authorship_review_needed": false,
+  "qc": "Public transcription checked for complete quoted passage and p. ix author note; not represented as authenticated full-volume IA OCR; printed-page images were not newly examined in this automated import."
+}
