@@ -7,10 +7,6 @@ on:
         required: true
         default: '0'
         type: string
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/discover-sources.yml'
 permissions:
   contents: write
 concurrency:
