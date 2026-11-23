@@ -1,24 +1,17 @@
-name: Harvest OCR from Internet Archive
+# One-time final source import. Internet Archive harvesting/search job retired.
+name: Finalize Cyril preface (one time)
 on:
   push:
     branches: [main]
     paths:
-      - 'data/source_registry.csv'
       - '.github/workflows/harvest.yml'
-  workflow_dispatch:
-    inputs:
-      quantity:
-        description: 'How many works to attempt in this run? (5, 15, 30, all)'
-        required: true
-        default: '15'
-        type: choice
-        options: ['5', '15', '30', 'all']
 permissions:
   contents: write
+  actions: write
 jobs:
-  collect:
+  finalize:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,31 +19,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install dependencies
-        run: python -m pip install -r requirements.txt
-      - name: Harvest public-domain OCR (preserve originals + provenance)
+      - name: Install transcription parser
+        run: python -m pip install requests beautifulsoup4
+      - name: Verify and extract the E. B. Pusey portion of the 1874 Cyril preface
+        run: python tools/finalize_cyril.py
+      - name: Commit finished corpus record and dispatch final site publication
         env:
-          QUANTITY: ${{ inputs.quantity }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$QUANTITY" ]; then QUANTITY=5; fi
-          if [ "$QUANTITY" = 'all' ]; then
-            python harvest.py --all
-          else
-            python harvest.py --limit "$QUANTITY"
-          fi
-      - name: Commit collected material to repository
-        run: |
-          git config user.name "Pusey Corpus Harvester"
+          git config user.name "Pusey Corpus Finisher"
           git config user.email "actions@users.noreply.github.com"
-          # A metadata-only report rewrite is NOT a new harvest.
-          # In particular never overwrite the current, carefully reviewed
-          # 72-entry catalogue when zero new OCR files were downloaded.
-          git add data/raw data/clean data/records
-          if ! git diff --cached --quiet; then
-            git add data/harvest_report.csv
-            git commit -m "Harvest verified new OCR corpus texts"
-            git pull --rebase origin main
-            git push origin main
-          else
-            echo 'No new text downloaded; leave the existing corpus report untouched.'
-          fi
+          git add data/raw data/clean data/records data/source_registry.csv data/harvest_report.csv
+          git diff --cached --quiet && { echo "Nothing changed"; exit 1; }
+          git commit -m "Publish verified E. B. Pusey portion of Cyril on John preface"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          gh workflow run publish.yml --ref main
