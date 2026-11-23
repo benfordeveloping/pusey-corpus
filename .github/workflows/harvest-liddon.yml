@@ -1,10 +1,5 @@
 name: Gather complete Liddon biography
 on:
-  push:
-    branches: [main]
-    paths:
-      - liddon_library.py
-      - .github/workflows/harvest-liddon.yml
   workflow_dispatch:
 
 permissions:
