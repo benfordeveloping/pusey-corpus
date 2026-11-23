@@ -1,11 +1,6 @@
 name: Build and publish Pusey Corpus
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Harvest OCR from Internet Archive"]
-    types: [completed]
 permissions:
   contents: read
   pages: write
